@@ -1,4 +1,4 @@
-# 11月1日→19.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址  更新时间 2024-11-01 22:00:18
+# 11月1日→18.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址  更新时间 2024-11-01 22:05:35
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://v2raydesktop.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
