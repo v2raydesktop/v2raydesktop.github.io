@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-19381.htm" />
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-20759.htm" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>我们如何将值添加到MySQL表的列中？</title>
-        <meta name="description" content="INSERT命令用于将值添加到MySQL表的列中。我们需要在INSERT命令中为所有列指定值，如下所示： 语法 INSERT&nbsp;INTO&nbsp;table_name&nbsp;values" />
+    <title>浅谈Vue的双向绑定和单向数据流冲突吗_vue.js_</title>
+        <meta name="description" content="目录  前言 单向绑定 vs 双向绑定 单向数据流 vs 双向数据流 为什么说v-model只是语法糖 总结 参考资料    前言 众所周知，Vue中更加推荐单向数据流的状态管理模式(比如Vuex)，" />
         <link rel="icon" href="__ADDON__/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
     <div class="inner-banner">
         <section class="w3l-breadcrumb">
             <div class="container">
-                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">我们如何将值添加到MySQL表的列中？</h1>
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">浅谈Vue的双向绑定和单向数据流冲突吗_vue.js_</h1>
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="/">首页</a></li>
                     <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
@@ -81,10 +81,10 @@
         <div class="container py-md-5 py-4">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<p>INSERT命令用于将值添加到MySQL表的列中。我们需要在INSERT命令中为所有列指定值，如下所示：</p> <h2>语法</h2> <pre>INSERT&nbsp;INTO&nbsp;table_name&nbsp;values(value1,value2,…)</pre> <h2>示例</h2> <p>假设我们有一个名为“ Stock”的表，其中有三列“ Item_id”，“ Item_name”和“ Item_rate”，然后借助以下查询，我们可以在这些列中添加值。</p> <pre>mysql&gt;&nbsp;INSERT&nbsp;INTO&nbsp;Stock&nbsp;values(1,'HistoryBook',250);  mysql&gt;&nbsp;INSERT&nbsp;INTO&nbsp;Stock&nbsp;values(2,'DBMSBook',280);  mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;Stock; +---------+-------------+-----------+ |&nbsp;item_id&nbsp;|&nbsp;Item_name&nbsp;&nbsp;&nbsp;|&nbsp;Item_rate&nbsp;| +---------+-------------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;HistoryBook&nbsp;|&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;DBMSBook&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------+-------------+-----------+ 2&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
+                                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">单向绑定 vs 双向绑定</a></li> <li><a href="#_label2" rel="nofollow">单向数据流 vs 双向数据流</a></li> <li><a href="#_label3" rel="nofollow">为什么说v-model只是语法糖</a></li> <li><a href="#_label4" rel="nofollow">总结</a></li> <li><a href="#_label5" rel="nofollow">参考资料</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>众所周知，<code>Vue</code>中更加推荐单向数据流的状态管理模式(比如<code>Vuex</code>)，但<code>Vue</code>同时支持通过<code>v-model</code>实现双向数据绑定。<br />那么问题来了，单项数据流和双向数据绑定的概念，这两种不是相互冲突的吗？即然能用<code>v-model</code>双向数据绑定，不应该就是双向数据流了吗？</p> <p>本文主要包括以下内容</p> <ul> <li>单向绑定 <code>vs</code> 双向绑定</li> <li>单向数据流 <code>vs</code> 双向数据流</li> <li>为什么说<code>v-model</code>只是语法糖</li> </ul> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>单向绑定 <code>vs</code> 双向绑定</h2> <p>单双向绑定，指的是<code>View</code>层和<code>Model</code>层之间的映射关系。<br /><code>react</code>采取单向绑定，如图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/4303a5d36c9d18a0cfb9bdf0ed9fbe36.jpg"></p> <p>在<code>React</code>中，当<code>View</code>层发生更改时，用户通过发出<code>Actions</code>进行处理，<code>Actions</code>中通过<code>setState</code>对<code>State</code>进行更新，<code>State</code>更新后触发<code>View</code>更新。可以看出，<code>View</code>层不能直接修改<code>State</code>，必须要通过<code>Actions</code>来进行操作，这样更加清晰可控</p> <p>单向绑定的方式的优点在于清晰可控，缺点则在于会有一些模板代码，<code>Vue</code>则同时支持单向绑定和双向绑定</p> <ul> <li>单向绑定：插值形式<code>{{data}}</code>，<code>v-bind</code>也是单向绑定</li> <li>双向绑定：表单的<code>v-model</code>，用户对<code>View</code>层的更改会直接同步到<code>Model</code>层</li> </ul> <p>实际上<code>v-model</code>只是<code>v-bind:value</code> 和 <code>v-on:input</code>的语法糖，我们也可以采取类似<code>react</code>的单向绑定。两者各有利弊，单向绑定清晰可控，但是模板代码过多，双向绑定可以简化开发，但是也会导致数据变化不透明，优缺点共存，大家可以根据情况使用。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>单向数据流 <code>vs</code> 双向数据流</h2> <p>数据流指的是组件之间的数据流动。<br /><code>Vue</code>与<code>React</code>都是单向数据流的模型，虽然<code>vue</code>有双向绑定<code>v-model</code>，但是<code>vue</code>和<code>react</code>父子组件之间数据传递，仍然还是遵循单向数据流的，父组件可以向子组件传递<code>props</code>，但是子组件不能修改父组件传递来的<code>props</code>，子组件只能通过事件通知父组件进行数据更改，如图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/c6f8c79dcf4c806287651be64324b559.jpg"></p> <p>通过单向数据流的模型，所有状态的改变可记录、可跟踪，相比于双向数据流可加容易维护与定位问题</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>为什么说<code>v-model</code>只是语法糖</h2> <blockquote> <p>你可以用 <code>v-model</code> 指令在表单 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 及 <code>&lt;select&gt;</code> 元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 <code>v-model</code> 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理</p> </blockquote> <p>正如上面所述，<code>Vue</code>文档中说<code>v-model</code>只是语法糖</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;input v-model=“phoneInfo.phone”/&gt;    //在组件中使用时，实际相当于下面的简写  &lt;input :value="PhoneInfo.phone" @input="val =&gt; { PhoneInfo.phone = val }"</pre> </div> <p>那么问题来了，为什么说<code>v-model</code>不是真正的双向数据流呢？按照这道理，是不是可以认为<code>model-&gt;view</code>的单向数据流也是语法糖啊，也是<code>vue</code>作者通过一定方法实现的而已<br />真正的原因上面已经说了，<strong>数据绑定是<code>View</code>与<code>Model</code>之间的映射关系，数据流指的是组件之间的数据流动</strong><code>v-model</code>不是真正的双向数据流，是因为它不能直接修改父组件的值，比如你在<code>v-model</code>中绑定<code>props</code>中的值是会报错的，它只能绑定组件的值<br />而真正的双向数据流，比如<code>AngularJs</code>，是允许在子组件中直接更新父组件的值的，这就是为什么说<code>v-model</code>只是语法糖的原因</p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> <p>总得来说，单双向数据绑定与数据流是两个不同维度的概念，数据绑定是<code>View</code>与<code>Model</code>之间的映射关系，数据流指的是组件之间的数据流动。因此，单向数据流也可有双向绑定，双向数据流也可以有双向绑定，两者不应该混为一谈</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/63f40ce4d0c14955758a63cb14f8bea3.jpg"></p> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>参考资料</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/q/1010000019491720"   target="_blank" rel="nofollow">Vue的单向数据流和双向数据绑定不是冲突的吗？</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://juejin.cn/post/6844903834599292936"   target="_blank" rel="nofollow">Vue的双向绑定和单向数据流</a></p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-18922.htm">猫猫为什么不能打头（为什么说猫不能打）</a></p>
-                                        <p>下一个：<a href="/news/article-19382.htm">1970年农历四月二十是什么星座（1970年阴历四月二十是什么星座）</a></p>
+                                        <p>上一个：<a href="/news/article-20302.htm">宠物领养协议书范本大全最新下载 宠物领养协议书范本大全最新下载图片</a></p>
+                                        <p>下一个：<a href="/news/article-20760.htm">动物疫苗打一次管多长时间啊多少钱 动物疫苗打一次管多长时间啊多少钱啊</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -94,16 +94,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="11月10日→22.7M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月10日→22.7M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-subscribe-node.htm" title="11月3日→21M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月3日→21M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share-links.htm" title="11月1日→21.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月1日→21.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-subscribe-node.htm" title="11月7日→21.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月7日→21.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-node-share-links.htm" title="11月24日→19.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月24日→19.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→21.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月14日→21.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-19844.htm" title="动物疫苗生产厂家排名榜 动物疫苗生产厂家排名榜前十名">动物疫苗生产厂家排名榜 动物疫苗生产厂家排名榜前十名</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-high-speed-nodes.htm" title="12月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-19382.htm" title="1970年农历四月二十是什么星座（1970年阴历四月二十是什么星座）">1970年农历四月二十是什么星座（1970年阴历四月二十是什么星座）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-29-node-share.htm" title="11月29日→22.4M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月29日→22.4M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-high-speed-nodes.htm" title="11月9日→18M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月9日→18M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-node-subscribe-links.htm" title="11月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19843.htm" title="宠物疫苗批号查询入口官网（宠物疫苗批号怎么查）">宠物疫苗批号查询入口官网（宠物疫苗批号怎么查）</a></li>
+                        <li class="py-2"><a href="/news/article-20760.htm" title="动物疫苗打一次管多长时间啊多少钱 动物疫苗打一次管多长时间啊多少钱啊">动物疫苗打一次管多长时间啊多少钱 动物疫苗打一次管多长时间啊多少钱啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-node-share-links.htm" title="11月11日→20M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月11日→20M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-node-subscribe.htm" title="11月27日→20.1M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月27日→20.1M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe-links.htm" title="11月12日→21.4M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月12日→21.4M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-subscribe-node.htm" title="11月6日→22.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月6日→22.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share-links.htm" title="11月21日→20.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月21日→20.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -115,7 +115,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
