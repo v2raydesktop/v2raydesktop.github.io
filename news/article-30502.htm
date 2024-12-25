@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-30502.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ASP.NET Core使用EF为关系数据库建模_实用技巧</title>
+        <meta name="description" content="目录  1.简介 2.表映射  2.1约定 2.2数据注释 2.3Fluent API  3.列映射  3.1约定 3.2数据注释 3.3Fluent API  4.数据类型  4.1约定 4.2数据" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                                <span>
+                    <a class="navbar-brand" href="/">V2ray Desktop</a>
+                </span>
+                                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">ASP.NET Core使用EF为关系数据库建模_实用技巧</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.简介</a></li> <li><a href="#_label1" rel="nofollow">2.表映射</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1约定</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2数据注释</a></li> <li><a href="#_lab2_1_2" rel="nofollow">2.3Fluent API</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.列映射</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_3" rel="nofollow">3.1约定</a></li> <li><a href="#_lab2_2_4" rel="nofollow">3.2数据注释</a></li> <li><a href="#_lab2_2_5" rel="nofollow">3.3Fluent API</a></li> </ul> <li><a href="#_label3" rel="nofollow">4.数据类型</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_6" rel="nofollow">4.1约定</a></li> <li><a href="#_lab2_3_7" rel="nofollow">4.2数据注释</a></li> <li><a href="#_lab2_3_8" rel="nofollow">4.3Fluent API</a></li> </ul> <li><a href="#_label4" rel="nofollow">5.主键</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_4_9" rel="nofollow">5.1约定</a></li> <li><a href="#_lab2_4_10" rel="nofollow">5.2数据注释</a></li> <li><a href="#_lab2_4_11" rel="nofollow">5.3Fluent API</a></li> </ul> <li><a href="#_label5" rel="nofollow">6.默认架构</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_5_12" rel="nofollow">6.1约定</a></li> <li><a href="#_lab2_5_13" rel="nofollow">6.2数据注释</a></li> <li><a href="#_lab2_5_14" rel="nofollow">6.3Fluent API</a></li> </ul> <li><a href="#_label6" rel="nofollow">7.默认值</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_6_15" rel="nofollow">7.1约定</a></li> <li><a href="#_lab2_6_16" rel="nofollow">7.2数据注释</a></li> <li><a href="#_lab2_6_17" rel="nofollow">7.3Fluent API</a></li> </ul> <li><a href="#_label7" rel="nofollow">8.索引（关系数据库）</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_7_18" rel="nofollow">8.1约定</a></li> <li><a href="#_lab2_7_19" rel="nofollow">8.2数据注释</a></li> <li><a href="#_lab2_7_20" rel="nofollow">8.3Fluent API</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.简介</h2> <p>一般而言，本部分中的配置适用于关系数据库。安装关系数据库提供程序时，此处显示的变为可用扩展方法（原因在于共享的Microsoft.EntityFrameworkCore.Relational包）。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.表映射</h2> <p>表映射标识在数据库中哪张表应该进行内容查询和保存操作。</p> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1约定</h3> <p>按照约定，每个实体将设置为映射到名称与DbSet&lt;TEntity&gt; 属性（公开派生上下文中的实体）相同的表中。如果给定DbSet&lt;TEntity&gt;实体中不包含，则使用类名称。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2数据注释</h3> <p>可以使用数据注释来配置类型映射表。</p> <div class="ay1code"> <pre class="brush:csharp;">[Table("blogs")]  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p>你还可以指定表所属的架构（数据库）。</p> <div class="ay1code"> <pre class="brush:csharp;">[Table("blogs", Schema = "blogging")]  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>2.3Fluent API</h3> <p>你可以使用熟知的API来配置类型映射到的表。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .ToTable("blogs");      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p>你还可以指定表所属的架构（数据库）。</p> <div class="ay1code"> <pre class="brush:csharp;">modelBuilder.Entity&lt;Blog&gt;().ToTable("blogs", schema: "blogging");</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.列映射</h2> <p>列映射标识在数据库中应从哪些列数据中进行查询和保存。</p> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>3.1约定</h3> <p>按照约定，每个属性将会设置为映射到与属性具有相同名称的列。</p> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>3.2数据注释</h3> <p>可以使用数据注释来配置属性映射到的那一列。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.DataAnnotations.Relational.Column  {      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }      }      public class Blog      {          [Column("blog_id")]          public int BlogId { get; set; }          public string Url { get; set; }      }  }</pre> </div> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>3.3Fluent API</h3> <p>您可以使用熟知的API来配置属性映射到的列。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.FluentAPI.Relational.Column  {      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }          protected override void OnModelCreating(ModelBuilder modelBuilder)          {              modelBuilder.Entity&lt;Blog&gt;()                  .Property(b =&gt; b.BlogId)                  .HasColumnName("blog_id");          }      }      public class Blog      {          public int BlogId { get; set; }          public string Url { get; set; }      }  }</pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.数据类型</h2> <p>数据类型是指属性所映射到的列的数据库特定类型。</p> <p class="maodian"><a name="_lab2_3_6" rel="nofollow"></a></p> <h3>4.1约定</h3> <p>按照约定，数据库提供程序基于属性的.NET类型选择数据类型。它还会考虑其他元数据，如配置的最大长度、属性是否是主键的一部分等。例如，SQL Server的DateTime、nvarchar(max) 用作键的属性。</p> <p class="maodian"><a name="_lab2_3_7" rel="nofollow"></a></p> <h3>4.2数据注释</h3> <p>您可以使用数据注释为列指定精确的数据类型。例如，下面的代码将Url配置为一个非unicode字符串，其最大200长度。Rating为5至2小数位。</p> <div class="ay1code"> <pre class="brush:csharp;">public class Blog  {      public int BlogId { get; set; }      [Column(TypeName = "varchar(200)")]      public string Url { get; set; }      [Column(TypeName = "decimal(5, 2)")]      public decimal Rating { get; set; }  }</pre> </div> <p class="maodian"><a name="_lab2_3_8" rel="nofollow"></a></p> <h3>4.3Fluent API</h3> <p>你还可以使用熟知的API为列指定相同的数据类型。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;(eb =&gt;          {              eb.Property(b =&gt; b.Url).HasColumnType("varchar(200)");              eb.Property(b =&gt; b.Rating).HasColumnType("decimal(5, 2)");          });      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      public decimal Rating { get; set; }  }</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>5.主键</h2> <p>为每个实体类型的键引入primary key（主键）约束。</p> <p class="maodian"><a name="_lab2_4_9" rel="nofollow"></a></p> <h3>5.1约定</h3> <p>按照约定，会将数据库中的主键命名为PK_&lt;type name&gt;。</p> <p class="maodian"><a name="_lab2_4_10" rel="nofollow"></a></p> <h3>5.2数据注释</h3> <p>不能使用数据批注配置主键的关系数据库的特定方面。</p> <p class="maodian"><a name="_lab2_4_11" rel="nofollow"></a></p> <h3>5.3Fluent API</h3> <p>你可以使用API在数据库中配置primary key（主键）约束的名称。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .HasKey(b =&gt; b.BlogId)              .HasName("PrimaryKey_BlogId");      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>6.默认架构</h2> <p>如果没有为该对象显式配置架构，则默认架构为将在其中创建对象的数据库架构。</p> <p class="maodian"><a name="_lab2_5_12" rel="nofollow"></a></p> <h3>6.1约定</h3> <p>按照约定，数据库提供程序将选择最适合的默认架构。例如，Microsoft SQL Server将使用dbo架构，而且sqlite将不使用架构（因为sqlite不支持架构）。</p> <p class="maodian"><a name="_lab2_5_13" rel="nofollow"></a></p> <h3>6.2数据注释</h3> <p>不能使用数据批注设置默认架构。</p> <p class="maodian"><a name="_lab2_5_14" rel="nofollow"></a></p> <h3>6.3Fluent API</h3> <p>可以使用API来指定默认架构。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.HasDefaultSchema("blogging");      }  }</pre> </div> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>7.默认值</h2> <p>如果插入新行，但没有为该列指定值，则列的默认值为要插入的值。</p> <p class="maodian"><a name="_lab2_6_15" rel="nofollow"></a></p> <h3>7.1约定</h3> <p>按照约定，未配置默认值。</p> <p class="maodian"><a name="_lab2_6_16" rel="nofollow"></a></p> <h3>7.2数据注释</h3> <p>不能使用数据批注设置默认值。</p> <p class="maodian"><a name="_lab2_6_17" rel="nofollow"></a></p> <h3>7.3Fluent API</h3> <p>你可以使用API指定属性的默认值。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .Property(b =&gt; b.Rating)              .HasDefaultValue(3);      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      public int Rating { get; set; }  }</pre> </div> <p>还可以指定用于计算默认值的SQL片段。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .Property(b =&gt; b.Created)              .HasDefaultValueSql("getdate()");      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      public DateTime Created { get; set; }  }</pre> </div> <p class="maodian"><a name="_label7" rel="nofollow"></a></p> <h2>8.索引（关系数据库）</h2> <p>关系数据库中的索引映射到与实体框架核心中的索引相同的概念。</p> <p class="maodian"><a name="_lab2_7_18" rel="nofollow"></a></p> <h3>8.1约定</h3> <p>按照约定，索引命名为IX_&lt;type name&gt;_&lt;property name&gt;。对于复合索引&lt;property name&gt;，将成为以下划线分隔的属性名称列表。</p> <p class="maodian"><a name="_lab2_7_19" rel="nofollow"></a></p> <h3>8.2数据注释</h3> <p>不能使用数据批注配置索引。</p> <p class="maodian"><a name="_lab2_7_20" rel="nofollow"></a></p> <h3>8.3Fluent API</h3> <p>你可以使用熟知的API来配置索引的名称。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .HasIndex(b =&gt; b.Url)              .HasName("Index_Url");      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p>你还可以指定筛选器。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .HasIndex(b =&gt; b.Url)              .HasFilter("[Url] IS NOT NULL");      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p>使用SQL Server提供程序EF为唯一索引中包含的所有可以为null的列添加"IS NOT NULL"筛选器。若要重写此约定，可以null提供一个值。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .HasIndex(b =&gt; b.Url)              .IsUnique()              .HasFilter(null);      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }  }</pre> </div> <p>在SQL Server索引中包含列，当查询中的所有列都作为键列或非键列包含在索引中时，可以通过包含列配置索引以显著提高查询性能。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Post&gt; Posts { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Post&gt;()              .HasIndex(p =&gt; p.Url)              .IncludeProperties(p =&gt; new              {                  p.Title,                  p.PublishedOn              })              .HasName("Index_Url_Include_Title_PublishedOn");      }  }  public class Post  {      public int PostId { get; set; }      public string Url { get; set; }      public string Title { get; set; }      public DateTime PublishedOn { get; set; }  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30501.htm">微信小程序，制作属于自己的Icon图标</a></p>
+                                        <p>下一个：<a href="/news/article-30991.htm">python类内部成员的访问及外部访问</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe.htm" title="11月5日→19M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月5日→19M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20301.htm" title="C/C++标准格式、输入输出及main函数的作用">C/C++标准格式、输入输出及main函数的作用</a></li>
+                        <li class="py-2"><a href="/news/article-30991.htm" title="python类内部成员的访问及外部访问">python类内部成员的访问及外部访问</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-node-share.htm" title="11月29日→22.4M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月29日→22.4M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-high-speed-nodes.htm" title="12月8日→21M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月8日→21M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21215.htm" title="同城免费领养宠物狗的软件有哪些（免费领养宠物狗的平台）">同城免费领养宠物狗的软件有哪些（免费领养宠物狗的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-19381.htm" title="我们如何将值添加到MySQL表的列中？">我们如何将值添加到MySQL表的列中？</a></li>
+                        <li class="py-2"><a href="/news/article-24389.htm" title="免费领养小猫崽的app（免费领养小猫的平台）">免费领养小猫崽的app（免费领养小猫的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-18921.htm" title="宠物医院投诉电话多少号（宠物医院投诉怎么投诉）">宠物医院投诉电话多少号（宠物医院投诉怎么投诉）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="11月30日→20.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月30日→20.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
