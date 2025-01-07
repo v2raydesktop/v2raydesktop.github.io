@@ -85,6 +85,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <ol> <li>Linux环境下，将Redis添加到service，使用脚本启动和停止，并且可以设置开机自启动</li> </ol> <pre><code>#!/bin/sh # # Simple Redis init.d script conceived to work on Linux systems # as it does use of the /proc filesystem.  REDISPORT=6379 #设置密码 REDISPWD=123456 EXEC=/usr/local/bin/redis-server CLIEXEC=/usr/local/bin/redis-cli  PIDFILE=/var/run/redis_${REDISPORT}.pid CONF="/etc/redis/${REDISPORT}.conf"  case "$1" in     start)         if [ -f $PIDFILE ]         then                 echo "$PIDFILE exists, process is already running or crashed"         else                 echo "Starting Redis server..."                 $EXEC $CONF         fi         ;;     stop)         if [ ! -f $PIDFILE ]         then                 echo "$PIDFILE does not exist, process is not running"         else                 PID=$(cat $PIDFILE)                 echo "Stopping ..."                 $CLIEXEC -a $REDISPWD -p $REDISPORT shutdown                 while [ -x /proc/${PID} ]                 do                     echo "Waiting for Redis to shutdown ..."                     sleep 1                 done                 echo "Redis stopped"         fi         ;;     *)         echo "Please use start or stop as first argument"         ;; esac</code></pre> <ol start="2"> <li>保存上面脚本至 /etc/init.d/redis，设置开机自启</li> </ol> <pre><code>[root@harbor ~]# cp redis /etc/init.d/redis [root@harbor ~]# chkconfig --add redis [root@harbor ~]# chkconfig redis on</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-35832.htm">PYQT5(13)-基本窗口控件-拖曳与剪贴板</a></p>
+                                        <p>下一个：<a href="/news/article-36260.htm">CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -94,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21746.htm" title="Python数据结构-列表">Python数据结构-列表</a></li>
-                        <li class="py-2"><a href="/news/article-32399.htm" title="广州领养宠物狗的地方在哪里有（广州哪里可以领养宠物狗）">广州领养宠物狗的地方在哪里有（广州哪里可以领养宠物狗）</a></li>
-                        <li class="py-2"><a href="/news/article-30991.htm" title="python类内部成员的访问及外部访问">python类内部成员的访问及外部访问</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-subscribe-node.htm" title="11月15日→23M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月15日→23M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="11月10日→22.7M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月10日→22.7M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-35204.htm" title="领养宠物协议书范本图片模板 领养宠物协议书范本图片模板大全">领养宠物协议书范本图片模板 领养宠物协议书范本图片模板大全</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-high-speed-nodes.htm" title="1月1日→18.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月1日→18.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27222.htm" title="Qt QComboBox之setEditable和currentTextChanged及其源码分析">Qt QComboBox之setEditable和currentTextChanged及其源码分析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe-links.htm" title="12月22日→18.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月22日→18.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36261.htm" title="动物能打疫苗吗有毒吗图片（动物能打疫苗吗有毒吗图片）">动物能打疫苗吗有毒吗图片（动物能打疫苗吗有毒吗图片）</a></li>
+                        <li class="py-2"><a href="/news/article-35203.htm" title="领养猫咪的合同（领养猫咪合同签了买猫粮合同不买了犯法吗）">领养猫咪的合同（领养猫咪合同签了买猫粮合同不买了犯法吗）</a></li>
+                        <li class="py-2"><a href="/news/article-34308.htm" title="哈尔滨农大宠物医院的地址和电话号码（哈尔滨农大动物医院地址）">哈尔滨农大宠物医院的地址和电话号码（哈尔滨农大动物医院地址）</a></li>
+                        <li class="py-2"><a href="/news/article-26755.htm" title="狗粮批发代理加盟（狗粮批发代理加盟费多少）">狗粮批发代理加盟（狗粮批发代理加盟费多少）</a></li>
                         <li class="py-2"><a href="/news/article-23047.htm" title="郑州哪里批发狗粮猫粮的多（郑州狗粮生产厂家的地址）">郑州哪里批发狗粮猫粮的多（郑州狗粮生产厂家的地址）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-high-speed-nodes.htm" title="11月28日→19.3M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月28日→19.3M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-node-share.htm" title="12月1日→19.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月1日→19.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30992.htm" title="仓鼠脱毛皮肤红是什么原因（仓鼠红肿脱毛脱毛变鲜红）">仓鼠脱毛皮肤红是什么原因（仓鼠红肿脱毛脱毛变鲜红）</a></li>
+                        <li class="py-2"><a href="/news/article-30501.htm" title="微信小程序，制作属于自己的Icon图标">微信小程序，制作属于自己的Icon图标</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-high-speed-nodes.htm" title="12月27日→20.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月27日→20.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -115,7 +116,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
