@@ -1,0 +1,342 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-45110.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>VScode中使用Cmake遇到的问题及其解决方法for Windows OS</title>
+        <meta name="description" content="VS code配置步骤先按照网上的方法完成，大概就是安装mingw，cmake，VS code，然后安装VS code中的插件： 安装好之后，新建文件夹/项目如下: 其中，build是打开文件夹以后自" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-45110.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="VScode中使用Cmake遇到的问题及其解决方法for Windows OS" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/e108fb6bff048bf96ba7acb896e7af71.webp" />
+        <meta property="og:release_date" content="2025-01-23T10:41:32" />
+    <meta property="og:updated_time" content="2025-01-23T10:41:32" />
+        <meta property="og:description" content="VS code配置步骤先按照网上的方法完成，大概就是安装mingw，cmake，VS code，然后安装VS code中的插件： 安装好之后，新建文件夹/项目如下: 其中，build是打开文件夹以后自" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="VScode中使用Cmake遇到的问题及其解决方法for Windows OS">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                                <span>
+                    <a class="navbar-brand" href="/">V2ray Desktop</a>
+                </span>
+                                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">VScode中使用Cmake遇到的问题及其解决方法for Windows OS</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <ol> <li> <p>VS code配置步骤先按照网上的方法完成，大概就是安装mingw，cmake，VS code，然后安装VS code中的插件：<img decoding="async" src="http://img.555519.xyz/uploads3/20220707/23bdf13b6393350f47b091757de4f4de.jpg" alt="VScode中使用Cmake遇到的问题及其解决方法for Windows OS"><br /> 安装好之后，新建文件夹/项目如下:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/16e3a8006e84326d6bf612f9aba2ca54.jpg" alt="VScode中使用Cmake遇到的问题及其解决方法for Windows OS"><br /> 其中，build是打开文件夹以后自动生成的。test中是源文件还有项目文件等。</p> </li> <li> <p>打开终端（可以是powershell，也可以是vscode中的终端），进入到build中，使用</p> </li> </ol> <pre><code>cmake -G "MinGW Makefiles" ..</code></pre> <p>其中的 MinGW Makefiles 可以修改成其他的编译选项。根据错误的提示来选择就好。<br /> 如果cmake的配置出错，有可能是没有选择kit，Ctrl+Shift+P输入</p> <pre><code>Cmake: Select a Kit</code></pre> <p>选择一个kit，我这里选择是有mingw的那个GCC的选项。如果不行的话就再选择另外一个。</p> <p>成功之后会生成makefile。网上说要输入</p> <pre><code>make</code></pre> <p>去生成可执行文件，但是我这里总是会报错：</p> <pre><code>make : 无法将“make”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确 ，然后再试一次。 所在位置 行:1 字符: 1 + make -v + ~~~~     + CategoryInfo          : ObjectNotFound: (make:String) [], CommandNotFoundException     + FullyQualifiedErrorId : CommandNotFoundException</code></pre> <p>（为了解决这个问题，还专门去下载GNU make，添加了相应的系统环境变量。但是也没有解决问题。最后将GNU make卸载了。）用make的命令其实是想调用make的exe文件，不用输入路径是因为在环境变量中添加了相应的路径。但是其实在安装mingw的时候已经安装了make命令，调用不到是因为那个exe文件没有改成make.exe。可以使用</p> <pre><code>mingw32-make</code></pre> <p>命令来执行make的命令，也可以将mingw32-make.exe改名成make.exe，然后输入</p> <pre><code>make</code></pre> <p>来执行。成功之后，在终端接着输入</p> <pre><code>./TEST_C.exe</code></pre> <p>其中TEST_C是项目名称。 这样就可以得到程序的输出啦。</p> <ol start="3"> <li>附：<br /> CmakeLists.txt内容：</li> </ol> <pre><code>cmake_minimum_required (VERSION 3.0) project(Main) set(CMAKE_C_COMPILER "gcc") add_executable(TEST_C test/test_mod.c)</code></pre> <p>test/test_mod.c的内容：</p> <pre><code>#include&lt;stdlib.h&gt; #include&lt;stdio.h&gt;  int main(){     int a = -123;     int b, c;     b = a / 10;     c = a % 10;     printf("%d, %d\n", b ,c);     system("pause"); }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44600.htm">成都宠物领养平台怎么样（成都宠物领养成都宠物赠送）</a></p>
+                                        <p>下一个：<a href="/news/article-45113.htm">动物疫苗去哪买（动物疫苗去哪买便宜）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21746.htm" title="Python数据结构-列表">Python数据结构-列表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-node-share-links.htm" title="12月23日→21.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月23日→21.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-node-share.htm" title="12月21日→19.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月21日→19.2M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36260.htm" title="CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu">CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-node-share-links.htm" title="1月4日→20.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月4日→20.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-18922.htm" title="猫猫为什么不能打头（为什么说猫不能打）">猫猫为什么不能打头（为什么说猫不能打）</a></li>
+                        <li class="py-2"><a href="/news/article-28614.htm" title="美联众合动物医院转诊中心怎么样 美联众合动物医院转诊中心官网">美联众合动物医院转诊中心怎么样 美联众合动物医院转诊中心官网</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-node-subscribe-links.htm" title="12月15日→20.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月15日→20.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32890.htm" title="给动物打疫苗在哪里打（给动物打预防针是什么部门呢）">给动物打疫苗在哪里打（给动物打预防针是什么部门呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="12月11日→21.3M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月11日→21.3M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
