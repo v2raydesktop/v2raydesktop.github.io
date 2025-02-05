@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://v2raydesktop.github.io/news/article-40636.htm" />
@@ -9,6 +9,34 @@
     <title>按照 Promise/A+ 规范逐行注释并实现 Promise_在线工具</title>
         <meta name="description" content="0. 前言 面试官：「你写个 Promise 吧。」 我：「对不起，打扰了，再见！」 现在前端越来越卷，不会手写 Promise 都不好意思面试了（手动狗头.jpg）。虽然没多少人会在业务中用自己实现" />
         <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-40636.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="按照 Promise/A+ 规范逐行注释并实现 Promise_在线工具" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/afcda1871539668b74ec3306ff60414e.webp" />
+        <meta property="og:release_date" content="2025-01-14T07:35:49" />
+    <meta property="og:updated_time" content="2025-01-14T07:35:49" />
+        <meta property="og:description" content="0. 前言 面试官：「你写个 Promise 吧。」 我：「对不起，打扰了，再见！」 现在前端越来越卷，不会手写 Promise 都不好意思面试了（手动狗头.jpg）。虽然没多少人会在业务中用自己实现" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="按照 Promise/A+ 规范逐行注释并实现 Promise_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- //google-fonts -->
@@ -95,16 +123,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-24388.htm" title="动物防疫站可以给人打疫苗吗现在上海（动物防疫站可以给人打疫苗吗现在上海疫情）">动物防疫站可以给人打疫苗吗现在上海（动物防疫站可以给人打疫苗吗现在上海疫情）</a></li>
-                        <li class="py-2"><a href="/news/article-26755.htm" title="狗粮批发代理加盟（狗粮批发代理加盟费多少）">狗粮批发代理加盟（狗粮批发代理加盟费多少）</a></li>
-                        <li class="py-2"><a href="/news/article-29553.htm" title="好的动物医院 好的动物医院有哪些">好的动物医院 好的动物医院有哪些</a></li>
-                        <li class="py-2"><a href="/news/article-23047.htm" title="郑州哪里批发狗粮猫粮的多（郑州狗粮生产厂家的地址）">郑州哪里批发狗粮猫粮的多（郑州狗粮生产厂家的地址）</a></li>
-                        <li class="py-2"><a href="/news/article-32401.htm" title="宠物粮从哪里进货便宜又好吃呢图片（宠物粮在哪里买比较放心）">宠物粮从哪里进货便宜又好吃呢图片（宠物粮在哪里买比较放心）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-node-share-links.htm" title="12月16日→21.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月16日→21.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-node-subscribe.htm" title="11月8日→22.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月8日→22.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-38661.htm" title="动物防疫站可以开检疫证吗多少钱（动物防疫站可以办狗证吗）">动物防疫站可以开检疫证吗多少钱（动物防疫站可以办狗证吗）</a></li>
-                        <li class="py-2"><a href="/news/article-35832.htm" title="PYQT5(13)-基本窗口控件-拖曳与剪贴板">PYQT5(13)-基本窗口控件-拖曳与剪贴板</a></li>
-                        <li class="py-2"><a href="/news/article-38664.htm" title="同安宠物猫店地址（同安宠物猫店地址查询）">同安宠物猫店地址（同安宠物猫店地址查询）</a></li>
+                        <li class="py-2"><a href="/news/article-42130.htm" title="宠物领养证书怎么办理手续的（宠物领养机构在哪里）">宠物领养证书怎么办理手续的（宠物领养机构在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share.htm" title="1月13日→20.9M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月13日→20.9M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36260.htm" title="CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu">CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-subscribe-node.htm" title="11月15日→23M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月15日→23M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19843.htm" title="宠物疫苗批号查询入口官网（宠物疫苗批号怎么查）">宠物疫苗批号查询入口官网（宠物疫苗批号怎么查）</a></li>
+                        <li class="py-2"><a href="/news/article-24902.htm" title="动物疫苗的制造技术包括什么（动物疫苗的制造技术包括什么技术）">动物疫苗的制造技术包括什么（动物疫苗的制造技术包括什么技术）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="12月11日→21.3M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月11日→21.3M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32889.htm" title="多层感知机实现">多层感知机实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-node-subscribe.htm" title="12月10日→20M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月10日→20M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-high-speed-nodes.htm" title="11月22日→18M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月22日→18M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -116,13 +144,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

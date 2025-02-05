@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://v2raydesktop.github.io/news/article-31338.htm" />
@@ -9,6 +9,34 @@
     <title>MySQL 优化：explain 执行计划详解与示例分析</title>
         <meta name="description" content="MySQL 优化：explain 执行计划详解  一、准备测试数据 二、什么是explain 执行计划   2.1 执行计划的定义 2.2 执行计划有什么用处 2.3 使用方法 2.4 执行计划的结果" />
         <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-31338.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="MySQL 优化：explain 执行计划详解与示例分析" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/c00416508939a06c65ce8f3b64746ec7.webp" />
+        <meta property="og:release_date" content="2024-12-26T00:15:12" />
+    <meta property="og:updated_time" content="2024-12-26T00:15:12" />
+        <meta property="og:description" content="MySQL 优化：explain 执行计划详解  一、准备测试数据 二、什么是explain 执行计划   2.1 执行计划的定义 2.2 执行计划有什么用处 2.3 使用方法 2.4 执行计划的结果" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL 优化：explain 执行计划详解与示例分析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- //google-fonts -->
@@ -95,16 +123,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-node-subscribe-links.htm" title="11月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe.htm" title="11月5日→19M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月5日→19M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39145.htm" title="动物医院注册资金最低（动物医院注册资金最低多少）">动物医院注册资金最低（动物医院注册资金最低多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe-links.htm" title="12月12日→20.1M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月12日→20.1M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→21.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月14日→21.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-node-subscribe-links.htm" title="12月28日→19.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月28日→19.9M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20760.htm" title="动物疫苗打一次管多长时间啊多少钱 动物疫苗打一次管多长时间啊多少钱啊">动物疫苗打一次管多长时间啊多少钱 动物疫苗打一次管多长时间啊多少钱啊</a></li>
                         <li class="py-2"><a href="/news/article-21747.htm" title="宠物领养协议具有法律效应吗为什么还要签字（宠物领养协议需要身份证复印件吗）">宠物领养协议具有法律效应吗为什么还要签字（宠物领养协议需要身份证复印件吗）</a></li>
-                        <li class="py-2"><a href="/news/article-23047.htm" title="郑州哪里批发狗粮猫粮的多（郑州狗粮生产厂家的地址）">郑州哪里批发狗粮猫粮的多（郑州狗粮生产厂家的地址）</a></li>
-                        <li class="py-2"><a href="/news/article-22127.htm" title="动物防疫预防控制中心工作职责（动物防控中心职能职责）">动物防疫预防控制中心工作职责（动物防控中心职能职责）</a></li>
-                        <li class="py-2"><a href="/news/article-29550.htm" title="redis专题：redis键值设计、性能优化以及redis连接池配置">redis专题：redis键值设计、性能优化以及redis连接池配置</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-18-node-share-links.htm" title="12月18日→18M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月18日→18M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-28614.htm" title="美联众合动物医院转诊中心怎么样 美联众合动物医院转诊中心官网">美联众合动物医院转诊中心怎么样 美联众合动物医院转诊中心官网</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-node-share-links.htm" title="12月23日→21.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月23日→21.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-18922.htm" title="猫猫为什么不能打头（为什么说猫不能打）">猫猫为什么不能打头（为什么说猫不能打）</a></li>
-                        <li class="py-2"><a href="/news/article-19381.htm" title="我们如何将值添加到MySQL表的列中？">我们如何将值添加到MySQL表的列中？</a></li>
+                        <li class="py-2"><a href="/news/article-41132.htm" title="宠物粮在哪里批发的便宜又好吃（宠物粮批发进货渠道）">宠物粮在哪里批发的便宜又好吃（宠物粮批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-43128.htm" title="猫粮狗粮利润率（猫粮狗粮行业前景）">猫粮狗粮利润率（猫粮狗粮行业前景）</a></li>
+                        <li class="py-2"><a href="/news/article-35204.htm" title="领养宠物协议书范本图片模板 领养宠物协议书范本图片模板大全">领养宠物协议书范本图片模板 领养宠物协议书范本图片模板大全</a></li>
                     </ul>
     </div>
 </div>
@@ -116,13 +144,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
