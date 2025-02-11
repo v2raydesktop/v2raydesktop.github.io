@@ -1,0 +1,343 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-54902.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>计算机网络 | TCP 连接的建立 和 TCP 连接的断开</title>
+        <meta name="description" content="一开始，客户端和服务端都处于 close 状态。 先是服务端监听某个端口，此时服务端处于 listen 状态。 这个时候客户端就可以发送连接请求报文了。  第一次握手 客户端会主动发送连接请求报文，随" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-54902.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="计算机网络 | TCP 连接的建立 和 TCP 连接的断开" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/c1b9945c69b158f0aaba17f133f7868e.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:44:21" />
+    <meta property="og:updated_time" content="2025-02-11T05:44:21" />
+        <meta property="og:description" content="一开始，客户端和服务端都处于 close 状态。 先是服务端监听某个端口，此时服务端处于 listen 状态。 这个时候客户端就可以发送连接请求报文了。  第一次握手 客户端会主动发送连接请求报文，随" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="计算机网络 | TCP 连接的建立 和 TCP 连接的断开">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">计算机网络 | TCP 连接的建立 和 TCP 连接的断开</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				</h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/61fb42dff46b1f2161d659f80837fbfa.jpg" alt="计算机网络 | TCP 连接的建立 和 TCP 连接的断开"></p> <p>一开始，客户端和服务端都处于 close 状态。</p> <p>先是服务端监听某个端口，此时服务端处于 listen 状态。</p> <p>这个时候客户端就可以发送连接请求报文了。</p> <hr/> <p><strong>第一次握手</strong></p> <p>客户端会主动发送连接请求报文，随机初始化序列号为 x，并把 SYN 标志位设置为 1，表示 SYN 报文。</p> <p>客户端发送 SYN 报文后，客户端进入 syn_sent 状态。</p> <hr/> <p><strong>第二次握手</strong></p> <p>服务端收到 SYN 报文后，服务端会发送 SYN-ACK 报文，用于「对客户端发送的 SYN 报文进行应答」和「服务端被动请求建立连接」。</p> <p>服务端会随机初始化序列号为 y，确认序列号设置为 x + 1，并把 SYN 标志位、ACK 标志位设置为 1。</p> <p>服务端发送 SYN-ACK 报文后，服务端进入 syn_receive 状态。</p> <hr/> <p><strong>第三次握手</strong></p> <p>客户端收到 SYN-ACK 报文后，客户端会发送 ACK 报文，用于对服务端发送的报文进行应答。</p> <p>客户端会将序列号设置为 x + 1，确认序列号设置为 y + 1，ACK 标志位设置为 1。</p> <p>客户端发送 ACK 报文后，客户端处于 established 状态。</p> <p>当服务端收到 ACK 报文后，服务端进入 established 状态。</p> <hr/> <p>此时 TCP 连接就建立完成了，客户端和服务端就可以相互发送数据了。</p> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c155cb7da8885c84589271b978ff8ca7.jpg" alt="计算机网络 | TCP 连接的建立 和 TCP 连接的断开"></p> <p>双方都可以主动请求断开连接，断开连接后，主机中的资源将被释放。</p> <p>一开始，客户端和服务端都处于 established 状态。</p> <hr/> <p><strong>第一次挥手</strong></p> <p>如果客户端打算断开连接，那么客户端会发送一个 FIN 标志位为 1 的报文，即 FIN 报文。</p> <p>客户端发送 FIN 报文后，客户端进入 finish_wait_1 状态。</p> <hr/> <p><strong>第二次挥手</strong></p> <p>服务端收到 FIN 报文后，服务端会发送 ACK 应答报文，用于对客户端发送的 FIN 报文进行应答。</p> <p>服务端发送 ACK 应答报文后，服务端进入 close_wait 状态。</p> <p>客户端收到 ACK 应答报文后，客户端进入 finish_wait_2 状态。</p> <hr/> <p><strong>第三次挥手</strong></p> <p>等待服务端处理完数据，服务端被动请求断开连接。</p> <p>服务端发送 FIN 报文后，服务端进入 last_ack 状态。</p> <hr/> <p><strong>第四次挥手</strong></p> <p>客户端收到 FIN 报文后，客户端会发送 ACK 应答报文，用于对服务端发送的 FIN 报文进行应答。</p> <p>客户端发送 ACK 报文后，客户端进入 time_wait 状态。</p> <p>当服务端收到 ACK 报文后，服务端进入 close 状态，至此服务端已经完成连接的关闭。</p> <p>客户端在经过 2MSL 时间后，自动进入 close 状态，至此客户端也完成了连接的关闭。</p> <blockquote> <p>MSL 是 Maximum Segment Lifetime 英文的缩写，中文可以译为“报文最大生存时间”。</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54352.htm">狗粮加工厂利润成本分析表格（生产狗粮利润）</a></p>
+                                        <p>下一个：<a href="/news/article-54903.htm">人用疫苗和兽用疫苗区别 人用疫苗和兽用疫苗区别在哪</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36704.htm" title="springboot集成Elasticsearch实现各种搜索功能">springboot集成Elasticsearch实现各种搜索功能</a></li>
+                        <li class="py-2"><a href="/news/article-24389.htm" title="免费领养小猫崽的app（免费领养小猫的平台）">免费领养小猫崽的app（免费领养小猫的平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-subscribe-node.htm" title="1月24日→21.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月24日→21.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-node-subscribe.htm" title="12月19日→18.1M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月19日→18.1M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48430.htm" title="动物疫苗保质期一般多久有效 动物疫苗保质期一般多久有效果">动物疫苗保质期一般多久有效 动物疫苗保质期一般多久有效果</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe.htm" title="1月29日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月29日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37653.htm" title="动态修改springboot中的scheduling(动态修改定时任务执行时间)">动态修改springboot中的scheduling(动态修改定时任务执行时间)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→21.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月14日→21.6M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23498.htm" title="吉泰综合门诊部（吉泰综合门诊部工作时间）">吉泰综合门诊部（吉泰综合门诊部工作时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-high-speed-nodes.htm" title="12月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月2日→20.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>

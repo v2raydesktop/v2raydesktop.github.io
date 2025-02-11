@@ -1,0 +1,343 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-53802.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mybatis动态SQL原理解析</title>
+        <meta name="description" content="官网 &nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（https://mybatis.org/mybatis-3/dynamic-sql.html）这页文档首先描述了Myb" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-53802.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="Mybatis动态SQL原理解析" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/cb8fb1f404c959fc4dc5da1b032e9632.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:05:51" />
+    <meta property="og:updated_time" content="2025-02-09T10:05:51" />
+        <meta property="og:description" content="官网 &nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（https://mybatis.org/mybatis-3/dynamic-sql.html）这页文档首先描述了Myb" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Mybatis动态SQL原理解析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">Mybatis动态SQL原理解析</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h2>官网</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mybatis.org/mybatis-3/dynamic-sql.html"  rel="nofollow">https://mybatis.org/mybatis-3/dynamic-sql.html</a>）这页文档首先描述了Mybatis的动态SQL是多么牛逼，解决了哪些问题，又讲了如何使用，而我们想知道他是如何实现的，所以这不是我们想要的。</p> <blockquote> <h2>Dynamic SQL</h2> <p>One of the most powerful features of MyBatis has always been its Dynamic SQL capabilities. If you have any experience with JDBC or any similar framework, you understand how painful it is to conditionally concatenate strings of SQL together, making sure not to forget spaces or to omit a comma at the end of a list of columns. Dynamic SQL can be downright painful to deal with.</p> <p>While working with Dynamic SQL will never be a party, MyBatis certainly improves the situation with a powerful Dynamic SQL language that can be used within any mapped SQL statement.</p> </blockquote> <h2>源码&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</h2> <p>现在，我们去找mybatis源码（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/mybatis/mybatis-3/releases/tag/mybatis-3.5.4"  rel="nofollow">https://github.com/mybatis/mybatis-3/releases/tag/mybatis-3.5.4</a>）</p> </h1> <h2>1.从哪创建的SqlSource</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，在Mybatis中，首先从可以看到<strong>LanguageDriver</strong>接口中的createSqlSource方法，该类其中有2个方法，和2个实现类<strong>XMLLanguageDriver</strong>和<strong>RawLanguageDriver</strong>，他们的关系如下：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img fetchpriority="high" decoding="async" alt="" height="243" src="http://img.555519.xyz/uploads/20230129/afb2c56da092e6c81bff14312523b908.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 接下来我们可以看到该接口的其中2个方法：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 1.<strong>通过解析XML文件为XNode数据</strong></p> <pre><code class="language-java">/**  * Creates an {@link SqlSource} that will hold the statement read from a mapper xml file.   * It is called during startup, when the mapped statement is read from a class or an xml file.  *   * @param configuration The MyBatis configuration  * @param script XNode parsed from a XML file  * @param parameterType input parameter type got from a mapper method or specified in the parameterType xml attribute. Can be null.  * @return  */ SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>2.通过解析注解内容</strong></p> <pre><code class="language-java">/**  * Creates an {@link SqlSource} that will hold the statement read from an annotation.  * It is called during startup, when the mapped statement is read from a class or an xml file.  *   * @param configuration The MyBatis configuration  * @param script The content of the annotation  * @param parameterType input parameter type got from a mapper method or specified in the parameterType xml attribute. Can be null.  * @return   */ SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这两种方式都是为了获得<strong>SqlSource</strong>对象，第一个方法就是我们常规的通过XML配置SQL语句的方式创建，而第二种是在数据访问层通过对方法加对应注解（eg：@Select）的方式创建。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而<strong>XMLLanguageDriver</strong>类实现了这两个方法</p> <pre><code class="language-java">@Override   public SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType) {     XMLScriptBuilder builder = new XMLScriptBuilder(configuration, script, parameterType);     return builder.parseScriptNode();   }    @Override   public SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType) {     // issue #3     if (script.startsWith("&lt;script&gt;")) {       XPathParser parser = new XPathParser(script, false, configuration.getVariables(), new XMLMapperEntityResolver());       return createSqlSource(configuration, parser.evalNode("/script"), parameterType);     } else {       // issue #127       script = PropertyParser.parse(script, configuration.getVariables());       TextSqlNode textSqlNode = new TextSqlNode(script);       if (textSqlNode.isDynamic()) {         return new DynamicSqlSource(configuration, textSqlNode);       } else {         return new RawSqlSource(configuration, script, parameterType);       }     }   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 可以看到，在通过尝试使用注解的方式创建SqlSource对象时，仍然会检查是否是包含以“script”为开头的字符串，若包含，则仍会调用XML方式对其进行解析，也就是说，我们可以在注解中加入script头的方式使用动态语句使其使用XML方式解析。当然，不是必要的情况下不建议这么做。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在方法结尾处，会通过TextSqlNode对象来判定该SqlNode是否是动态的，如果是动态的则使用<strong>DynamicSqlSource</strong>方式解析，若是静态，则使用<strong>RawSqlSource</strong>方式解析。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而在<strong>LanguageDriver</strong>中，我们也看到了<strong>RawLanguageDriver</strong>类又继承了<strong>XMLLanguageDriver</strong>，但它和前者的区别就是<strong>RawLanguageDriver</strong>仅支持静态语句方式解析。</p> <h2>2.它是怎样解析数据的</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这时，我们回到<strong>XMLLanguageDriver</strong>的<strong>createSqlSource</strong>方法中，它是调用了<strong>XMLScriptBuilder</strong>的<strong>parseScriptNode</strong>方法来进行解析创建的，而这个方法又做了什么呢？</p> <pre><code class="language-java">XMLScriptBuilder builder = new XMLScriptBuilder(configuration, script, parameterType);     return builder.parseScriptNode();</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这个方法做了2个事，首先是将SqlNode集合混合，转换为MixedSqlNode对象，再判断是否为动态语句，再来决定是通过DynamicSqlSource还是RawSqlSource解析。</p> <pre><code class="language-java">public SqlSource parseScriptNode() {     MixedSqlNode rootSqlNode = parseDynamicTags(context);     SqlSource sqlSource = null;     if (isDynamic) {       sqlSource = new DynamicSqlSource(configuration, rootSqlNode);     } else {       sqlSource = new RawSqlSource(configuration, rootSqlNode, parameterType);     }     return sqlSource;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而我们目前需要关心的是它的parseDynamicTags方法，看它是如何将多个SqlNode转换为MixedSqlNode对象的。</p> <pre><code class="language-java">protected MixedSqlNode parseDynamicTags(XNode node) {     List&lt;SqlNode&gt; contents = new ArrayList&lt;SqlNode&gt;();     NodeList children = node.getNode().getChildNodes();     for (int i = 0; i &lt; children.getLength(); i++) {       XNode child = node.newXNode(children.item(i));       if (child.getNode().getNodeType() == Node.CDATA_SECTION_NODE || child.getNode().getNodeType() == Node.TEXT_NODE) {         String data = child.getStringBody("");         TextSqlNode textSqlNode = new TextSqlNode(data);         if (textSqlNode.isDynamic()) {           contents.add(textSqlNode);           isDynamic = true;         } else {           contents.add(new StaticTextSqlNode(data));         }       } else if (child.getNode().getNodeType() == Node.ELEMENT_NODE) { // issue #628         String nodeName = child.getNode().getNodeName();         NodeHandler handler = nodeHandlerMap.get(nodeName);         if (handler == null) {           throw new BuilderException("Unknown element &lt;" + nodeName + "&gt; in SQL statement.");         }         handler.handleNode(child, contents);         isDynamic = true;       }     }     return new MixedSqlNode(contents);   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在上述方法中，会将节点中所有childNode转换为<strong>List&lt;SqlNode&gt;</strong>对象，再调用节点处理方法。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先将当前标签（&lt;SELECT&gt;）中所有子Node获取出来，再检查Node的类型：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 1.若该childNode类型为CDATA节点或静态SQL节点，再检查是否为动态语句，若为动态语句则直接将当前Node加入到SqlNode中，若为静态语句，则使用StaticTextSqlNode对象加入到SqlNode。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 2.若该childNode类型为元素节点（if，choose），则根据节点名从预设节点处理集合中找到Node处理方式，若未从预设节点处理集合中找到对应的处理方法，则抛出构造器异常。</p> <p><strong>（注意，在这里处理动态SQLNode的时候，会进行handleNode方法的递归调用，用于处理所有嵌套的动态语句）</strong></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 现在，我们继续看下去（以<strong>IfHandler</strong>为例）</p> <pre><code class="language-java">MixedSqlNode mixedSqlNode = parseDynamicTags(nodeToHandle);       String test = nodeToHandle.getStringAttribute("test");       IfSqlNode ifSqlNode = new IfSqlNode(mixedSqlNode, test);       targetContents.add(ifSqlNode);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在处理完所有节点后，会返回一个MixedSqlNode节点，再通过nodeToHandle方法获取到对应的校验字符串（eg ：null ！= a），再将上述节点与该校验字符串混合，生成IfSqlNode对象，最后将IfSqlNode对象加入<strong>List&lt;SqlNode&gt;</strong>。</p> <h2>3.它是如何处理数据的</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在处理数据的时候，就会用到我们上面每个动态语句对应的nodeHandler了，同样，以IfHandler为例，</p> <pre><code class="language-java">@Override   public boolean apply(DynamicContext context) {     if (evaluator.evaluateBoolean(test, context.getBindings())) {       contents.apply(context);       return true;     }     return false;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在IfHandler中，它只需要判断True/False,再根据是否结果，决定是否将当前动态语句是否加入到SqlNode中。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在当前运算中，调用了表达式评估器ExpressionEvaluator的evaluateBoolean方法，传入了表达式与参数值。</p> <pre><code class="language-java">public boolean evaluateBoolean(String expression, Object parameterObject) {     Object value = OgnlCache.getValue(expression, parameterObject);     if (value instanceof Boolean) {       return (Boolean) value;     }     if (value instanceof Number) {       return new BigDecimal(String.valueOf(value)).compareTo(BigDecimal.ZERO) != 0;     }     return value != null;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在evaluateBoolean方法中，将表达式通过OgnlCache方法进行判定，若结果是Boolean，则直接返回，若结果是Number，再通过BigDecimal对象的compareTo对象检查，然后返回最终结果。</p> <p>（<strong>注意：这里的对象使用的是OgnlCache，打开类描述可以看到这里面对表达式有缓存</strong>）</p> <p>&nbsp;</p> <p>至此，从动态语句的创建，到解析，到处理完成，过两天下一篇来看看Mybatis的<strong>SqlSessionFactory</strong>是如何构建的！！！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53263.htm">宠物疫苗过敏（宠物疫苗过敏可以找医院赔偿吗）</a></p>
+                                        <p>下一个：<a href="/news/article-53803.htm">开个宠物食品店需要什么证 开个宠物食品店需要什么证件</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-41133.htm" title="动物疫苗接种时间表格图片高清 动物疫苗接种时间表格图片高清版">动物疫苗接种时间表格图片高清 动物疫苗接种时间表格图片高清版</a></li>
+                        <li class="py-2"><a href="/news/article-42641.htm" title="属马的养猫会影响财运吗（属马的适不适合养猫）">属马的养猫会影响财运吗（属马的适不适合养猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-node-share-links.htm" title="11月24日→19.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址">11月24日→19.5M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25827.htm" title="动物疫苗新规定最新消息新闻联播（动物疫苗的使用方法及注意事项）">动物疫苗新规定最新消息新闻联播（动物疫苗的使用方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-37190.htm" title="宠物粮行业分析论文范文大全图片（宠物粮行业环境分析）">宠物粮行业分析论文范文大全图片（宠物粮行业环境分析）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-node-subscribe.htm" title="12月10日→20M/S|2024年最新免费节点V2ray Desktop订阅链接地址">12月10日→20M/S|2024年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36705.htm" title="宠物医院好评语30字通用怎么写 宠物医院好评语30字通用怎么写的">宠物医院好评语30字通用怎么写 宠物医院好评语30字通用怎么写的</a></li>
+                        <li class="py-2"><a href="/news/article-19381.htm" title="我们如何将值添加到MySQL表的列中？">我们如何将值添加到MySQL表的列中？</a></li>
+                        <li class="py-2"><a href="/news/article-37654.htm" title="南京宠物猫领养中心地址 南京宠物猫领养中心地址在哪里">南京宠物猫领养中心地址 南京宠物猫领养中心地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-46097.htm" title="猫瘟***多少钱一针（猫瘟要打几针）">猫瘟***多少钱一针（猫瘟要打几针）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
