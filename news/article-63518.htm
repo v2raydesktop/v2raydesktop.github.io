@@ -1,0 +1,343 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-63518.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>java多线程[5]：信号量(Semaphore)</title>
+        <meta name="description" content="Semaphore通过计数器来控制对一个共享资源的访问，它的工作机制是：当一个线程想要访问一个共享资源时，需要向Semaphore申请访问权限，如果Semaphore的计数器大于0，则线程获得共享资源" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-63518.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="java多线程[5]：信号量(Semaphore)" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/938012d4e4482834282c88098893168e.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:35:48" />
+    <meta property="og:updated_time" content="2025-02-26T08:35:48" />
+        <meta property="og:description" content="Semaphore通过计数器来控制对一个共享资源的访问，它的工作机制是：当一个线程想要访问一个共享资源时，需要向Semaphore申请访问权限，如果Semaphore的计数器大于0，则线程获得共享资源" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java多线程[5]：信号量(Semaphore)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">java多线程[5]：信号量(Semaphore)</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <p>Semaphore通过计数器来控制对一个共享资源的访问，它的工作机制是：当一个线程想要访问一个共享资源时，需要向Semaphore申请访问权限，如果Semaphore的计数器大于0，则线程获得共享资源的访问权限，此时Semaphore的计数器减一。当该线程使用完共享资源后，需要释放访问权限，此时Semaphore的计数器加一。如果一个线程在申请访问权限时Semaphore的计数器为0，则当前线程就会自动挂起，直到另一个线程释放一个访问权限后，当前线程获取访问权限并恢复运行。</p> </h1> <p>Semaphore的用法比较简单，下面看一下它的构造方法和常用方法。</p> <h3 id="构造方法">构造方法</h3> <p>Semaphore有两个构造函数，第一个指定了计数器的个数，如果设置为1的话，则只有1个线程可以同时获取到共享资源。第二个重载的第二个参数如果设置为true，则先申请访问权限的线程会保证先得到访问权限。</p> <pre class="prettyprint"><code class="hljs java">Semaphore(<span class="hljs-keyword">int</span> num) Semaphore(<span class="hljs-keyword">int</span> num, <span class="hljs-keyword">boolean</span> how)</code></pre> <h3 id="申请权限">申请权限</h3> <pre class="prettyprint"><code class="hljs java"><span class="hljs-keyword">void</span> acquire( ) <span class="hljs-keyword">throws</span> InterruptedException <span class="hljs-keyword">void</span> acquire(<span class="hljs-keyword">int</span> num) <span class="hljs-keyword">throws</span> InterruptedException</code></pre> <p>acquire方法默认申请1个访问权限，也可以通过第二个重载来一次申请多个访问权限。</p> <h3 id="释放权限">释放权限</h3> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-keyword">void</span> release( ) <span class="hljs-keyword">void</span> release(<span class="hljs-keyword">int</span> num)</code></pre> <p>同acquire一样，release方法默认释放一个访问权限，也可以通过第二个重载版本来一次释放多个访问权限。</p> </h1> <p>下面来看一个例子，假设有一个全局范围内的数字作为共享资源，有三个线程需要访问这个数字来做一个处理，每次处理的时间比较长，并且并发运行的话可能会影响最终的处理结果，所以要通过Semaphore来阻止并发。下面这个类作为共享资源</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shared</span> {<!-- --></span>     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> resources = <span class="hljs-number">0</span>; }</code></pre> <p>下面这个类实现了Runable接口，它表示一个需要访问共享资源的线程</p> <pre class="prettyprint"><code class="hljs axapta"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span> <span class="hljs-inheritance"><span class="hljs-keyword">implements</span></span> <span class="hljs-title">Runnable</span> {<!-- --></span>      String name;     Semaphore semaphore;      <span class="hljs-keyword">public</span> MyThread(String name, Semaphore semaphore) {         <span class="hljs-keyword">this</span>.name = name;         <span class="hljs-keyword">this</span>.semaphore = semaphore;         <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">this</span>).start();     }      @Override     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> run() {         System.out.println(name + <span class="hljs-string">" want a permit"</span>);         <span class="hljs-keyword">try</span> {             semaphore.acquire();         } <span class="hljs-keyword">catch</span> (InterruptedException e) {             e.printStackTrace();         }         System.out.println(name + <span class="hljs-string">" get a permit"</span>);         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {             Shared.resources++;             System.out.println(<span class="hljs-string">"shared resources now is "</span> + Shared.resources + <span class="hljs-string">", by "</span> + name);             <span class="hljs-keyword">try</span> {                 Thread.sleep(<span class="hljs-number">500</span>);             } <span class="hljs-keyword">catch</span> (InterruptedException e) {                 e.printStackTrace();             }         }         System.out.println(name + <span class="hljs-string">"release a permit"</span>);         semaphore.release();     } }</code></pre> <p>这个线程先通过<code>semaphore.acquire()</code>获取到访问权限，然后长时间占有共享资源，最终通过<code>semaphore.release();</code>释放访问权限。</p> <p>下面是main方法</p> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(String[] args) {     Semaphore semaphore = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>);     <span class="hljs-keyword">new</span> MyThread(<span class="hljs-string">"thread a"</span>, semaphore);     <span class="hljs-keyword">new</span> MyThread(<span class="hljs-string">"thread b"</span>, semaphore);     <span class="hljs-keyword">new</span> MyThread(<span class="hljs-string">"thread c"</span>, semaphore);  }</code></pre> <p>它首先创建了一个计数器为1的Semaphore，然后实例化了三个MyThread对象，该对象实例化后会自动运行线程。从输出结果可以看出，Semaphore有效地阻止了访问公共资源的代码的并发。下面是代码的输出</p> <pre class="prettyprint"><code class="hljs vbnet">thread b want a permit thread a want a permit thread c want a permit thread b <span class="hljs-keyword">get</span> a permit <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>, <span class="hljs-keyword">by</span> thread b <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>, <span class="hljs-keyword">by</span> thread b <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">3</span>, <span class="hljs-keyword">by</span> thread b <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">4</span>, <span class="hljs-keyword">by</span> thread b <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">5</span>, <span class="hljs-keyword">by</span> thread b thread b release a permit thread a <span class="hljs-keyword">get</span> a permit <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">6</span>, <span class="hljs-keyword">by</span> thread a <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">7</span>, <span class="hljs-keyword">by</span> thread a <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">8</span>, <span class="hljs-keyword">by</span> thread a <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">9</span>, <span class="hljs-keyword">by</span> thread a <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">10</span>, <span class="hljs-keyword">by</span> thread a thread a release a permit thread c <span class="hljs-keyword">get</span> a permit <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">11</span>, <span class="hljs-keyword">by</span> thread c <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">12</span>, <span class="hljs-keyword">by</span> thread c <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">13</span>, <span class="hljs-keyword">by</span> thread c <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">14</span>, <span class="hljs-keyword">by</span> thread c <span class="hljs-keyword">shared</span> resources now <span class="hljs-keyword">is</span> <span class="hljs-number">15</span>, <span class="hljs-keyword">by</span> thread c thread c release a permit</code></pre> </h1> <p>除了并发控制以外，Semaphore还可以用来做线程间的通信。以生产者和消费者为例，假设生产者持有消费者的一个访问权限，导致消费者无法进行消费，当生产者完成生产后，释放这个访问权限，消费者就可以消费了，同时，消费者还可以持有一个生产者的访问权限，在消费完之后再释放，从而通知生产者继续生产。这有点类似wait和notify。下面来看如何通过Semaphore来实现这个场景。</p> <p>首先来看一个队列</p> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Queue {     <span class="hljs-keyword">private</span> Semaphore semaphoreConsumer = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">0</span>);     <span class="hljs-keyword">private</span> Semaphore semaphoreProducer = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>);     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">value</span>;     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span>(<span class="hljs-keyword">int</span> <span class="hljs-keyword">value</span>) throws InterruptedException {         semaphoreProducer.acquire();         <span class="hljs-keyword">this</span>.<span class="hljs-keyword">value</span> = <span class="hljs-keyword">value</span>;         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"----------  value is put "</span> + <span class="hljs-keyword">this</span>.<span class="hljs-keyword">value</span>);         semaphoreConsumer.release();     }      <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">get</span>() throws InterruptedException {         semaphoreConsumer.acquire();         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"**********  value is get "</span> + <span class="hljs-keyword">value</span>);         semaphoreProducer.release();     } }</code></pre> <p>这个类中包含两个Semaphore对象，一个用于控制生产者的生产，另一个用于控制消费者的消费，用于控制消费的Semaphore默认的计数器是0，表示消费者默认是不能消费的，只有等生产者release一个访问权限后，计数器会加一，此时消费者才可以拿到访问权限并开始消费。下面是生产者和消费者，他们内部只管不停地生产或消费即可</p> <pre class="prettyprint"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> {<!-- --></span>     Queue queue;     <span class="hljs-keyword">public</span> <span class="hljs-title">Producer</span>(Queue queue) {         <span class="hljs-keyword">this</span>.queue = queue;         <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">this</span>).start();     }      <span class="hljs-annotation">@Override</span>     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span>() {         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">20</span>; i++) {             <span class="hljs-keyword">try</span> {                 queue.put(i + <span class="hljs-number">1</span>);             } <span class="hljs-keyword">catch</span> (InterruptedException e) {                 e.printStackTrace();             }         }     } }</code></pre> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Queue {     <span class="hljs-keyword">private</span> Semaphore semaphoreConsumer = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">0</span>);     <span class="hljs-keyword">private</span> Semaphore semaphoreProducer = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>);     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">value</span>;     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span>(<span class="hljs-keyword">int</span> <span class="hljs-keyword">value</span>) throws InterruptedException {         semaphoreProducer.acquire();         <span class="hljs-keyword">this</span>.<span class="hljs-keyword">value</span> = <span class="hljs-keyword">value</span>;         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"----------  value is put "</span> + <span class="hljs-keyword">this</span>.<span class="hljs-keyword">value</span>);         semaphoreConsumer.release();     }      <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">get</span>() throws InterruptedException {         semaphoreConsumer.acquire();         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"**********  value is get "</span> + <span class="hljs-keyword">value</span>);         semaphoreProducer.release();     } }</code></pre> <p>下面是main方法</p> <pre class="prettyprint"><code class="hljs cpp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {     Queue <span class="hljs-built_in">queue</span> = <span class="hljs-keyword">new</span> Queue();     <span class="hljs-keyword">new</span> Consumer(<span class="hljs-built_in">queue</span>);     <span class="hljs-keyword">new</span> Producer(<span class="hljs-built_in">queue</span>); }</code></pre> <p>下面是代码的输出</p> <pre class="prettyprint"><code class="hljs cs">----------  <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> put <span class="hljs-number">1</span> **********  <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">get</span> <span class="hljs-number">1</span> ----------  <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> put <span class="hljs-number">2</span> **********  <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">get</span> <span class="hljs-number">2</span> ----------  <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> put <span class="hljs-number">3</span> **********  <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">get</span> <span class="hljs-number">3</span> ......</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63517.htm">uniapp封装request</a></p>
+                                        <p>下一个：<a href="/news/article-64131.htm">java中使用poi导出ppt（图片和表格）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-18921.htm" title="宠物医院投诉电话多少号（宠物医院投诉怎么投诉）">宠物医院投诉电话多少号（宠物医院投诉怎么投诉）</a></li>
+                        <li class="py-2"><a href="/news/article-48430.htm" title="动物疫苗保质期一般多久有效 动物疫苗保质期一般多久有效果">动物疫苗保质期一般多久有效 动物疫苗保质期一般多久有效果</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-high-speed-nodes.htm" title="2月13日→19.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月13日→19.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36261.htm" title="动物能打疫苗吗有毒吗图片（动物能打疫苗吗有毒吗图片）">动物能打疫苗吗有毒吗图片（动物能打疫苗吗有毒吗图片）</a></li>
+                        <li class="py-2"><a href="/news/article-35832.htm" title="PYQT5(13)-基本窗口控件-拖曳与剪贴板">PYQT5(13)-基本窗口控件-拖曳与剪贴板</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-node-subscribe.htm" title="2月6日→19.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月6日→19.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48065.htm" title="猫瘟疫苗价格（猫瘟疫苗价格多少）">猫瘟疫苗价格（猫瘟疫苗价格多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-subscribe-node.htm" title="1月24日→21.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月24日→21.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23496.htm" title="开宠物店营销方式有哪些（开宠物店营销方式有哪些方法）">开宠物店营销方式有哪些（开宠物店营销方式有哪些方法）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-high-speed-nodes.htm" title="2月25日→18.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月25日→18.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
