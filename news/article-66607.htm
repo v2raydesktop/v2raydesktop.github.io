@@ -111,6 +111,7 @@
                   				  				  				<h2 id="一背景">一、背景</h2> <p><strong>领导让研究一个活儿：企业微信开发H5应用，微信端客户进入H5页面跟现有的Web系统打通用户权限。通俗的讲：嵌入企业微信H5页面，客户点进去按原权限加载内容。开发者中心有文档，附上两个关键链接：</strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.work.weixin.qq.com/tutorial/h5-application"  target="_blank" rel="nofollow">快速集成H5应用</a><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.work.weixin.qq.com/document/path/91335"  target="_blank" rel="nofollow">网页授权登录</a></p> <h2 id="二集成h5应用">二、集成H5应用</h2> <h4 id="1准备本地域名映射">1、准备本地域名映射</h4> <p><strong>打开HOSTS文件，路径：C:\Windows\System32\drivers\etc，添加一个自己喜欢的域名映射到 127.0.0.1</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/69113c9a6391832356fec825d06d790a.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"><em><sub>声明：jd是本人名字缩写，跟京东没关系，纯属巧合</sub></em>????</p> <h4 id="2新建h5应用">2、新建H5应用</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5abebc6b3a73f7a2a74ea945fe05e4d1.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"></p> <h4 id="3配置h5应用">3、配置H5应用</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5bc34a27da5c4c4268f19136a4abf483.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c0294141944da6037a919dcb6c9bb577.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"></p> <h4 id="4配置可信域名">4、配置可信域名</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/841fd260e95278449c2076d6dd65b606.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/99ab8569a1567006c06891621eefdb3a.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"></p> <h2 id="三启动h5页面">三、启动H5页面</h2> <p><strong>写代码之前交代一下，网页授权登录用的是 OAuth2协议 授权码模式。<span style="color: rgba(255, 0, 0, 1); font-size: 20px; font-weight: 600">巧了不是</span>，刚学的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/WinterSir/p/16044639.html"  target="_blank" rel="nofollow">IdentityServer4授权模式</a> 这就用上了????</strong><br /><strong>（1）前端是一个 React Demo，准备两个页面：home、oauth（默认页），本地端口：8000，这样在微信客户端进入H5应用就行了。<br /> （2）前面配置H5应用首页是 test.jd.com:8000，就是映射的本地启动的Demo：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://127.0.0.1:8000/oauth%E3%80%82"  target="_blank" rel="nofollow">http://127.0.0.1:8000/oauth。</a><br /> （3）整个流程、代码（home就不贴代码了，只展示了userid），如图：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c6918617c018f3c7b8679c33b67e61a1.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/20d384e6410eda7fb7b3d4c689d9f598.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"></p> <h2 id="四效果图">四、效果图</h2> <p><strong>说明一下，不能直接在浏览器测试，跳转URL这步会提示要在微信客户端打开连接，用手机太麻烦，<span style="color: rgba(255, 0, 0, 1); font-weight: 600">PC版企业微信</span>，热更新还方便</strong> ????<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ef39136967a2890e9ec42a417257f260.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"></p> <h2 id="五注意事项重要">五、注意事项（重要）</h2> <h4 id="1构造授权连接">1、构造授权连接</h4> <p><strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.work.weixin.qq.com/document/path/91022"  target="_blank" rel="nofollow">构造授权连接</a> 获取授权码时要注意 appid（企业的CorpID）、redirect_uri（重定向的Url需要urlencode处理，可以是任意页面，我为了方便仍然定向的oauth，通过code参数判断）、response_type（必须是code）三个参数，其他填默认项即可。</strong></p> <h4 id="2获取用户信息">2、获取用户信息</h4> <p><strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.work.weixin.qq.com/document/path/91023"  target="_blank" rel="nofollow">获取用户信息</a> 需要 code、access_token 两个参数，而 access_token 需要提前根据 corpid（企业的CorpID）、corpsecret（应用的凭证密钥）调用<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.work.weixin.qq.com/document/path/91039"  target="_blank" rel="nofollow">接口</a>获取，<span style="color: rgba(255, 0, 0, 1); font-weight: 600">userid在企业微信是唯一的，跟原业务系统用户绑定，完成权限匹配，再根据权限加载内容即实现了目标。</span></strong></p> <h4 id="3跨域">3、跨域</h4> <p><strong>前台直接请求微信接口是跨域的，我用的React框架是 AntDesgin，本地调试配置一下代理即可，正式环境需解决，如：Nginx等。</strong><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/695d7edcdb0fbef004c21f79db064d6e.jpg" alt="企业微信 嵌H5页面 用户权限获取匹配"></p> <h4 id="4最重要">4、最重要！！！</h4> <p><strong><span style="color: rgba(255, 0, 0, 1); font-size: 18px; font-weight: 600">获取access_token、用户信息，这两微信个接口应该由H5请求业务系统的后台API，再由后台调用获取信息进行存储、缓存等等操作，API只返回用户信息给H5，前台存储， appid（企业的CorpID）、access_token、corpsecret（应用的凭证密钥）都是敏感信息不应在前后台进行传输，而且顺道还解决了前端跨域问题。</span></strong></p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-66606.htm">SpringBoot 基本原理</a></p>
+                                        <p>下一个：<a href="/news/article-67246.htm">宠物领养协议法律效力怎么写 宠物领养协议法律效力怎么写的</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -120,16 +121,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-24902.htm" title="动物疫苗的制造技术包括什么（动物疫苗的制造技术包括什么技术）">动物疫苗的制造技术包括什么（动物疫苗的制造技术包括什么技术）</a></li>
-                        <li class="py-2"><a href="/news/article-62321.htm" title="广州的宠物领养机构在哪里找（广州领养宠物中心）">广州的宠物领养机构在哪里找（广州领养宠物中心）</a></li>
-                        <li class="py-2"><a href="/news/article-26311.htm" title="幼儿园动物医生教案（关于动物医生的幼儿故事）">幼儿园动物医生教案（关于动物医生的幼儿故事）</a></li>
-                        <li class="py-2"><a href="/news/article-36705.htm" title="宠物医院好评语30字通用怎么写 宠物医院好评语30字通用怎么写的">宠物医院好评语30字通用怎么写 宠物医院好评语30字通用怎么写的</a></li>
-                        <li class="py-2"><a href="/news/article-36260.htm" title="CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu">CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-node-subscribe.htm" title="2月1日→20.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月1日→20.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-29999.htm" title="宠物买卖纠纷（宠物买卖纠纷报警如何处理）">宠物买卖纠纷（宠物买卖纠纷报警如何处理）</a></li>
-                        <li class="py-2"><a href="/news/article-61739.htm" title="动物疫苗种类及类型分类图片大全（动物疫苗接种技术）">动物疫苗种类及类型分类图片大全（动物疫苗接种技术）</a></li>
-                        <li class="py-2"><a href="/news/article-51689.htm" title="动物防疫疫苗种类有哪些类型（动物疫苗法最新消息2019）">动物防疫疫苗种类有哪些类型（动物疫苗法最新消息2019）</a></li>
-                        <li class="py-2"><a href="/news/article-51690.htm" title="动物疫苗研究员工资（动物疫苗研究员工资待遇）">动物疫苗研究员工资（动物疫苗研究员工资待遇）</a></li>
+                        <li class="py-2"><a href="/news/article-63518.htm" title="java多线程[5]：信号量(Semaphore)">java多线程[5]：信号量(Semaphore)</a></li>
+                        <li class="py-2"><a href="/news/article-62322.htm" title="给动物打疫苗要多少钱猫咪打的（猫打宠物疫苗多少钱）">给动物打疫苗要多少钱猫咪打的（猫打宠物疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe.htm" title="1月29日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月29日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37654.htm" title="南京宠物猫领养中心地址 南京宠物猫领养中心地址在哪里">南京宠物猫领养中心地址 南京宠物猫领养中心地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-48065.htm" title="猫瘟疫苗价格（猫瘟疫苗价格多少）">猫瘟疫苗价格（猫瘟疫苗价格多少）</a></li>
+                        <li class="py-2"><a href="/news/article-54352.htm" title="狗粮加工厂利润成本分析表格（生产狗粮利润）">狗粮加工厂利润成本分析表格（生产狗粮利润）</a></li>
+                        <li class="py-2"><a href="/news/article-67246.htm" title="宠物领养协议法律效力怎么写 宠物领养协议法律效力怎么写的">宠物领养协议法律效力怎么写 宠物领养协议法律效力怎么写的</a></li>
+                        <li class="py-2"><a href="/news/article-59968.htm" title="Spring中@Scheduled功能的使用方法详解_java">Spring中@Scheduled功能的使用方法详解_java</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-node-share-links.htm" title="1月6日→23M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月6日→23M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44600.htm" title="成都宠物领养平台怎么样（成都宠物领养成都宠物赠送）">成都宠物领养平台怎么样（成都宠物领养成都宠物赠送）</a></li>
                     </ul>
     </div>
 </div>
@@ -141,16 +142,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,0 +1,340 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-68549.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>检查pytorch是否安装成功、查看torch和cuda的版本</title>
+        <meta name="description" content="在安装完成pytorch和cudatoolkit之后，需要检查一下是否安装成功，可以直接查看当前环境下安装的所有包来验证： conda list  可以看到pytorch版本和cuda的版本分别是1." />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-68549.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="检查pytorch是否安装成功、查看torch和cuda的版本" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/1eaa7a4df1fe93afc4c6eec6227464bb.webp" />
+        <meta property="og:release_date" content="2025-03-06T11:03:31" />
+    <meta property="og:updated_time" content="2025-03-06T11:03:31" />
+        <meta property="og:description" content="在安装完成pytorch和cudatoolkit之后，需要检查一下是否安装成功，可以直接查看当前环境下安装的所有包来验证： conda list  可以看到pytorch版本和cuda的版本分别是1." />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="检查pytorch是否安装成功、查看torch和cuda的版本">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">检查pytorch是否安装成功、查看torch和cuda的版本</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>在安装完成pytorch和cudatoolkit之后，需要检查一下是否安装成功，可以直接查看当前环境下安装的所有包来验证：</p> <pre><code class="prism language-shell">conda list </code></pre> <p>可以看到pytorch版本和cuda的版本分别是1.10.1和11.3.1<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/7173793e89b0a5834fa4c694e448e79f.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/161cfa3baf3fb1467faa9ec2e658f1b8.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"></p> </h1> <p>也可以在python代码中进行验证和查看</p> <pre><code class="prism language-python"><span class="token keyword">import</span> torch <span class="token comment"># 如果pytorch安装成功即可导入</span> <span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 查看CUDA是否可用</span> <span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 查看可用的CUDA数量</span> <span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>version<span class="token punctuation">.</span>cuda<span class="token punctuation">)</span> <span class="token comment"># 查看CUDA的版本号</span> </code></pre> <p>在命令行中的python编译器中结果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/234c95d49d76a76f09675b954a3e80d2.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"></p> </h1> <p>还有另外一种方式查看CUDA的版本，就是在命令行中输入如下命令：</p> <pre><code class="prism language-shell">nvcc -V nvcc --version </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221223/a26d6afcd23ea9c932f672c47b404fcf.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /> 或者使用nvidia-smi，也可以查看CUDA的版本<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/a5bec2a8f8ce8ae475dfa70943db38a5.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /> 但是也可以发现，这两个命令查看的版本是不同的，原因可以去这篇文章查看：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sophicchen/article/details/120782209"  rel="nofollow">https://blog.csdn.net/sophicchen/article/details/120782209</a></p> <p>nvcc查看的就是在电脑中配置的环境变量所指向的CUDA驱动<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/816a8b7e04aa273bad2514afe7a607a1.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /> 这里不深究原理，有兴趣的可以去上边的文章学习一下。<br /> 但为了保证获取正确的虚拟环境中的CUDA版本，直接使用上面的方式1和方式2即可。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67863.htm">小李飞刀和林诗音（干货分享）小李飞刀我是林诗音，中央2，龙四，</a></p>
+                                        <p>下一个：<a href="/news/article-68550.htm">动物疫苗的管理方法不包括哪些（动物疫苗法规）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49571.htm" title="集成神经网络的缺点是,各种神经网络的优缺点">集成神经网络的缺点是,各种神经网络的优缺点</a></li>
+                        <li class="py-2"><a href="/news/article-67863.htm" title="小李飞刀和林诗音（干货分享）小李飞刀我是林诗音，中央2，龙四，">小李飞刀和林诗音（干货分享）小李飞刀我是林诗音，中央2，龙四，</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-high-speed-nodes.htm" title="1月14日→21.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月14日→21.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-60576.htm" title="猫三联打三针还是两针的（猫三联打一针有用吗）">猫三联打三针还是两针的（猫三联打一针有用吗）</a></li>
+                        <li class="py-2"><a href="/news/article-47566.htm" title="三国杀如何展示武将（三国杀如何展示武将皮肤）">三国杀如何展示武将（三国杀如何展示武将皮肤）</a></li>
+                        <li class="py-2"><a href="/news/article-38182.htm" title="网店卖宠物用品赚钱吗（网店卖宠物用品赚钱吗现在）">网店卖宠物用品赚钱吗（网店卖宠物用品赚钱吗现在）</a></li>
+                        <li class="py-2"><a href="/news/article-65974.htm" title="Snort中pcre和正则表达式的使用">Snort中pcre和正则表达式的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-node-subscribe.htm" title="1月27日→19.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月27日→19.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-57689.htm" title="动物防疫的方针是指什么（动物防疫方针是什么?）">动物防疫的方针是指什么（动物防疫方针是什么?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-node-subscribe-links.htm" title="2月17日→22.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月17日→22.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
