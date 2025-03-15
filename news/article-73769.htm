@@ -1,0 +1,340 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-73769.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ModelSerializer序列化器实战</title>
+        <meta name="description" content="目录  ModelSerializer序列化器实战 单表操作  序列化器类 视图类 路由 模型   多表操作  models.py serializer.py views.py urls.py 优化操" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-73769.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="ModelSerializer序列化器实战" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/8ff87d8cd9eba7650176a5aac8447699.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:44" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:44" />
+        <meta property="og:description" content="目录  ModelSerializer序列化器实战 单表操作  序列化器类 视图类 路由 模型   多表操作  models.py serializer.py views.py urls.py 优化操" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ModelSerializer序列化器实战">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">ModelSerializer序列化器实战</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#modelserializer%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E5%AE%9E%E6%88%98" rel="nofollow">ModelSerializer序列化器实战</a></li> <li><a href="#%E5%8D%95%E8%A1%A8%E6%93%8D%E4%BD%9C" rel="nofollow">单表操作</a> <ul> <li><a href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E7%B1%BB" rel="nofollow"><strong>序列化器类</strong></a></li> <li><a href="#%E8%A7%86%E5%9B%BE%E7%B1%BB" rel="nofollow"><strong>视图类</strong></a></li> <li><a href="#%E8%B7%AF%E7%94%B1" rel="nofollow"><strong>路由</strong></a></li> <li><a href="#%E6%A8%A1%E5%9E%8B" rel="nofollow"><strong>模型</strong></a></li> </ul> </li> <li><a href="#%E5%A4%9A%E8%A1%A8%E6%93%8D%E4%BD%9C" rel="nofollow">多表操作</a> <ul> <li><a href="#modelspy" rel="nofollow"><strong>models.py</strong></a></li> <li><a href="#serializerpy" rel="nofollow"><strong>serializer.py</strong></a></li> <li><a href="#viewspy" rel="nofollow"><strong>views.py</strong></a></li> <li><a href="#urlspy" rel="nofollow">urls.py</a></li> <li><a href="#%E4%BC%98%E5%8C%96%E6%93%8D%E4%BD%9C" rel="nofollow">优化操作</a></li> </ul> </li> </ul> </div> <h2 id="modelserializer序列化器实战">ModelSerializer序列化器实战</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/edaa8bf4c6b7d2e0bb64276032be254b.jpg" alt="ModelSerializer序列化器实战"></p> <blockquote> <p>上篇ModelSerializer序列化器做了一个小demo，演示了如何操作单表进行序列化和反序列化来实现五个API的使用，多表大差不差????，这里对四个表写五个API接口</p> </blockquote> <h2 id="单表操作">单表操作</h2> <blockquote> <p>单表操作序列化类demo：</p> </blockquote> <h3 id="序列化器类"><strong>序列化器类</strong></h3> <pre><code class="language-python"># ModelSerializer和表模型有绑定关系 class BookSerializer1(serializers.ModelSerializer):     class Meta:         model = Book  # 指定和哪个表有关系         # 所有字段         # fields = '__all__'         # 这里注意id字段是从表模型映射过来的，auto自增的，不传也可以         # 自定制的字段不传必须注册，在列表中         fields = ['id', 'title', 'price', 'price_info']  # 指定字段         extra_kwargs = {             'title': {'write_only': True, 'max_length': 8, 'min_length': 3}         }     # 指定序列化的字段：两种写法：在序列化类中写；models中写     price_info = serializers.SerializerMethodField()     def get_price_info(self, obj):         return "价格是：" + str(obj.price)     '''     注意：自定制字段如果和表模型获取到的字段是同名，那么自定制返回给前端的字段值就被自定制覆盖了，比如：     title = serializers.SerializerMethodField()     def get_title(self, obj):         return "书名是：" + str(obj.title)     '''      #  局部和全局钩子，跟之前一样，但是要注意写在Meta外</code></pre> <h3 id="视图类"><strong>视图类</strong></h3> <pre><code class="language-python">from rest_framework.views import APIView from .models import Book from rest_framework.response import Response from app01.serializer import  BookSerializer1 class BookView1(APIView):     def get(self, request):         # 从数据库查数据，做序列化         book_list = Book.objects.all()         # 实例化类，传入初始化的参数，instance和many         '''         instance:要序列化的对象  qs，单个对象         many:如果是qs对象，many=True，如果是单个对象many=False         '''         ser = BookSerializer1(instance=book_list, many=True)         # ser.data使用模型类的对象得到序列化后的字典         return Response(ser.data)      def post(self,request):         # 反序列化，保存到数据库使用data参数         deser = BookSerializer1(data=request.data)         # 校验数据         if deser.is_valid():             # 保存需要重写create方法,不然不知道存到哪个表             deser.save()             return Response(deser.data)         return Response({'code':101,'msg':'校验不通过','errors':deser.errors})    # 处理修改再写一个视图类，防止get冲突 class BookDetailView1(APIView):     def get(self,request,pk):         book = Book.objects.filter(pk=pk).first()         ser = BookSerializer1(instance=book)  # 这里设置了主键值，单条记录many不需要写         return Response(ser.data)     def delete(self,request,pk):         res = Book.objects.filter(pk=pk).delete()         print(res) # (1, {'app01.Book': 1})         # res是影响的行数         if res[0]&gt;0:             return Response({'code': 100, 'msg': '删除成功'})         else:             return  Response({'code': 103, 'msg': '要删除的数据不存在'})      # 反序列化修改     def put(self,request,pk):         # 修改处理单条数据用过pk确定求改哪条数据         book = Book.objects.filter(pk=pk).first()         # 序列化器类实例化需要传入instance，data才表示修改         ser = BookSerializer1(instance=book,data=request.data)         if ser.is_valid():             # 重写update方法才能存入             ser.save()             return Response(ser.data)         return Response({'code':101,'msg':'校验未通过','error':ser.errors})</code></pre> <h3 id="路由"><strong>路由</strong></h3> <pre><code class="language-python">path('books1/', views.BookView1.as_view()), path('books1/&lt;int:pk&gt;', views.BookDetailView1.as_view()),</code></pre> <h3 id="模型"><strong>模型</strong></h3> <pre><code class="language-python">from django.db import models class Book(models.Model):     title = models.CharField(max_length=32)     price = models.DecimalField(max_digits=5,decimal_places=2)     authors = models.CharField(max_length=32)</code></pre> <h2 id="多表操作">多表操作</h2> <h3 id="modelspy"><strong>models.py</strong></h3> <pre><code class="language-python">from django.db import models    # build four model tables  class Book(models.Model):     name = models.CharField(max_length=32)     price = models.DecimalField(decimal_places=2, max_digits=5)     publish = models.ForeignKey(to='Publish', on_delete=models.CASCADE)     authors = models.ManyToManyField(to='Author')      def __str__(self):         return self.name      # 自定制字段     @property     def publish_detail(self):         return {'name': self.publish.name, 'addr': self.publish.city}      @property     def author_list(self):         l = []         print(self.authors.all()) # &lt;QuerySet [&lt;Author: Author object (1)&gt;, &lt;Author: Author object (2)&gt;]&gt;         for author in self.authors.all():             print(author.author_detail) # AuthorDetail object (1)             l.append({'name': author.name, 'age': author.age, 'addr': author.author_detail.addr})         return l   class Author(models.Model):     name = models.CharField(max_length=32)     age = models.IntegerField()     author_detail = models.OneToOneField(to='AuthorDetail', on_delete=models.CASCADE)      def __str__(self):         return self.name      @property     def authordetail_info(self):         return {'phone':self.author_detail.telephone,'addr':self.author_detail.addr}   class AuthorDetail(models.Model):     telephone = models.BigIntegerField()     addr = models.CharField(max_length=64)   class Publish(models.Model):     name = models.CharField(max_length=32)     city = models.CharField(max_length=32)     email = models.EmailField()</code></pre> <h3 id="serializerpy"><strong>serializer.py</strong></h3> <pre><code class="language-python">from app01 import models from rest_framework import serializers   # 书序列化器 class BookSerializer(serializers.ModelSerializer):     class Meta:         # 指定和哪个表有关系         model = models.Book         # fields = '__all__'         fields = ['id','name','price','publish','authors','publish_detail','author_list']         # 将关联表的信息全部取出来，不推荐使用         # depth = 1          extra_kwargs = {             'publish':{'write_only':True},             'authors':{'write_only':True}         }  # 作者序列化器 class AuthorSerializer(serializers.ModelSerializer):     class Meta:         # 指定和哪个表有关系         model = models.Author         # fields = '__all__'         fields = ['id', 'name', 'age', 'author_detail', 'authordetail_info']         extra_kwargs = {             'author_detail': {'write_only': True},         }   # 作者详情序列化器 class AuthorDetailSerializer(serializers.ModelSerializer):     class Meta:         # 指定和哪个表有关系         model = models.AuthorDetail         fields = '__all__'  # 出版社序列化器 class PublishSerializer(serializers.ModelSerializer):     class Meta:         # 指定和哪个表有关系         model = models.Publish         fields = '__all__'</code></pre> <h3 id="viewspy"><strong>views.py</strong></h3> <pre><code class="language-python">from rest_framework.response import Response from rest_framework.views import APIView  from app01 import models from app01 import serializer   # 书视图类 class BookView(APIView):     def get(self, requets):         # 序列化         book_list = models.Book.objects.all()         # 序列化多条数据many=True         ser = serializer.BookSerializer(instance=book_list, many=True)         return Response(ser.data)      def post(self, request):         # 获取反序列化数据         ser = serializer.BookSerializer(data=request.data)         if ser.is_valid():             # 校验通过存入数据库，不需要重写create方法了             ser.save()             return Response({'code': 100, 'msg': '新增成功', 'data': ser.data})         # 校验失败         return Response({'code': 101, 'msg': '校验未通过', 'error': ser.errors})   class BookViewDetail(APIView):     def get(self, request, pk):         book = models.Book.objects.filter(pk=pk).first()         ser = serializer.BookSerializer(instance=book)         return Response(ser.data)      def put(self, request, pk):         book = models.Book.objects.filter(pk=pk).first()         # 修改，instance和data都要传         ser = serializer.BookSerializer(instance=book, data=request.data)         if ser.is_valid():             # 校验通过修改，不需要重写update             ser.save()             return Response({'code:': 100, 'msg': '修改成功', 'data': ser.data})         # 校验不通过         return Response({'code:': 102, 'msg': '校验未通过，修改失败', 'error': ser.errors})      def delete(self, request, pk):         models.Book.objects.filter(pk=pk).delete()         return Response({'code': 100, 'msg': '删除成功'})   # 作者视图类 class AuthorView(APIView):     def get(self, requets):         # 序列化         author_list = models.Author.objects.all()         # 序列化多条数据many=True         ser = serializer.AuthorSerializer(instance=author_list, many=True)         return Response(ser.data)      def post(self, request):         # 获取反序列化数据         ser = serializer.AuthorSerializer(data=request.data)         if ser.is_valid():             # 校验通过存入数据库，不需要重写create方法了             ser.save()             return Response({'code': 100, 'msg': '新增成功', 'data': ser.data})         # 校验失败         return Response({'code': 101, 'msg': '校验未通过', 'error': ser.errors})   class AuthorViewDetail(APIView):     def get(self, request, pk):         book = models.Author.objects.filter(pk=pk).first()         ser = serializer.AuthorSerializer(instance=book)         return Response(ser.data)      def put(self, request, pk):         book = models.Author.objects.filter(pk=pk).first()         # 修改，instance和data都要传         ser = serializer.AuthorSerializer(instance=book, data=request.data)         if ser.is_valid():             # 校验通过修改，不需要重写update             ser.save()             return Response({'code:': 100, 'msg': '修改成功', 'data': ser.data})         # 校验不通过         return Response({'code:': 102, 'msg': '校验未通过，修改失败', 'error': ser.errors})      def delete(self, request, pk):         models.Author.objects.filter(pk=pk).delete()         return Response({'code': 100, 'msg': '删除成功'})   # 作者详情视图类 class AuthorDetailView(APIView):     def get(self, requets):         # 序列化         author_list = models.AuthorDetail.objects.all()         # 序列化多条数据many=True         ser = serializer.AuthorDetailSerializer(instance=author_list, many=True)         return Response(ser.data)      def post(self, request):         # 获取反序列化数据         ser = serializer.AuthorDetailSerializer(data=request.data)         if ser.is_valid():             # 校验通过存入数据库，不需要重写create方法了             ser.save()             return Response({'code': 100, 'msg': '新增成功', 'data': ser.data})         # 校验失败         return Response({'code': 101, 'msg': '校验未通过', 'error': ser.errors})   class OneAuthorViewDetail(APIView):     def get(self, request, pk):         book = models.AuthorDetail.objects.filter(pk=pk).first()         ser = serializer.AuthorDetailSerializer(instance=book)         return Response(ser.data)      def put(self, request, pk):         book = models.AuthorDetail.objects.filter(pk=pk).first()         # 修改，instance和data都要传         ser = serializer.AuthorDetailSerializer(instance=book, data=request.data)         if ser.is_valid():             # 校验通过修改，不需要重写update             ser.save()             return Response({'code:': 100, 'msg': '修改成功', 'data': ser.data})         # 校验不通过         return Response({'code:': 102, 'msg': '校验未通过，修改失败', 'error': ser.errors})      def delete(self, request, pk):         models.AuthorDetail.objects.filter(pk=pk).delete()         return Response({'code': 100, 'msg': '删除成功'})  # 出版社视图类 class PublishView(APIView):     def get(self, requets):         # 序列化         author_list = models.Publish.objects.all()         # 序列化多条数据many=True         ser = serializer.PublishSerializer(instance=author_list, many=True)         return Response(ser.data)      def post(self, request):         # 获取反序列化数据         ser = serializer.PublishSerializer(data=request.data)         if ser.is_valid():             # 校验通过存入数据库，不需要重写create方法了             ser.save()             return Response({'code': 100, 'msg': '新增成功', 'data': ser.data})         # 校验失败         return Response({'code': 101, 'msg': '校验未通过', 'error': ser.errors})   class PublishViewDetail(APIView):     def get(self, request, pk):         book = models.Publish.objects.filter(pk=pk).first()         ser = serializer.PublishSerializer(instance=book)         return Response(ser.data)      def put(self, request, pk):         book = models.Publish.objects.filter(pk=pk).first()         # 修改，instance和data都要传         ser = serializer.PublishSerializer(instance=book, data=request.data)         if ser.is_valid():             # 校验通过修改，不需要重写update             ser.save()             return Response({'code:': 100, 'msg': '修改成功', 'data': ser.data})         # 校验不通过         return Response({'code:': 102, 'msg': '校验未通过，修改失败', 'error': ser.errors})      def delete(self, request, pk):         models.Publish.objects.filter(pk=pk).delete()         return Response({'code': 100, 'msg': '删除成功'})</code></pre> <h3 id="urlspy">urls.py</h3> <pre><code class="language-python">from django.contrib import admin from django.urls import path  from app01 import views  urlpatterns = [     path('admin/', admin.site.urls),     # 书     path('books/', views.BookView.as_view()),     path('books/&lt;int:pk&gt;', views.BookViewDetail.as_view()),      # 作者     path('authors/', views.AuthorView.as_view()),     path('authors/&lt;int:pk&gt;', views.AuthorViewDetail.as_view()),      # 作者详情     path('authorsdetail/', views.AuthorDetailView.as_view()),     path('authorsdetail/&lt;int:pk&gt;', views.OneAuthorViewDetail.as_view()),      # 出版社     path('publish/', views.PublishView.as_view()),     path('publishdetail/&lt;int:pk&gt;', views.PublishViewDetail.as_view()), ]</code></pre> <p></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8ade4232e195af60327dbf751d691566.jpg" alt="ModelSerializer序列化器实战"></p> <h3 id="优化操作">优化操作</h3> <blockquote> <p>我们知道作者表和作者详情表的表关系是一对一的关系，那么新增数据的时候，就得先新增作者详情表，再增作者表的数据，但是在实际生活中，用户不知道表关系这码事，为了体验更好，可以重写create方法，同时存两个表的内容，给用户的感觉就是操作了一张表</p> </blockquote> <pre><code class="language-python">'''优化作者表的序列化器''' # 作者序列化器 class AuthorSerializer(serializers.ModelSerializer):     class Meta:         # 指定和哪个表有关系         model = models.Author         # fields = '__all__'         fields = ['id', 'name', 'age', 'telephone', 'addr','authordetail_info']      # 重写字段telephone和addr     telephone = serializers.CharField(write_only=True)     addr = serializers.CharField(write_only=True,max_length=8,required=False)       # 重写create，操作两个表     def create(self, validated_data):         # 先存作者详情         authordetail = models.AuthorDetail.objects.create(telephone=validated_data.get('telephone'),addr=validated_data.get('addr'))         # 存作者表         author = models.Author.objects.create(author_detail=authordetail,name=validated_data.get('name'),age=validated_data.get('age'))         # 这样只返回author对象就行，直接存了两个表,返回反序列化的对象         return author</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cf315856e7b22211f022e81d0453f841.jpg" alt="ModelSerializer序列化器实战"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d74dd5235b50e4caefe6218d2cc4ebe2.jpg" alt="ModelSerializer序列化器实战"></p> <p><strong>Postman自行测试，我测了测都能用，有问题望指正~</strong></p> <p><strong>注意</strong><br /> 如果实际项目中不需要操作数据库可以使用APIView，如果操作数据库那么推荐使用GenericAPIView</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73768.htm">ElasticSearch基础学习（SpringBoot集成ES）</a></p>
+                                        <p>下一个：<a href="/news/article-74421.htm">吉泰连锁酒店价格（吉泰连锁酒店价格查询）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-71789.htm" title="上海宠物医院排名榜（上海出名的宠物医院）">上海宠物医院排名榜（上海出名的宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-node-subscribe.htm" title="3月14日→19.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月14日→19.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62321.htm" title="广州的宠物领养机构在哪里找（广州领养宠物中心）">广州的宠物领养机构在哪里找（广州领养宠物中心）</a></li>
+                        <li class="py-2"><a href="/news/article-48429.htm" title="如何确定SVG文本框的宽度或在&#8217;x&#8217;字符后强制换行">如何确定SVG文本框的宽度或在&#8217;x&#8217;字符后强制换行</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-free-node-subscribe.htm" title="2月26日→19.9M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月26日→19.9M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-subscribe-node.htm" title="1月8日→21.5M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月8日→21.5M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-35833.htm" title="CentOS服务器中设置Redis开机自启">CentOS服务器中设置Redis开机自启</a></li>
+                        <li class="py-2"><a href="/news/article-61739.htm" title="动物疫苗种类及类型分类图片大全（动物疫苗接种技术）">动物疫苗种类及类型分类图片大全（动物疫苗接种技术）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-node-subscribe.htm" title="2月6日→19.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月6日→19.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51151.htm" title="动物防疫所上班工作高吗（动物防疫所是干嘛的）">动物防疫所上班工作高吗（动物防疫所是干嘛的）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
