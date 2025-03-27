@@ -1,0 +1,340 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-81302.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>记一次RabbitMQ连接阻塞，全部队列不消费异常</title>
+        <meta name="description" content="前几天博主遇到一个很狗屎的bug，RabbitMQ本来运行的好好突然所有的消息队列都不消费了，看了一下 Connections连接，发现全部都发生阻塞了，导致线上的队列堆积如山，情况万分危急。 推测一" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-81302.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="记一次RabbitMQ连接阻塞，全部队列不消费异常" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/30f12b130bf09150933761d17bf87e6d.webp" />
+        <meta property="og:release_date" content="2025-03-25T08:20:11" />
+    <meta property="og:updated_time" content="2025-03-25T08:20:11" />
+        <meta property="og:description" content="前几天博主遇到一个很狗屎的bug，RabbitMQ本来运行的好好突然所有的消息队列都不消费了，看了一下 Connections连接，发现全部都发生阻塞了，导致线上的队列堆积如山，情况万分危急。 推测一" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="记一次RabbitMQ连接阻塞，全部队列不消费异常">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">记一次RabbitMQ连接阻塞，全部队列不消费异常</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size: 1em;">前几天博主遇到一个很狗屎的bug，RabbitMQ本来运行的好好突然所有的消息队列都不消费了，看了一下 Connections连接，发现全部都发生阻塞了，导致线上的队列堆积如山，情况万分危急。</span></p> <h3 id="推测一生产者和消费者问题">推测一：生产者和消费者问题</h3> <p>刚开始推测是不是生产者和消费者出问题了，然后就检查了一下服务的运行状态，发现都没问题，说明不是这个问题引起的，所以进一步猜测可能是MQ本身出现问题了。</p> <h3 id="推测二mq本身出现问题">推测二：MQ本身出现问题</h3> <p>如果是MQ出现问题，那MQ的日志肯定会有错误的相关信息记载，所以我们进入MQ日志下面，查看日志情况。</p> <pre class="has"><code>/var /log/rabbitmq/</code></pre> <p><strong>日志结果如下所示：</strong></p> <pre class="has"><code>=ERROR REPORT==== 30-May-2019::19:28:49 === connection &lt;0.23331.7132&gt;, channel 4 - soft error: {amqp_error,precondition_failed,"unknown delivery tag 1",'basic.ack'}  =INFO REPORT==== 30-May-2019::19:28:49 === vm_memory_high_watermark clear. Memory used:383597048 allowed:385616281  =WARNING REPORT==== 30-May-2019::19:28:49 === memory resource limit alarm cleared on node rabbit@VM_2_12_centos</code></pre> <p>通过错误日志我们可以很明显的看出，是MQ的运行内存超过限制，导致连接阻塞的。</p> <h3 id="问题原因">问题原因：</h3> <p>因为RabbitMQ服务器在启动时会计算系统内存总大小。然后会根据vm_memory_high_watermark参数指定的百分比，进行控制.可通过命令 rabbitmqctl set_vm_memory_high_watermark fraction 动态设置。默认下，vm_memory_high_watermark的值为0.4,当RabbitMQ使用的内存超过40%时，系统会阻塞所有连接。一旦警报解除（消息被消费者取走，或者消息被写到硬盘中）,系统重新恢复工作。32位系统的单进程内存使用最大为2G,即使系统有10G,那么内存警报线为2G*40%.</p> <h3 id="解决方案">解决方案：</h3> <p>最快的解决方案时将<strong>vm_memory_high_watermark</strong>值上调，如果短时间内上调不了，可以选择直接升级服务器内存。</p> <p>但是这样治标不治本，如果队列继续堆积，内存占用率还是会变大，最终的解决方案，应该要<strong>平衡消费者和生产者</strong>，让消息队列尽量不要堆积导致内存过大阻塞。</p> <h3 id="其它阻塞的场景">其它阻塞的场景：</h3> <p><strong>硬盘控制</strong></p> <p>当RabbitMQ的磁盘空闲空间小于50M（默认），生产者将被BLOCK，并且阻塞信息发布前，会尝试把内存中的信息输出到磁盘上。持久化信息和非持久化信息都将被写到磁盘（持 久化信息一进入队列就会被写到磁盘）。如果采用集群模式，磁盘节点空闲空间小于50M将导致其他节点的生产者都被block。可以通过disk_free_limit来对进行配置。 如果磁盘的预设值为50%，内存预设值默认是0.4，那么就是当内存使用量达到20%时，队列信息会被写到磁盘上。 可以通过设置 vm_memory_high_watermark_paging_ratio （默认值为0.5）来改变写入磁盘的策略，例如：</p> <pre class="has"><code>[{rabbit, [{vm_memory_high_watermark_paging_ratio, 0.75},          {vm_memory_high_watermark, 0.4}]}].1</code></pre> <p>上面的配置将会在内存全用30%时将队列信息写入到磁盘，阻塞信息发布是在内存使用40%时发生。建议vm_memory_high_watermark 不超过50%.</p> <p><strong>消息积压</strong></p> <p>在RabbitMQ中，消息可能被存储在多个不同的队列，消息越早被消费，那么消息经过的队列层次越少，则平均每个消息处理的开销就越小。但若发布消息的速率过快，MQ来不及处理，这些消息就可能进入很深层次的队列，大大增加平均每个消息的处理开销，进一步使得处理新消息和发送旧消息的能力减弱，更多的消息会进入很深的队列，循环往复，整个系统的性能就会极大的降低。另外若接收消息的速率过快还会实现某些进程的mailbox过大，可能会产生很严重的后果。为此，RabbitMQ设计了一套流控机制。</p> <p>RabbitMQ 使用了一种基于 credit 的算法来 限制 message 被 publish 的速率 。Publisher 只有在其从某个 queue 的 全部镜像处收到 credit 之后才被允许继续 publish 。在这个上下文中，Credit 意味着对 publish 行为的允许。如果存在没能成功发送出 credit 的 slaves ，则将导致 publisher 停止 publish 动作。Publisher 会一直保持停止的状态，直到所有 slave 都成功发送了 credit 或者直到剩余的 node 都认为某 slave 已经从 cluster 中断开了。Erlang 会周期性地发送 tick 到所有的 node 上来检测是否出现连接断开。 tick 的间隔时间可以通过配置 net_ticktime 的值来控制。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-81301.htm">React 第二节 组件定义及事件</a></p>
+                                        <p>下一个：<a href="/news/article-81989.htm">JVM将初始和最大内存大小设置为相同值的好处</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-58260.htm" title="全国宠物粮食基地排名榜（国内宠物粮食十大厂家）">全国宠物粮食基地排名榜（国内宠物粮食十大厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-node-share-links.htm" title="1月4日→20.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">1月4日→20.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-56002.htm" title="动物医院专业就业前景怎么样（动物医院专业排名）">动物医院专业就业前景怎么样（动物医院专业排名）</a></li>
+                        <li class="py-2"><a href="/news/article-45113.htm" title="动物疫苗去哪买（动物疫苗去哪买便宜）">动物疫苗去哪买（动物疫苗去哪买便宜）</a></li>
+                        <li class="py-2"><a href="/news/article-40149.htm" title="私人出售狗怎么卖的（个人买卖狗都有哪些网站）">私人出售狗怎么卖的（个人买卖狗都有哪些网站）</a></li>
+                        <li class="py-2"><a href="/news/article-75789.htm" title="Python- *args 的用法">Python- *args 的用法</a></li>
+                        <li class="py-2"><a href="/news/article-68550.htm" title="动物疫苗的管理方法不包括哪些（动物疫苗法规）">动物疫苗的管理方法不包括哪些（动物疫苗法规）</a></li>
+                        <li class="py-2"><a href="/news/article-79910.htm" title="如何保证Redis缓存和数据库一致性？">如何保证Redis缓存和数据库一致性？</a></li>
+                        <li class="py-2"><a href="/news/article-71791.htm" title="动物疫苗使用管理办法（动物防疫疫苗管理）">动物疫苗使用管理办法（动物防疫疫苗管理）</a></li>
+                        <li class="py-2"><a href="/news/article-56001.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
