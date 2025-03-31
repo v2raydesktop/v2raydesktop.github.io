@@ -1,0 +1,340 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-85534.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Metalama简介4.使用Fabric操作项目或命名空间</title>
+        <meta name="description" content="使用基于Roslyn的编译时AOP框架来解决.NET项目的代码复用问题Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架Metalama简介2.利用Aspect在编译时进行消除重复代" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-85534.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="Metalama简介4.使用Fabric操作项目或命名空间" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/fb231ba95421cbe953bf9eee0e6b64ce.webp" />
+        <meta property="og:release_date" content="2025-03-31T08:42:32" />
+    <meta property="og:updated_time" content="2025-03-31T08:42:32" />
+        <meta property="og:description" content="使用基于Roslyn的编译时AOP框架来解决.NET项目的代码复用问题Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架Metalama简介2.利用Aspect在编译时进行消除重复代" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Metalama简介4.使用Fabric操作项目或命名空间">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">Metalama简介4.使用Fabric操作项目或命名空间</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/chsword/p/dotnet_compile_aop_base_roslyn.html"  target="_blank" rel="nofollow">使用基于Roslyn的编译时AOP框架来解决.NET项目的代码复用问题</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/chsword/p/metalama_1.html"  target="_blank" rel="nofollow">Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/chsword/p/metalama_2.html"  target="_blank" rel="nofollow">Metalama简介2.利用Aspect在编译时进行消除重复代码</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/chsword/p/metalama_3.html"  target="_blank" rel="nofollow">Metalama简介3.自定义.NET项目中的代码分析</a></p> </h1> <p><code>Fabric</code>通过修改项目、命名空间、类型来达到一些效果，这引起修改包括：添加<code>Aspect</code>或添加代码分析</p> </h1> <p>前文中我们写过一个简单的<code>Aspect</code>:</p> <pre><code class="language-C#">public class LogAttribute : OverrideMethodAspect {     public override dynamic? OverrideMethod()     {         Console.WriteLine(meta.Target.Method.ToDisplayString() + " 开始运行.");         var result = meta.Proceed();         Console.WriteLine(meta.Target.Method.ToDisplayString() + " 结束运行.");         return result;     } }</code></pre> <p>当我们使用它时，我们要在对应的方法上添加这个<code>Attribute</code>:</p> <pre><code class="language-C#">[Log] private static int Add(int a, int b) //... ...</code></pre> <p>那么当我们有一个<code>Aspect</code>要在项目中大量使用时，在每个方法上添加这个<code>Aspect</code>当然是一种方法，但是这种方法有2个缺点：</p> <ol> <li>包含大量的重复代码<code>[Log]</code></li> <li>对于原代码的入侵性太强</li> </ol> <p>此时我们就可以使用<code>Fabric</code>为所有符合要求的方法添加指定的<code>Aspect</code>:</p> <pre><code class="language-C#">internal class Fabric : ProjectFabric {     // 这个是重写项目的Fabric中修改项目的方法     public override void AmendProject(IProjectAmender amender)     {         // 添加 LogAttribute 到符合规则的方法上         // 为名为 Add 且 private 的方法添加 LogAttribute         amender.WithTargetMembers(c =&gt;                 c.Types.SelectMany(t =&gt; t.Methods)                        .Where(t =&gt;                               t.Name == "Add" &amp;&amp;                               t.Accessibility == Metalama.Framework.Code.Accessibility.Private)             ).AddAspect(t =&gt; new LogAttribute());     } }</code></pre> <p>这样就可以在不入侵现有代码的情况下为指定的方法添加<code>Aspect</code>。</p> </h1> <p>上文中我们提到，我们可以通过<code>Aspect</code>为代码添加代码分析，当我们要将一个包含（且仅包含）代码分析的<code>Aspect</code>应用于一批代码时，当然我们可以按本文<code>示例1</code>中的方法，直接使用<code>Fabric</code>将包含代码分析的<code>Aspect</code>应用于指定代码。</p> <p>但还有另外一种方法，我们可以直接在<code>Fabric</code>中定义应用于指定代码的代码分析。</p> <p>下面示例，我们验证所有类中的私有字段必须符合<code>_camelCase</code>,并且使用一个<code>NamespaceFabric</code>来实现:</p> <pre><code class="language-C#">namespace FabricCamelCaseDemo; class Fabric : NamespaceFabric {     private static readonly DiagnosticDefinition&lt;string&gt; _warning = new(  "DEMO04",  Severity.Warning,  "'{0}'必须使用驼峰命名法并以'_'开头");     // 这个是命名空间的Fabric中修改命名空间规则 的方法     public override void AmendNamespace(INamespaceAmender amender)     { 	    // 取所有非static 的private的字段，并添加代码分析         amender.WithTargetMembers(c =&gt;                                     c.AllTypes.SelectMany(t=&gt;t.Fields)                                     .Where(t =&gt; t.Accessibility == Accessibility.Private &amp;&amp; !t.IsStatic                                     )                                  )             //preview 0.5.8之前为 RegisterFinalValidator             .Validate(this.FinalValidator);     }      private void FinalValidator(in DeclarationValidationContext context)     {         var fullname = context.Declaration.ToDisplayString();         var fieldName = fullname.Split('.').LastOrDefault();         if (fieldName!=null &amp;&amp; (!fieldName.StartsWith("_") || !char.IsLower(fieldName[1])))         {             context.Diagnostics.Report(_warning.WithArguments(fieldName));         }     } }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b47b918dc071361c6e285c9ace241445.jpg" alt="Metalama简介4.使用Fabric操作项目或命名空间"></p> <p>当然因为当前使用的是<code>NamespaceFabric</code>所以该规则只应用于当前命名空间如，我们如果在另外一个命名空间中定义一个违反规则的字段的话，并不会有警告。</p> <pre><code class="language-C#">namespace FabricCamelCase;  internal class OtherNamespace {     int count = 0;     int _total = 0;     public int Add()     {         count++;         _total++;         return count + _total;     } }</code></pre> </h1> <p>开始前伪造一个需求，假设我有一个类<code>AddUtils</code>专门处理加法操作，它里面应该有从2个到15个参数的Add方法15个（当然我知道，可以使用<code>params</code>等方法实现，所以这里是个伪需求）。<br /> 最终效果为</p> <pre><code class="language-C#">public class AddUtils {     public int Add2(int x1, int x2)     {         var result = 0;         result += x1;         result += x2;         return 2;     }     public int Add3(int x1, int x2, int x3)     {         var result = 0;         result += x1;         result += x2;         result += x3;         return 3;     } 	// 以此类推... 下面省去若干方法 }</code></pre> <p>那么我们可以用<code>Metalama</code>如此实现</p> <pre><code class="language-C#">using System.Reflection.Emit; using Metalama.Framework.Aspects; using Metalama.Framework.Fabrics;  public class AddUtils {     private class Fabric : TypeFabric     {         // 实现的方法体         [Template]         public int MethodTemplate()         {             var num = (int) meta.Tags["nums"]!;             var result = 0;             foreach (var targetParameter in meta.Target.Parameters)             {                 result += targetParameter.Value;             }              return num;         }          public override void AmendType(ITypeAmender amender)         {             for (var i = 2; i &lt; 15; i++)             {                 // 生成一个方法                 var methodBuilder = amender.Advices.IntroduceMethod(                     amender.Type,                     nameof(this.MethodTemplate),                     tags: new TagDictionary { ["nums"] = i });                 // 方法名                 methodBuilder.Name = "Add" + i;                 // 添加参数                 for (int parameterIndex = 1; parameterIndex &lt;= i; parameterIndex++)                 {                     methodBuilder.AddParameter($"x{parameterIndex}", typeof(int));                 }             }         }     } }</code></pre> </h1> <p>本章源代码：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/chsword/metalama-demo"  target="_blank" rel="nofollow">https://github.com/chsword/metalama-demo</a><br /> Metalama官方文档:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://doc.metalama.net/"  target="_blank" rel="nofollow">https://doc.metalama.net/</a><br /> Metalama Nuget包:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.nuget.org/packages/Metalama.Framework/0.5.11-preview"  target="_blank" rel="nofollow">https://www.nuget.org/packages/Metalama.Framework/0.5.11-preview</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84817.htm">浪姐第一次公演舞台(浪姐初评)</a></p>
+                                        <p>下一个：<a href="/news/article-85535.htm">动物医院24小时全天候诊多少钱（动物医院收费）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48429.htm" title="如何确定SVG文本框的宽度或在&#8217;x&#8217;字符后强制换行">如何确定SVG文本框的宽度或在&#8217;x&#8217;字符后强制换行</a></li>
+                        <li class="py-2"><a href="/news/article-50621.htm" title="洗砂机全套设备价格表（泥浆分离机 泥浆离心脱水机）">洗砂机全套设备价格表（泥浆分离机 泥浆离心脱水机）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-node-share.htm" title="2月9日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月9日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-61739.htm" title="动物疫苗种类及类型分类图片大全（动物疫苗接种技术）">动物疫苗种类及类型分类图片大全（动物疫苗接种技术）</a></li>
+                        <li class="py-2"><a href="/news/article-50623.htm" title="小猫身上的跳蚤怎么彻底去除小猫体外驱虫如何去?（小猫身上有跳蚤用什么药好）">小猫身上的跳蚤怎么彻底去除小猫体外驱虫如何去?（小猫身上有跳蚤用什么药好）</a></li>
+                        <li class="py-2"><a href="/news/article-75130.htm" title="宠物回收平台同城可靠吗（宠物回收平台同城可靠吗）">宠物回收平台同城可靠吗（宠物回收平台同城可靠吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-free-subscribe-node.htm" title="2月20日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址">2月20日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37192.htm" title="常州宠颐生动物医院招聘（常州宠颐生动物医院怎么样）">常州宠颐生动物医院招聘（常州宠颐生动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-61738.htm" title="树莓派开发笔记入手研华ADVANTECH工控树莓派UNO-220套件介绍和运行系统">树莓派开发笔记入手研华ADVANTECH工控树莓派UNO-220套件介绍和运行系统</a></li>
+                        <li class="py-2"><a href="/news/article-41132.htm" title="宠物粮在哪里批发的便宜又好吃（宠物粮批发进货渠道）">宠物粮在哪里批发的便宜又好吃（宠物粮批发进货渠道）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
