@@ -1,0 +1,339 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-88462.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>JDK7的try-with-resource方式的使用</title>
+        <meta name="description" content="如果使用传统try-catch-finally管理资源链接，代码可能是下面这样，finally代码远远多于业务代码。  为了增加代码可读性和可维护性，建议使用jdk7 提供的新特性try-with-r" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-88462.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="JDK7的try-with-resource方式的使用" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/30f12b130bf09150933761d17bf87e6d.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:11:18" />
+    <meta property="og:updated_time" content="2025-04-04T09:11:18" />
+        <meta property="og:description" content="如果使用传统try-catch-finally管理资源链接，代码可能是下面这样，finally代码远远多于业务代码。  为了增加代码可读性和可维护性，建议使用jdk7 提供的新特性try-with-r" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JDK7的try-with-resource方式的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">JDK7的try-with-resource方式的使用</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>如果使用传统try-catch-finally管理资源链接，代码可能是下面这样，finally代码远远多于业务代码。 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/1fc49bb3150cf3b8a5a530b90284fdc1.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 为了增加代码可读性和可维护性，建议使用jdk7 提供的新特性try-with-resource（只能在表面上省去finally块关闭资源的逻辑）： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/ae69b214f7d1c2fcd1e828b996b64f5a.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 即：try(资源定义){ <br /> 业务逻辑 <br /> } <br /> 其实这只是个语法糖，因为编译时编译器会自动帮代码加上finally并调用close方法（前提是这些资源类都实现了Closeable接口）。（将你编译好的.class文件拖入idea即可看到编译后的代码（idea可以反编译出来）） <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/58fdf987ca7027267d2de63e04464f1d.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 可以看出finally代码块中除了正常关闭连接代码外，还包含了addSuppressed()方法，这个方法作用是保证一个异常不被另外一个异常抑制而无法抛出，比如try-catch块代码抛异常，程序会继续执行finally代码，但如果finally代码又抛错，就会导致try-catch的异常无法正常抛出，此时可以使用addSuppressed()方法可以将被抑制的异常也抛出。 <br /> 参考链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/fhd/blog/324484"  rel="nofollow">https://my.oschina.net/fhd/blog/324484</a>。 <br /> try-with-resource代码确实好用，程序可读性有所提高。但看着上面第二张图片的代码，你是否怀疑资源最大可能被关闭？是否编译器加上的fin.close()方法和out.close()方法就完整了？不是的。请看GZIPOutputStream类的close()方法 <br /> 下面是GZIPOutputStream类的父类的close()方法（GZIPOutputStream类没重写） <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/1708a93e6512a1a7b9985b2e3b5e5c35.jpg" alt="JDK7的try-with-resource方式的使用"><br /> close()方法时先调用finish()方法再调用out.close()方法，所以如果finish()方法顺利执行，那么out.close()方法确实可以顺利执行。 <br /> 但进去finish()方法看看， <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/b101979a395a38403d1b08952fc60ec1.jpg" alt="JDK7的try-with-resource方式的使用"><br /> finish()方法是声明了会抛异常的，也就是finish()方法不见得一定正常执行，也就导致了out.close()方法在finish()方法抛异常时不能被调用，进而导致资源没有被关闭。 <br /> 对于各个资源类的包装类，内部都是使用装饰者模式实现的，例子中调用out.close()方法，深层次还是调用FileOutputStream类的close方法，既然这样，我们程序就应该最大程度确保最内层资源的close()方法被调用（就算包装类的close()方法抛异常），才能最大程度上保证资源被关闭。 <br /> 因此上面try-with-resource例子的流嵌套是不合理的，应该使用下面这种方式（分开定义每个Closeable类的资源）： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/c613f6734459734b8afe67afc7e91d45.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 看上面分开定义后编译生成的代码（如下）： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/4aa9660752c4dc319dc48174bc9221f8.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 显然，每一层Closeable类的资源的close()方法都被显式地调用。保证了资源最大程度的关闭。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87704.htm">125型饲料颗粒机价格（125饲料颗粒机多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-88463.htm">安装引入axios</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-69813.htm" title="动物疫苗可以带上高铁吗（动物疫苗能放冰箱吗）">动物疫苗可以带上高铁吗（动物疫苗能放冰箱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-82691.htm" title="Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(SQL支持和变通方案)">Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(SQL支持和变通方案)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-free-node-subscribe-links.htm" title="4月4日→19.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月4日→19.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80615.htm" title="一个完整的pytorch预训练实现图像分类，模型融合">一个完整的pytorch预训练实现图像分类，模型融合</a></li>
+                        <li class="py-2"><a href="/news/article-86257.htm" title="在小程序当中渲染树">在小程序当中渲染树</a></li>
+                        <li class="py-2"><a href="/news/article-80616.htm" title="Vue项目中v-bind动态绑定src路径不成功问题及解决_vue.js">Vue项目中v-bind动态绑定src路径不成功问题及解决_vue.js</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月1日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-85535.htm" title="动物医院24小时全天候诊多少钱（动物医院收费）">动物医院24小时全天候诊多少钱（动物医院收费）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-high-speed-nodes.htm" title="3月2日→19M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月2日→19M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86258.htm" title="三国杀武将翻面有什么用（三国杀中武将翻面什么意思）">三国杀武将翻面有什么用（三国杀中武将翻面什么意思）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>

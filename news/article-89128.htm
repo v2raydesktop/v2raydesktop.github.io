@@ -1,0 +1,339 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-89128.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java 常见的限流算法详细分析并实现_java</title>
+        <meta name="description" content="目录  为什么要限流 限流算法 计数器限流 漏桶限流 令牌桶限流    为什么要限流 在保证可用的情况下尽可能多增加进入的人数,其余的人在排队等待,或者返回友好提示,保证里面的进行系统的用户可以正常使" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-89128.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="Java 常见的限流算法详细分析并实现_java" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/040948324965e4625c68060bf4791995.webp" />
+        <meta property="og:release_date" content="2025-04-05T08:20:19" />
+    <meta property="og:updated_time" content="2025-04-05T08:20:19" />
+        <meta property="og:description" content="目录  为什么要限流 限流算法 计数器限流 漏桶限流 令牌桶限流    为什么要限流 在保证可用的情况下尽可能多增加进入的人数,其余的人在排队等待,或者返回友好提示,保证里面的进行系统的用户可以正常使" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 常见的限流算法详细分析并实现_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">Java 常见的限流算法详细分析并实现_java</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">为什么要限流</a></li> <li><a href="#_label1" rel="nofollow">限流算法</a></li> <li><a href="#_label2" rel="nofollow">计数器限流</a></li> <li><a href="#_label3" rel="nofollow">漏桶限流</a></li> <li><a href="#_label4" rel="nofollow">令牌桶限流</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>为什么要限流</h2> <p>在保证可用的情况下尽可能多增加进入的人数,其余的人在排队等待,或者返回友好提示,保证里面的进行系统的用户可以正常使用，防止系统雪崩。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>限流算法</h2> <p>限流算法很多,常见的有三类,分别是 计数器算法 、漏桶算法、令牌桶算法 。</p> <p>（1）计数器：</p> <p>          在一段时间间隔内，处理请求的最大数量固定，超过部分不做处理。</p> <p>（2）漏桶：</p> <p>          漏桶大小固定，处理速度固定，但请求进入速度不固定（在突发情况请求过多时，会丢弃过多的请求）。</p> <p>（3）令牌桶：</p> <p>          令牌桶的大小固定，令牌的产生速度固定，但是消耗令牌（即请求）速度不固定（可以应对一些某些时间请求过多的情况）；每个请求都会从令牌桶中取出令牌，如果没有令牌则丢弃该次请求。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>计数器限流</h2> <p>在一段时间间隔内，处理请求的最大数量固定，超过部分不做处理。</p> <p>举个例子,比如我们规定对于A接口，我们1分钟的访问次数不能超过100次。</p> <p>那么我们可以这么做：</p> <p>在一开 始的时候，我们可以设置一个计数器counter，每当一个请求过来的时候，counter就加1，如果counter的值大于100并且该请求与第一个请求的间隔时间还在1分钟之内，那么说明请求数过多,拒绝访问；</p> <p>如果该请求与第一个请求的间隔时间大于1分钟，且counter的值还在限流范围内，那么就重置 counter,就是这么简单粗暴。</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/0a487790d01b31449d834359aa43b765.jpg" alt="Java 常见的限流算法详细分析并实现_java"></p> <p>代码实现： </p> <div class="ay1code"> <pre class="brush:java;">  import java.util.concurrent.CountDownLatch;  import java.util.concurrent.ExecutorService;  import java.util.concurrent.Executors;  import java.util.concurrent.atomic.AtomicInteger;  import java.util.concurrent.atomic.AtomicLong;    //计数器 限流  public class CounterLimiter {        //起始时间      private static long startTime = System.currentTimeMillis();        //时间间隔1000ms      private static long interval = 1000;        //每个时间间隔内，限制数量      private static long limit = 3;        //累加器      private static AtomicLong accumulator = new AtomicLong();        /**       * true 代表放行，请求可已通过       * false 代表限制，不让请求通过       */      public static boolean tryAcquire() {          long nowTime = System.currentTimeMillis();          //判断是否在上一个时间间隔内          if (nowTime &lt; startTime + interval) {              //如果还在上个时间间隔内              long count = accumulator.incrementAndGet();              if (count &lt;= limit) {                  return true;              } else {                  return false;              }          } else {              //如果不在上一个时间间隔内              synchronized (CounterLimiter.class) {                  //防止重复初始化                  if (nowTime &gt; startTime + interval) {                      startTime = nowTime;                      accumulator.set(0);                  }              }              //再次进行判断              long count = accumulator.incrementAndGet();              if (count &lt;= limit) {                  return true;              } else {                  return false;              }          }      }          // 测试      public static void main(String[] args) {            //线程池，用于多线程模拟测试          ExecutorService pool = Executors.newFixedThreadPool(10);          // 被限制的次数          AtomicInteger limited = new AtomicInteger(0);          // 线程数          final int threads = 2;          // 每条线程的执行轮数          final int turns = 20;          // 同步器          CountDownLatch countDownLatch = new CountDownLatch(threads);          long start = System.currentTimeMillis();          for (int i = 0; i &lt; threads; i++) {              pool.submit(() -&gt;              {                  try {                        for (int j = 0; j &lt; turns; j++) {                            boolean flag = tryAcquire();                          if (!flag) {                              // 被限制的次数累积                              limited.getAndIncrement();                          }                          Thread.sleep(200);                      }                    } catch (Exception e) {                      e.printStackTrace();                  }                  //等待所有线程结束                  countDownLatch.countDown();              });          }          try {              countDownLatch.await();          } catch (InterruptedException e) {              e.printStackTrace();          }          float time = (System.currentTimeMillis() - start) / 1000F;          //输出统计结果          System.out.println("限制的次数为：" + limited.get() +                  ",通过的次数为：" + (threads * turns - limited.get()));          System.out.println("限制的比例为：" + (float) limited.get() / (float) (threads * turns));          System.out.println("运行的时长为：" + time + "s");      }    }    </pre> </div> <p>计数器限流的不足： </p> <p>这个算法虽然简单，但是存在临界问题，我们看下图：</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/37b6d8cb38f2a9870bc7e73a8114ff41.jpg" alt="Java 常见的限流算法详细分析并实现_java"></p> <p>从上图中我们可以看到，假设有一个恶意用户，他在0:59时，瞬间发送了100个请求，并且1:00又瞬间发送了100个请求，那么其实这个用户在 1秒里面，瞬间发送了200个请求。</p> <p>我们刚才规定的是1分钟最多100个请求（规划的吞吐量），也就是每秒钟最多1.7个请求，用户通过在时间窗口的重置节点处突发请求， 可以瞬间超过我们的速率限制。</p> <p>用户有可能通过算法的这个漏洞，瞬间压垮我们的应用。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>漏桶限流</h2> <p>漏桶算法限流的基本原理为：水（对应请求）从进水口进入到漏桶里，漏桶以一定的速度出水（请求放行），当水流入速度过大，桶内的总水量大于桶容量会直接溢出，请求被拒绝。</p> <p>大致的漏桶限流规则如下：</p> <p>（1）进水口（对应客户端请求）以任意速率流入进入漏桶。</p> <p>（2）漏桶的容量是固定的，出水（放行）速率也是固定的。</p> <p>（3）漏桶容量是不变的，如果处理速度太慢，桶内水量会超出了桶的容量，则后面流入的水滴会溢出，表示请求拒绝。</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/9c68d254df89612d22658c5a1443e5c4.jpg" alt="Java 常见的限流算法详细分析并实现_java"></p> <p>⭐漏桶算法其实很简单，可以粗略的认为就是注水漏水过程，往桶中以任意速率流入水，以一定速率流出水，当水超过桶容量（capacity）则丢弃，因为桶容量是不变的，保证了整体的速率。</p> <p>以一定速率流出水，</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/37aacf26e3266ad0c64b88bb83c04842.jpg" alt="Java 常见的限流算法详细分析并实现_java"></p> <p>削峰： 有大量流量进入时,会发生溢出,从而限流保护服务可用</p> <p>缓冲： 不至于直接请求到服务器, 缓冲压力</p> <p>代码实现： </p> <div class="ay1code"> <pre class="brush:java;">  import java.util.concurrent.CountDownLatch;  import java.util.concurrent.ExecutorService;  import java.util.concurrent.Executors;  import java.util.concurrent.atomic.AtomicInteger;  import java.util.concurrent.atomic.AtomicLong;    //漏斗限流  public class LeakBucketLimiter {        //桶的大小      private static long capacity = 10;      //流出速率,每秒两个      private static long rate = 2;      //开始时间      private static long startTime = System.currentTimeMillis();      //桶中剩余的水      private static AtomicLong water = new AtomicLong();        /**       * true 代表放行，请求可已通过       * false 代表限制，不让请求通过       */      public synchronized static boolean tryAcquire() {          //如果桶的余量问0，直接放行          if (water.get() == 0) {              startTime = System.currentTimeMillis();              water.set(1);              return true;          }          //计算从当前时间到开始时间流出的水，和现在桶中剩余的水          //桶中剩余的水          water.set(water.get() - (System.currentTimeMillis() - startTime) / 1000 * rate);          //防止出现&lt;0的情况          water.set(Math.max(0, water.get()));          //设置新的开始时间          startTime += (System.currentTimeMillis() - startTime) / 1000 * 1000;          //如果当前水小于容量，表示可以放行          if (water.get() &lt; capacity) {              water.incrementAndGet();              return true;          } else {              return false;          }      }          // 测试      public static void main(String[] args) {            //线程池，用于多线程模拟测试          ExecutorService pool = Executors.newFixedThreadPool(10);          // 被限制的次数          AtomicInteger limited = new AtomicInteger(0);          // 线程数          final int threads = 2;          // 每条线程的执行轮数          final int turns = 20;          // 同步器          CountDownLatch countDownLatch = new CountDownLatch(threads);          long start = System.currentTimeMillis();          for (int i = 0; i &lt; threads; i++) {              pool.submit(() -&gt;              {                  try {                        for (int j = 0; j &lt; turns; j++) {                            boolean flag = tryAcquire();                          if (!flag) {                              // 被限制的次数累积                              limited.getAndIncrement();                          }                          Thread.sleep(200);                      }                    } catch (Exception e) {                      e.printStackTrace();                  }                  //等待所有线程结束                  countDownLatch.countDown();              });          }          try {              countDownLatch.await();          } catch (InterruptedException e) {              e.printStackTrace();          }          float time = (System.currentTimeMillis() - start) / 1000F;          //输出统计结果          System.out.println("限制的次数为：" + limited.get() +                  ",通过的次数为：" + (threads * turns - limited.get()));          System.out.println("限制的比例为：" + (float) limited.get() / (float) (threads * turns));          System.out.println("运行的时长为：" + time + "s");      }    }  </pre> </div> <p>漏桶的不足： </p> <p>漏桶的出水速度固定，也就是请求放行速度是固定的。</p> <p>漏桶出口的速度固定，不能灵活的应对后端能力提升。比如，通过动态扩容，后端流量从1000QPS提升到1WQPS，漏桶没有办法。</p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>令牌桶限流</h2> <p>令牌桶算法中新请求到来时会从桶里拿走一个令牌，如果桶内没有令牌可拿，就拒绝服务。 当然，令牌的数量也是有上限的。令牌的数量与时间和发放速率强相关，时间流逝的时间越长，会不断往桶里加入越多的令牌，如果令牌发放的速度比申请速度快，令牌桶会放满令牌，直到令牌占满整个令牌桶。</p> <p>令牌桶限流大致的规则如下：</p> <p>（1）进水口按照某个速度，向桶中放入令牌。</p> <p>（2）令牌的容量是固定的，但是放行的速度不是固定的，只要桶中还有剩余令牌，一旦请求过来就能申请成功，然后放行。</p> <p>（3）如果令牌的发放速度，慢于请求到来速度，桶内就无牌可领，请求就会被拒绝。</p> <p>总之，令牌的发送速率可以设置，从而可以对突发的出口流量进行有效的应对。</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/7ef06b69de97ce2f6c83443376f961bf.jpg" alt="Java 常见的限流算法详细分析并实现_java"></p> <p>代码实现： </p> <div class="ay1code"> <pre class="brush:java;">  import java.util.concurrent.CountDownLatch;  import java.util.concurrent.ExecutorService;  import java.util.concurrent.Executors;  import java.util.concurrent.atomic.AtomicInteger;  import java.util.concurrent.atomic.AtomicLong;    //令牌桶  public class TokenBucketLimiter {      //桶的容量      private static long capacity = 10;      //放入令牌的速率,每秒2个      private static long rate = 2;      //上次放置令牌的时间      private static long lastTime = System.currentTimeMillis();      //桶中令牌的余量      private static AtomicLong tokenNum = new AtomicLong();        /**       * true 代表放行，请求可已通过       * false 代表限制，不让请求通过       */      public synchronized static boolean tryAcquire() {          //更新桶中剩余令牌的数量          long now = System.currentTimeMillis();          tokenNum.addAndGet((now - lastTime) / 1000 * rate);          tokenNum.set(Math.min(capacity, tokenNum.get()));          //更新时间          lastTime += (now - lastTime) / 1000 * 1000;          //桶中还有令牌就放行          if (tokenNum.get() &gt; 0) {              tokenNum.decrementAndGet();              return true;          } else {              return false;          }      }          //测试      public static void main(String[] args) {            //线程池，用于多线程模拟测试          ExecutorService pool = Executors.newFixedThreadPool(10);          // 被限制的次数          AtomicInteger limited = new AtomicInteger(0);          // 线程数          final int threads = 2;          // 每条线程的执行轮数          final int turns = 20;          // 同步器          CountDownLatch countDownLatch = new CountDownLatch(threads);          long start = System.currentTimeMillis();          for (int i = 0; i &lt; threads; i++) {              pool.submit(() -&gt;              {                  try {                        for (int j = 0; j &lt; turns; j++) {                            boolean flag = tryAcquire();                          if (!flag) {                              // 被限制的次数累积                              limited.getAndIncrement();                          }                          Thread.sleep(200);                      }                    } catch (Exception e) {                      e.printStackTrace();                  }                  //等待所有线程结束                  countDownLatch.countDown();              });          }          try {              countDownLatch.await();          } catch (InterruptedException e) {              e.printStackTrace();          }          float time = (System.currentTimeMillis() - start) / 1000F;          //输出统计结果          System.out.println("限制的次数为：" + limited.get() +                  ",通过的次数为：" + (threads * turns - limited.get()));          System.out.println("限制的比例为：" + (float) limited.get() / (float) (threads * turns));          System.out.println("运行的时长为：" + time + "s");      }    }  </pre> </div> <p>令牌桶的好处： </p> <p>令牌桶的好处之一就是可以方便地应对 突发出口流量（后端能力的提升）。</p> <p>比如，可以改变令牌的发放速度，算法能按照新的发送速率调大令牌的发放数量，使得出口突发流量能被处理。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88463.htm">安装引入axios</a></p>
+                                        <p>下一个：<a href="/news/article-89129.htm">宠物粮食品牌上市公司有哪些股票 宠物粮食品牌上市公司有哪些股票龙头</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-node-share.htm" title="3月21日→19.9M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月21日→19.9M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81302.htm" title="记一次RabbitMQ连接阻塞，全部队列不消费异常">记一次RabbitMQ连接阻塞，全部队列不消费异常</a></li>
+                        <li class="py-2"><a href="/news/article-69177.htm" title="动物疫苗发展前景如何论文（动物疫苗发展前景如何论文结尾）">动物疫苗发展前景如何论文（动物疫苗发展前景如何论文结尾）</a></li>
+                        <li class="py-2"><a href="/news/article-83399.htm" title="包含重庆宠物领养平台电话是多少的词条">包含重庆宠物领养平台电话是多少的词条</a></li>
+                        <li class="py-2"><a href="/news/article-66607.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-high-speed-nodes.htm" title="3月31日→18.6M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月31日→18.6M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-83400.htm" title="宠物粮加工设备赚钱吗 宠物粮食加工设备贵吗">宠物粮加工设备赚钱吗 宠物粮食加工设备贵吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-high-speed-nodes.htm" title="3月6日→20.5M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月6日→20.5M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65975.htm" title="牛羊兽药批发网（牛羊兽药做的最好的公司）">牛羊兽药批发网（牛羊兽药做的最好的公司）</a></li>
+                        <li class="py-2"><a href="/news/article-81989.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
