@@ -1,0 +1,339 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-92869.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SpringCloud Gateway详解与配置</title>
+        <meta name="description" content="从0到1构建Gateway 手动构建 基本配置 Route组成 配置方式 &nbsp;1.yml文件配置 &nbsp;2.New Bean配置 常用的 Route Predicate Factory介" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-92869.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="SpringCloud Gateway详解与配置" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/ddbd95ac518cb3e10bbbf04d40e8c6c4.webp" />
+        <meta property="og:release_date" content="2025-04-10T08:19:25" />
+    <meta property="og:updated_time" content="2025-04-10T08:19:25" />
+        <meta property="og:description" content="从0到1构建Gateway 手动构建 基本配置 Route组成 配置方式 &nbsp;1.yml文件配置 &nbsp;2.New Bean配置 常用的 Route Predicate Factory介" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringCloud Gateway详解与配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">SpringCloud Gateway详解与配置</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><a href="#%E4%BB%8E0%E5%88%B01%E6%9E%84%E5%BB%BAGateway" rel="nofollow">从0到1构建Gateway</a></p> <p id="%E6%89%8B%E5%8A%A8%E6%9E%84%E5%BB%BA-toc" style="margin-left:40px;"><a href="#%E6%89%8B%E5%8A%A8%E6%9E%84%E5%BB%BA" rel="nofollow">手动构建</a></p> <p id="%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE-toc" style="margin-left:0px;"><a href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE" rel="nofollow">基本配置</a></p> <p id="Route%E7%BB%84%E6%88%90-toc" style="margin-left:40px;"><a href="#Route%E7%BB%84%E6%88%90" rel="nofollow">Route组成</a></p> <p id="%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F-toc" style="margin-left:40px;"><a href="#%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F" rel="nofollow">配置方式</a></p> <p id="%C2%A0yml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE-toc" style="margin-left:80px;"><a href="#%C2%A0yml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE" rel="nofollow">&nbsp;1.yml文件配置</a></p> <p id="%C2%A0New%20Bean%E9%85%8D%E7%BD%AE-toc" style="margin-left:80px;"><a href="#%C2%A0New%20Bean%E9%85%8D%E7%BD%AE" rel="nofollow">&nbsp;2.New Bean配置</a></p> <p id="%E5%B8%B8%E7%94%A8%E7%9A%84%20Route%20Predicate%20Factory%E4%BB%8B%E7%BB%8D-toc" style="margin-left:40px;"><a href="#%E5%B8%B8%E7%94%A8%E7%9A%84%20Route%20Predicate%20Factory%E4%BB%8B%E7%BB%8D" rel="nofollow">常用的 Route Predicate Factory介绍</a></p> <hr id="hr-toc"/> </h1> <blockquote> <p>用来构建 API 网关。Spring Cloud Gateway 旨在提供一种简单而有效的方式来路由到 API，并为它们提供横切关注点，例如：安全性、监控/指标和弹性。</p> </blockquote> <hr/> </h1> <div> <ul> <li><span style="color:#0d0016;">动态路由：能够匹配任何请求属性的路由</span></li> <li><span style="color:#0d0016;">谓词和过滤器特定于路由</span></li> <li><span style="color:#0d0016;">熔断器集成</span></li> <li><span style="color:#0d0016;">易于编写谓词和过滤器</span></li> <li><span style="color:#0d0016;">集成SpringCloud的服务发现功能</span></li> <li><span style="color:#0d0016;">请求速率限制</span></li> <li><span style="color:#0d0016;">路径重写</span></li> </ul> <hr/> </h1> <h2 id="%E6%89%8B%E5%8A%A8%E6%9E%84%E5%BB%BA">手动构建</h2> <p><strong>1.点击<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://start.spring.io/#!type=maven-project&amp;language=java&amp;platformVersion=2.5.5&amp;packaging=jar&amp;jvmVersion=11&amp;groupId=com.example&amp;artifactId=gateway&amp;name=gateway&amp;description=Demo%20project%20for%20Spring%20Boot&amp;packageName=com.example.gateway&amp;dependencies=cloud-gateway,cloud-resilience4j,cloud-contract-stub-runner"  title="SpringGateway初始化" rel="nofollow">SpringGateway初始化</a>&nbsp;会显示如下页面，点击GENRATE下载配置好的压缩包。</strong></p> <blockquote> <p>请按需和实际场景选择 构建方式、语言、SpringBoot版本、打包方式和Java版本。</p> </blockquote> <p><img fetchpriority="high" decoding="async" alt="" height="970" src="http://img.555519.xyz/uploads3/20220828/5d1696fe873f35b9749aa7f6ec220d00.jpg"></p> <h3 id="%C2%A02.%E8%A7%A3%E5%8E%8B%E7%BC%A9%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%9A%84Gateway%E9%A1%B9%E7%9B%AE%E5%8E%8B%E7%BC%A9%E5%8C%85%EF%BC%8C%E7%94%A8%E4%BD%A0%E5%96%9C%E6%AC%A2%E7%9A%84IDE%E6%89%93%E5%BC%80%EF%BC%8C%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%A6%82%E4%B8%8B%EF%BC%9A">&nbsp;2.解压缩下载好的Gateway项目压缩包，用你喜欢的IDE打开，项目结构如下：</h3> <p><img decoding="async" alt="" height="989" src="http://img.555519.xyz/uploads3/20220828/2b51bee59d1bacbb88d9cba3dd0331b7.jpg"></p> </h1> <h2 id="Route%E7%BB%84%E6%88%90">Route组成</h2> <p>Route是网关的基本组成单元，它是由ID，目标URI和一组predicates和一组filters组成，如果一组断言结果为真，则匹配路由，目标URI会被访问。</p> <blockquote> <p><strong>注意：</strong></p> <ul> <li>多个 Predicate 之间是 逻辑and 的关系。</li> <li>多个Predicate是从定义的顺序从上到下依次执行,也可以指定 order 属性的值。</li> </ul> </blockquote> <h2 id="%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">配置方式</h2> <p>Gateway 提供了两种不同的方式来配置路由，一种是通过yml文件来配置，另一种是通过New Bean来配置。</p> <blockquote> <p><strong>uri解析</strong></p> <ul> <li>http前缀</li> </ul> <p>&nbsp; &nbsp; &nbsp; &nbsp; 路由匹配完成后跳转到此地址</p> <ul> <li>lb前缀</li> </ul> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lb代表负载均衡，service-name代表服务注册中心该服务注册的服务名</p> </blockquote> <h3 id="%C2%A0yml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE">&nbsp;yml文件配置</h3> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:           #路由的ID 唯一即可         - id: USER-CENTER           #路由的地址           uri:  http://localhost:8888/          #uri:  lb://service-name            predicates:             - Path=/user/**</code></pre> </div> <h3 id="%C2%A0New%20Bean%E9%85%8D%E7%BD%AE">&nbsp;New Bean配置</h3> <pre><code class="language-java">package com.example.gateway.config;  import org.springframework.cloud.gateway.route.RouteLocator; import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration;  /**  * @author Yellow Duck ????  * @date 2022-04-27 15:21  */ @Configuration public class GatewayConfig {      @Bean     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {         return builder.routes()                 //配置路由                 .route("USER-CENTER", r -&gt; r.path("/user")                         .uri("http://localhost:8888"))                 .build();     } }</code></pre> <p><strong>使用效果：</strong></p> <ul> <li>启动服务后，可以通过终端或者Postman等工具调用<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8889/user"  title="http://localhost:8889/user" rel="nofollow">http://localhost:8889/user</a></li> <li>会发现请求被路由转发到<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8888/user"  title="http://localhost:8888/user" rel="nofollow">http://localhost:8888/user</a></li> </ul> <div> <p><img decoding="async" alt="" height="371" src="http://img.555519.xyz/uploads3/20220828/3422f1ae7c902a8ff1c32b46e30b4ced.jpg"></p> </div> <h2 id="%E5%B8%B8%E7%94%A8%E7%9A%84%20Route%20Predicate%20Factory%E4%BB%8B%E7%BB%8D">Route Predicate Factory</h2> <h3 id="1.After">1.After</h3> <p>&nbsp;作用：请求在指定时间<span style="color:#fe2c24;">之后</span>才匹配</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:                 - After=2022-04-27T16:35:04.030+08:00[Asia/Shanghai]</code></pre> <h3 id="2.Before%C2%A0">2.Before</h3> <p>&nbsp;作用：请求在指定时间<span style="color:#fe2c24;">之前</span>才匹配</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:                 - Before=2022-04-27T16:35:04.030+08:00[Asia/Shanghai]</code></pre> <h3 id="3.Between%C2%A0">3.Between</h3> <p>作用：请求在指定时间<span style="color:#fe2c24;">区间之内</span>才匹配，</p> <p>????：第一个时间需要小于第二个时间。</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Between=2022-04-22T16:00:00.020+08:00[Asia/Shanghai],2022-04-22T16:30:00.020+08:00[Asia/Shanghai]</code></pre> <h3 id="4.Cookie%C2%A0">4.Cookie</h3> <p>作用：请求携带<span style="color:#fe2c24;">指定Cookie</span>才匹配<br /> ????：只有当请求Cookie中带有 name=yellowDuck 才可以匹配到此路由</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Cookie=name,yellowDuck</code></pre> <h3 id="5.Header%C2%A0">5.Header</h3> <p>作用：请求携带<span style="color:#fe2c24;">指定Header</span>才匹配</p> <p>????：只有当请求Header种中带有 X-User-Id:001&nbsp;才可以匹配到此路由，其中\d+为校验数字正则表达式，可以根据需要自己定制。</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Header=X-User-Id,\d+</code></pre> <h3 id="6.Host">6.Host</h3> <p>作用：请求携带<span style="color:#fe2c24;">指定Host</span>才匹配</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Host=**.yellowDuck.com</code></pre> <h3 id="7.Method%C2%A0">7.Method</h3> <p>作用：请求<span style="color:#fe2c24;">指定Mehtod请求方式</span>才匹配</p> <p>????：只有GET,POST,DELETE请求才可以访问</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Method=GET,POST,DELETE</code></pre> <h3 id="8.Path%C2%A0">8.Path</h3> <p>作用：请求<span style="color:#fe2c24;">路径</span>匹配</p> <p>????：只有包含配置的路径才可以匹配 也可以支持/duck/{color}参数形式</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Path=/duck/**</code></pre> <h3 id="9.Query%C2%A0">9.Query</h3> <p>作用：请求<span style="color:#fe2c24;">参数包含</span><span style="color:#0d0016;">才</span>匹配</p> <p>????：请求中必须有duck这个参数才可以访问</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Query=duck</code></pre> <h3 id="10.RemoteAddr%C2%A0">10.RemoteAddr</h3> <p>作用：请求的<span style="color:#fe2c24;">IP/IP段</span>一致才可以访问</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - RemoteAddr=127.0.0.1/24</code></pre> <h3 id="11.Weight%C2%A0">11.Weight</h3> <p>作用：根据<span style="color:#fe2c24;">权重</span>的分配路由到相应的请求</p> <p>????：group分组，wight权重，是一个int值，下面代表有90%的请求会分配到<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8888/"  title="http://localhost:8888/" rel="nofollow">http://localhost:8888/</a>有10%请求会分配到<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8887"  title="http://localhost:8887" rel="nofollow">http://localhost:8887</a></p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           predicates:             - Weight=group1,9         - id: DUCK-CENTER #路由的ID           uri: http://localhost:8887/ #匹配后路由地址           predicates:             - Weight=group2,1</code></pre> <h2>Route Filters</h2> <blockquote> <p>过滤器 Filter 将会对请求和响应进行修改处理，路由过滤器只能指定路由进行使用。</p> </blockquote> <h3>1.AddRequestParameter</h3> <p>作用：对请求<span style="color:#fe2c24;">添加参数</span></p> <p>????：如下对GET请求添加 duck=yellow 相当于 ?duck=yellow</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           filters:             - AddRequestParameter=duck,yellow           predicates:             - Method=GET</code></pre> <h3>2.StripPrefix GatewayFilter</h3> <p>作用：对<span style="color:#fe2c24;">指定数量的路径</span>进行<span style="color:#fe2c24;">删除</span>过滤</p> <p>????：比如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8888/duck/yellow/big"  title="http://localhost:8888/yellow/big/duck" rel="nofollow">http://localhost:8888/yellow/big/duck</a>&nbsp;过滤前两个路径后会变成<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8888/duck/yellow/big"  title="http://localhost:8888/duck" rel="nofollow">http://localhost:8888/duck</a></p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           filters:             - Path=/duck/**           predicates:             - StripPrefix=2</code></pre> <h3>3.PrefixPath GatewayFilter</h3> <p>作用：对<span style="color:#fe2c24;">指定的路径</span>进行<span style="color:#fe2c24;">增加</span></p> <p>&nbsp;????：比如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8888/duck/yellow/big"  title="http://localhost:8888/duck" rel="nofollow">http://localhost:8888/duck</a>&nbsp;过滤增加路径后会变成<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8888/duck/yellow/big"  title="http://localhost:8888/yellow/duck" rel="nofollow">http://localhost:8888/yellow/duck</a></p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           filters:             - Method=POST           predicates:             - PrefixPath=/yellow</code></pre> <h3>4.Hystrix GatewayFilter</h3> <p>&nbsp;1.首先需要添加Hystrix依赖，Hystrix提供了熔断和降级。</p> <pre><code>&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>2.编写服务降级的处理类</p> <pre><code class="language-java">package com.gostop.cloud.gateway.config;  import com.gostop.cloud.gateway.handle.HystrixFallbackHandler; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import org.springframework.http.MediaType; import org.springframework.web.reactive.function.server.RequestPredicates; import org.springframework.web.reactive.function.server.RouterFunction; import org.springframework.web.reactive.function.server.RouterFunctions;  /**  *  * @date 2022-04-28 15:02  * @author YellowDuck  */ @Configuration public class GatewayFallbackConfiguration {      @Autowired     private HystrixFallbackHandler hystrixFallbackHandler;      @Bean     public RouterFunction routerFunction() {         return RouterFunctions.route(                 RequestPredicates.GET("/defaultfallback")                         .and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), hystrixFallbackHandler);     } }</code></pre> <pre><code>package com.gostop.cloud.gateway.handle;  import lombok.extern.slf4j.Slf4j; import org.springframework.cloud.gateway.support.ServerWebExchangeUtils; import org.springframework.http.HttpStatus; import org.springframework.http.MediaType; import org.springframework.stereotype.Component; import org.springframework.web.reactive.function.BodyInserters; import org.springframework.web.reactive.function.server.HandlerFunction; import org.springframework.web.reactive.function.server.ServerRequest; import org.springframework.web.reactive.function.server.ServerResponse; import reactor.core.publisher.Mono;   /**  * 覆盖异常处理  * @date 2022-04-28 15:03  * @author Yellow Duck  */ @Slf4j @Component public class HystrixFallbackHandler implements HandlerFunction&lt;ServerResponse&gt; {      @Override     public Mono&lt;ServerResponse&gt; handle(ServerRequest serverRequest) {         serverRequest.attribute(ServerWebExchangeUtils.GATEWAY_ORIGINAL_REQUEST_URL_ATTR)                 .ifPresent(originalUrls -&gt; log.error("=====网关执行请求:{}失败,服务降级处理=====", originalUrls));          return ServerResponse                 .status(HttpStatus.INTERNAL_SERVER_ERROR)                 .contentType(MediaType.APPLICATION_JSON_UTF8)                 .body(BodyInserters.fromValue("网络繁忙！"));     } }</code></pre> <p>作用：提供了熔断和降级功能</p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           filters:             - name: Hystrix               args:                 name: fallback                 fallbackUri: forward:/defaultfallback           predicates:             - Method=GET</code></pre> <h3>5.RequestRateLimiter GatewayFilter</h3> <p>引入Redis限流</p> <pre><code>&lt;dependency&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-starter-data-redis-reactive&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>作用：用于<span style="color:#fe2c24;">限流</span></p> <pre><code>#GateWay项目端口号 server:   port: 8889 spring:   cloud:     gateway:       routes:         - id: USER-CENTER #路由的ID           uri:  http://localhost:8888/ #匹配后路由地址           filters:             - name: RequestRateLimiter               args:                 #每秒允许处理的请求数量                 redis-rate-limiter.replenishRate: 10                  #每秒最大处理的请求数量                 redis-rate-limiter.burstCapacity: 20                  redis-rate-limiter.requestedTokens: 1           predicates:             - Method=GET,POST</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-92152.htm">国产十大品牌狗粮的排行榜（国产狗粮品牌推荐）</a></p>
+                                        <p>下一个：<a href="/news/article-92870.htm">什么是Python高阶函数</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-86977.htm" title="中国农业大学动物医院地址在哪里啊（中国农业大学动物医院地址在哪里啊）">中国农业大学动物医院地址在哪里啊（中国农业大学动物医院地址在哪里啊）</a></li>
+                        <li class="py-2"><a href="/news/article-87703.htm" title="动物免疫接种实验原理（动物免疫接种实验原理图）">动物免疫接种实验原理（动物免疫接种实验原理图）</a></li>
+                        <li class="py-2"><a href="/news/article-80616.htm" title="Vue项目中v-bind动态绑定src路径不成功问题及解决_vue.js">Vue项目中v-bind动态绑定src路径不成功问题及解决_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-85534.htm" title="Metalama简介4.使用Fabric操作项目或命名空间">Metalama简介4.使用Fabric操作项目或命名空间</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-high-speed-nodes.htm" title="4月7日→21.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月7日→21.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-67247.htm" title="上海有没有宠物领养机构啊（上海有宠物领养的市集活动吗?）">上海有没有宠物领养机构啊（上海有宠物领养的市集活动吗?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-node-share.htm" title="3月18日→20.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月18日→20.8M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-90622.htm" title="EditText 不显示光标  光标消失">EditText 不显示光标  光标消失</a></li>
+                        <li class="py-2"><a href="/news/article-92152.htm" title="国产十大品牌狗粮的排行榜（国产狗粮品牌推荐）">国产十大品牌狗粮的排行榜（国产狗粮品牌推荐）</a></li>
+                        <li class="py-2"><a href="/news/article-67246.htm" title="宠物领养协议法律效力怎么写 宠物领养协议法律效力怎么写的">宠物领养协议法律效力怎么写 宠物领养协议法律效力怎么写的</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
