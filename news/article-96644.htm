@@ -1,0 +1,339 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-96644.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue-cli项目添加骨架屏多种方式，自动生成骨架屏</title>
+        <meta name="description" content="vue-cli项目首页加载缓慢想要使用骨架屏效果，经过几天的踩坑，这里学习并记录一下vue项目自动生成骨架屏方法。 添加骨架屏，其优势在于：  写于HTML文件中，独立于Vue框架，节省了JS加载时间" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-96644.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="vue-cli项目添加骨架屏多种方式，自动生成骨架屏" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/938012d4e4482834282c88098893168e.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:01:56" />
+    <meta property="og:updated_time" content="2025-04-15T06:01:56" />
+        <meta property="og:description" content="vue-cli项目首页加载缓慢想要使用骨架屏效果，经过几天的踩坑，这里学习并记录一下vue项目自动生成骨架屏方法。 添加骨架屏，其优势在于：  写于HTML文件中，独立于Vue框架，节省了JS加载时间" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue-cli项目添加骨架屏多种方式，自动生成骨架屏">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">vue-cli项目添加骨架屏多种方式，自动生成骨架屏</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>vue-cli项目首页加载缓慢想要使用骨架屏效果，经过几天的踩坑，这里学习并记录一下vue项目自动生成骨架屏方法。</p> <p>添加骨架屏，其优势在于：</p> <ul> <li>写于HTML文件中，独立于Vue框架，节省了JS加载时间+JS全局环境创建的执行时间的时间</li> <li>只在主页面根据页面结构独立编写，预先展示页面结构，进行视觉暂留，提供更好的交互感官</li> <li>只在页面结构变化时进行修改，维护成本相对较低</li> </ul> <p>骨架屏的作用主要是在网络请求较慢时，提供基础占位，当数据加载完成，恢复数据展示。这样给用户一种很自然的过渡，不会造成页面长时间白屏或者闪烁等情况。 常见的骨架屏实现方案有<code>ssr</code>服务端渲染和<code>prerender</code>两种解决方案。</p> <p>那么重点就是怎么添加骨架屏 了，</p> <p>大概方案有：</p> <ol> <li>手动编写骨架屏代码</li> <li>通过预渲染手动书写的代码生成相应的骨架屏<br /> 比如：vue-skeleton-webpack-plugin</li> <li>饿了么内部的生成骨架页面的工具<br /> page-skeleton-webpack-plugin</li> <li>JavaScript操作DOM 的方式结合 Puppeteer 自动生成网页骨架屏</li> <li>其他...</li> </ol> <p>上述方案分析：</p> <p style="text-indent:33px;"><span style="color:#86ca5e;"><strong>1、手动编写骨架屏代码</strong></span></p> <p style="text-indent:33px;">该方法就是手动编写项目index.html 入口文件，实现在vue项目初始化展示替换div#app根元素前的骨架屏效果。</p> <p style="text-indent:33px;"> <p style="text-indent:33px;"><span style="color:#86ca5e;"><strong>2、通过预渲染手动书写的代码生成相应的骨架屏 vue-skeleton-webpack-plugin</strong></span></p> <p style="text-indent:33px;">该方法需要下载使用<strong>vue-skeleton-webpack-plugin，</strong>主要原理是利用vue-server-renderer&nbsp;将 .vue格式的骨架屏文件处理成<code>html</code>和<code>css</code>字符串的功能，进而完成骨架屏的注入；但是需要手动编写预渲染的骨架屏效果图代码；</p> <p style="text-indent:33px;"> <p style="text-indent:33px;">亲测，注意以下出错场景：</p> <ul> <li>【webpack --config ./webpack.skeleton.conf.js】报错可以尝试将webpack版本从4.0降到3.0；</li> <li>vue-loader@15.*之后 必须配置带有VueLoaderPlugin 之外，还需另外单独配置css-loader。（如果你不想手动设置 webpack，我们推荐使用<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/vuejs/vue-cli"  rel="nofollow">Vue CLI</a>&nbsp;直接创建一个项目的脚手架。通过 Vue CLI 创建的项目会针对多数常见的开发需求进行预先配置，做到开箱即用。）</li> <li>错误未安装webpck-cli，使用命令全局安装【npm install -g webpack-cli】即可；</li> <li>项目报错可能是需要安装&nbsp;css-loader style-loader</li> <li>如果提示在webpack.config中未配置mode环境选项，配置即可</li> <li>为保持构建环境一致，请采用`npm run dev`脚本编译的形式，以确保使用的webpack命令，vue-loader是本地版本。</li> </ul> <p style="text-indent:33px;"><strong>详细使用参考网址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000014832185"  rel="nofollow">https://segmentfault.com/a/1190000014832185</a></strong></p> <p style="text-indent:33px;"> <p style="text-indent:33px;"><strong>使用步骤归纳：</strong></p> <p style="text-indent:33px;">1、安装vue-skeleton-webpack-plugin插件</p> <p style="text-indent:33px;">2、在<code>/src</code>目录下新建一个<code>Skeleton.vue</code>文件，即已编写好的预渲染页面；</p> <p style="text-indent:33px;">3、文件同级目录再新建一个<code>skeleton.entry.js</code>入口文件，其中引用了<code>Skeleton.vue</code>文件；</p> <p style="text-indent:33px;">4、在项目根目录新建一个<code>webpack.skeleton.conf.js配置</code>文件，以专门用来进行骨架屏的构建。该文件中包含<code>skeleton.entry.js</code>入口文件，引用VueSSRServerPlugin插件，指定了其输出的json文件名；</p> <p style="text-indent:33px;">5、使用【webpack --config ./webpack.skeleton.conf.js】命令在<code>/dist</code>目录下生成一个<code>skeleton.json</code>文件；</p> <p style="text-indent:33px;">6、再在根目录下新建一个<code>skeleton.js</code>，该文件用于读取<code>skeleton.json</code>往<code>index.html</code>内插入骨架屏内容。</p> <p style="text-indent:33px;">7、入口index.html文件，需要在被写入内容的位置添加<code>&lt;!--vue-ssr-outlet--&gt;</code>占位符，本例子在<code>div#app</code>里写入；</p> <p style="text-indent:33px;">8、运行<code>node skeleton.js</code>，就可以完成骨架屏的注入了</p> <p style="text-indent:33px;"> <blockquote> <p style="text-indent:33px;">前两个方法的局限性是都需要开发者自己编写骨架屏代码，并没有自动根据vue页面内容转换成相应色块组成的dom片段再注入入口html文件！！！所以使用该种方法开发效率低，麻烦，不能完全解决根据vue项目页面自动生成骨架屏dom，并注入入口html替代#app节点的问题</p> </blockquote> <p style="text-indent:33px;"> <p style="text-indent:33px;"> <p style="text-indent:33px;"> <p style="text-indent:33px;"><span style="color:#86ca5e;"><strong>3、饿了么内部的生成骨架页面的工具&nbsp; page-skeleton-webpack-plugin</strong></span></p> <p style="text-indent:33px;"> <p style="text-indent:33px;">饿了么的做的比较强大了，还有 UI 界面专门调整骨架屏</p> <ul> <li>对于复杂的页面也会有不尽如人意的地方</li> <li>生成的骨架屏节点是基于页面本身的结构和 CSS，存在嵌套比较深的情况，体积不会太小</li> <li>只支持 history 模式.</li> </ul> <p style="text-indent:33px;">这个不多说，没有亲测；饿了吗骨架屏方案思路<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Jocs/jocs.github.io/issues/22"  rel="nofollow">https://github.com/Jocs/jocs.github.io/issues/22</a></p> <p style="text-indent:33px;"> <p style="text-indent:33px;"> <p style="text-indent:33px;"> <p style="text-indent:33px;"> <p style="text-indent:33px;"><span style="color:#86ca5e;"><strong>4、JavaScript操作DOM 的方式结合 Puppeteer 自动生成网页骨架屏</strong></span></p> <p style="text-indent:33px;">该方法需要下载【npm i draw-page-structure -g】&nbsp; ，用纯 DOM 的方式结合 Puppeteer 自动生成网页骨架屏，原理是：</p> <ul> <li>&nbsp; &nbsp; &nbsp; 生成操作Dom的JavaScript脚本（该脚本用于将项目页面转换成色块形式的骨架屏效果）；</li> <li>&nbsp; &nbsp; &nbsp;通过Puppeteer控制谷歌浏览器运行项目页面并获取页面、将上一步的脚本注入该页面，并生成骨架屏所需的Dom节点；</li> <li>&nbsp; &nbsp; &nbsp;将自动生成的骨架屏Dom片段插入到应用页面的根入口节点。</li> </ul> <p style="text-indent:33px;"><strong>使用注意事项：</strong></p> <ul> <li>核心在于 DOM 操作，puppeteer 仅提供运行环境和导出方式</li> <li>只要能访问的页面都能生成，history 与 hash 模式无限制</li> <li>不受项目和框架的限制，vue 和 react 等项目零修改即可复用</li> <li>生成色块的单位为百分比，不同设备自适应</li> <li>不需要 css-tree 来提取样式，不依赖页面本身的布局结构，生成扁平的 DOM 节点体积特别小</li> <li>支持自定义生成方式与导出方式</li> </ul> <p style="text-indent:33px;"><strong>详细使用参考网址<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.imooc.com/article/253387"  rel="nofollow">https://www.imooc.com/article/253387</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/famanoder/dps"  rel="nofollow">https://github.com/famanoder/dps</a></strong></p> <p style="text-indent:33px;"> <p style="text-indent:33px;"><strong>dps插件使用步骤：</strong></p> <p style="text-indent:33px;">1、使用命令【npm i draw-page-structure -g】安装插件</p> <p style="text-indent:33px;">2、<code>dps init</code>&nbsp;生成配置文件<code>dps.config.js</code></p> <p style="text-indent:33px;"><code>3、</code>修改<code>dps.config.js</code>&nbsp;进行相关配置，包括想渲染的页面url、通过includeElement和init方法调整骨架屏效果等；</p> <p style="text-indent:33px;">4、<code>dps start</code>&nbsp;开始生成骨架屏</p> <p style="text-indent:33px;"> <p style="text-indent:0;">参考文章有：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000014832185%C2%A0"  rel="nofollow">Vue页面骨架屏注入实践 ：</a></p> <p style="text-indent:0;"><a href="" rel="nofollow">饿了吗一种自动化生成骨架屏的方案</a></p> <p style="text-indent:0;"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.imooc.com/article/253387"  rel="nofollow">用纯 DOM 的方式结合 Puppeteer 自动生成网页骨架屏</a>、</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/famanoder/dps"  rel="nofollow">dps(draw-page-structure)</a>插件使用</p> <p style="text-indent:33px;"> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95919.htm">生产动物疫苗的上市公司有哪些 生产动物疫苗的上市公司有哪些股票</a></p>
+                                        <p>下一个：<a href="/news/article-96645.htm">宠物免费领养绑定消费（宠物免费领养是真的吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-85534.htm" title="Metalama简介4.使用Fabric操作项目或命名空间">Metalama简介4.使用Fabric操作项目或命名空间</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月1日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-75791.htm" title="动物医院社会实践报告总结500字内容（宠物医院社会实践总结）">动物医院社会实践报告总结500字内容（宠物医院社会实践总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-node-subscribe.htm" title="3月9日→18.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月9日→18.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80615.htm" title="一个完整的pytorch预训练实现图像分类，模型融合">一个完整的pytorch预训练实现图像分类，模型融合</a></li>
+                        <li class="py-2"><a href="/news/article-96644.htm" title="vue-cli项目添加骨架屏多种方式，自动生成骨架屏">vue-cli项目添加骨架屏多种方式，自动生成骨架屏</a></li>
+                        <li class="py-2"><a href="/news/article-67247.htm" title="上海有没有宠物领养机构啊（上海有宠物领养的市集活动吗?）">上海有没有宠物领养机构啊（上海有宠物领养的市集活动吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-86975.htm" title="Spring动态代理中有什么方法不会被代理探究">Spring动态代理中有什么方法不会被代理探究</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-subscribe-node.htm" title="4月6日→21.6M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月6日→21.6M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-90622.htm" title="EditText 不显示光标  光标消失">EditText 不显示光标  光标消失</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
