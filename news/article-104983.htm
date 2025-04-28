@@ -1,0 +1,342 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-104983.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>不太一样的Go Web框架—编程范式</title>
+        <meta name="description" content="项目地址：https://github.com/Codexiaoyi/linweb 这是一个系列文章：  不太一样的Go Web框架—总览 不太一样的Go Web框架—编程范式  前言  上文说过，l" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-104983.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="不太一样的Go Web框架—编程范式" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/7e57f085b248a553ad3682b25ae2771f.webp" />
+        <meta property="og:release_date" content="2025-04-26T07:40:44" />
+    <meta property="og:updated_time" content="2025-04-26T07:40:44" />
+        <meta property="og:description" content="项目地址：https://github.com/Codexiaoyi/linweb 这是一个系列文章：  不太一样的Go Web框架—总览 不太一样的Go Web框架—编程范式  前言  上文说过，l" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="不太一样的Go Web框架—编程范式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">不太一样的Go Web框架—编程范式</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>项目地址：https://github.com/Codexiaoyi/linweb</p> <h5 id="这是一个系列文章">这是一个系列文章：</h5> <ul> <li>不太一样的Go Web框架—总览</li> <li>不太一样的Go Web框架—编程范式</li> </ul> <h2 id="前言">前言</h2> <blockquote> <p>上文说过，linweb不追求性能，相比而言注重编程范式。本人也是dotneter，个人觉得.net那种注解定义路由的方式更为舒服，并且接口文件统一规定在Controller文件夹下，以 XxxController 命名。<br /> 当然，在Go中也是可以实现这样的方式，但是将用到大量反射，所以势必会降低性能，所以说"不太一样的Web框架"。</p> </blockquote> <h2 id="基本范式">基本范式</h2> <p>所谓编程范式，也就是你的框架定义规范，使用用户按照你的规范写逻辑业务。</p> <h4 id="路由">路由</h4> <p>路由解析是一个web框架不可避免的模块，我们看gin是如何定义路由的。</p> <pre><code class="language-go">func main() { 	router := gin.Default()  	// Simple group: v1 	v1 := router.Group("/v1") 	{ 		v1.POST("/login", loginEndpoint) 		v1.POST("/submit", submitEndpoint) 		v1.POST("/read", readEndpoint) 	}  	// Simple group: v2 	v2 := router.Group("/v2") 	{ 		v2.POST("/login", loginEndpoint) 		v2.POST("/submit", submitEndpoint) 		v2.POST("/read", readEndpoint) 	}  	router.Run(":8080") }</code></pre> <p>在应用gin的时候，我们通常会将路由定义与接口方法对应写在一起，统一管理，这样管理方便，也是Go的web框架多数采用的方式。<br /> 相比之下，linweb更希望路由定义和方法放在一起，然后以定义Controller的方式，路由地址更加直观。</p> <pre><code class="language-go">package controllers  import ( 	"github.com/Codexiaoyi/linweb/interfaces" )  type BlogController struct { }  //[GET("/blog/:id")] func (blog *BlogController) GetBlog(c interfaces.IContext) {  }</code></pre> <p><strong>在根目录下创建一个 controllers 文件夹，所有的api都定义在controllers包中。根据不同的 controller 名称区分文件。</strong></p> <h2 id="自定义插件">自定义插件</h2> <p>linweb中所有功能与主流程间的依赖都是解耦的，所有实现都面向接口，完全遵守依赖倒置原则。<br /> 要实现这样的方式也不难：</p> <ul> <li><strong>定义一套接口</strong>，使得实现相应接口的结构体都可以运行在linweb中。</li> <li><strong>完成默认实现</strong>，默认应用默认实现在linweb中。</li> <li><strong>开放传入自定义插件实现的方法</strong>。</li> </ul> <h4 id="代码实现">代码实现</h4> <p>在Go语言框架中大量使用<strong>Option模式</strong>实现上述的需求（完整代码详见github）。<br /> 1.首先我们定义一个自定义插件类型，并写一个默认的插件函数。</p> <pre><code class="language-go">//自定义插件类型，返回可以传入Linweb的函数 type CustomizePlugins func(lin *Linweb)  func defaultPlugins() CustomizePlugins { 	return func(lin *Linweb) { 		lin.markRouter = router.New() 		lin.markContext = &amp;context.Context{} 		lin.markMiddleware = &amp;middleware.Middleware{} 		lin.markInject = injector.Instance() 		lin.markCache = cache.Instance() 		lin.markModel = &amp;model.Model{} 	} }</code></pre> <p>2.定义各个插件模块对应的快捷入口函数。</p> <pre><code class="language-go">// Customize router plugin.这里参数传入自定义的Router实现 func RouterPlugin(router interfaces.IRouter) CustomizePlugins { 	return func(lin *Linweb) { 		lin.markRouter = router 	} }  // Customize context plugin. func ContextPlugin(context interfaces.IContext) CustomizePlugins { 	return func(lin *Linweb) { 		lin.markContext = context 	} }  ......</code></pre> <p>3.在linweb包的New初始化函数中，传入用户自定义的CustomizePlugins。</p> <pre><code class="language-go">// Create a new Linweb. // Add customize plugins with method of plugins.go, otherwise use default plugins. func NewLinweb(plugins ...CustomizePlugins) *Linweb { 	lin := &amp;Linweb{}     //应用默认插件 	defaultPlugins()(lin)     //根据传入的用户自定义插件覆盖默认插件 	for _, plugin := range plugins { 		plugin(lin) 	} 	pluginsModel = lin.markModel 	Cache = lin.markCache 	return lin }</code></pre> <h4 id="如何应用">如何应用</h4> <p>在linweb项目中的linweb_test.go中，用到了mock框架（后续测试部分会介绍）模拟接口实现：</p> <pre><code class="language-go">	// Arrange:mock data 	ctrl := gomock.NewController(t) 	defer ctrl.Finish()  	// mock a new context instance 	mock_context := mocks.NewMockIContext(ctrl)  	//Act 	linweb := NewLinweb(ContextPlugin(mock_context))</code></pre> <p>如代码所见，我们调用linweb的ContextPlugin函数传入自定义插件，再将返回值传入NewLinweb初始化函数中。</p> <h2 id="总结">总结</h2> <p>本文，介绍了linweb的基本的编程范式，也实现了自定义插件功能。<br /> 接下来，我们需要根据前文说的功能逐步添加到linweb中。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104981.htm">Java-GUI编程之事件处理</a></p>
+                                        <p>下一个：<a href="/news/article-105641.htm">在拦截器中获取 url 路径里面 @PathVariable 的参数值</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-75129.htm" title="Python：数组添加数据和删除数据">Python：数组添加数据和删除数据</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-node-share-links.htm" title="4月26日→22.6M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月26日→22.6M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-91553.htm" title="动物疫苗销售 动物疫苗销售许可证如何办理">动物疫苗销售 动物疫苗销售许可证如何办理</a></li>
+                        <li class="py-2"><a href="/news/article-65975.htm" title="牛羊兽药批发网（牛羊兽药做的最好的公司）">牛羊兽药批发网（牛羊兽药做的最好的公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-22-node-share.htm" title="4月22日→20.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月22日→20.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-77159.htm" title="青浦二中分数线2021高考录取（青浦二中2021高考成绩）">青浦二中分数线2021高考录取（青浦二中2021高考成绩）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月1日→20.1M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share-links.htm" title="3月23日→18.3M/S|2025年最新免费节点V2ray Desktop订阅链接地址">3月23日→18.3M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-12-free-node-subscribe.htm" title="4月12日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月12日→22.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-103359.htm" title="开宠物店成本多少（开个宠物店成本大概要多少）">开宠物店成本多少（开个宠物店成本大概要多少）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>

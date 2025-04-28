@@ -1,0 +1,342 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-104981.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java-GUI编程之事件处理</title>
+        <meta name="description" content="前面介绍了如何放置各种组件，从而得到了丰富多彩的图形界面，但这些界面还不能响应用户的任何操作。比如单击前面所有窗口右上角的“X”按钮，但窗口依然不会关闭。因为在 AWT 编程中 ，所有用户的操作，都必" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-104981.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="Java-GUI编程之事件处理" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/9700f4b9e758680ffb0e52c6240f8908.webp" />
+        <meta property="og:release_date" content="2025-04-26T07:40:44" />
+    <meta property="og:updated_time" content="2025-04-26T07:40:44" />
+        <meta property="og:description" content="前面介绍了如何放置各种组件，从而得到了丰富多彩的图形界面，但这些界面还不能响应用户的任何操作。比如单击前面所有窗口右上角的“X”按钮，但窗口依然不会关闭。因为在 AWT 编程中 ，所有用户的操作，都必" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java-GUI编程之事件处理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">Java-GUI编程之事件处理</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				</h1> <p>前面介绍了如何放置各种组件，从而得到了丰富多彩的图形界面，但这些界面还不能响应用户的任何操作。比如单击前面所有窗口右上角的“X”按钮，但窗口依然不会关闭。因为在 AWT 编程中 ，所有用户的操作，都必须都需要经过一套事件处理机制来完成，而 Frame 和组件本身并没有事件处理能力 。</p> <h2 id="gui事件处理机制">GUI事件处理机制</h2> <p><strong>定义：</strong></p> <p>	当在某个组件上发生某些操作的时候，会自动的触发一段代码的执行。</p> <p>在GUI事件处理机制中涉及到4个重要的概念需要理解：</p> <p><strong>事件源(Event Source)</strong> ：操作发生的场所，通常指某个组件，例如按钮、窗口等；<br /><strong>事件（Event）</strong>：在事件源上发生的操作可以叫做事件，GUI会把事件都封装到一个Event对象中，如果需要知道该事件的详细信息，就可以通过Event对象来获取。<br /><strong>事件监听器(Event Listener)</strong>:当在某个事件源上发生了某个事件，事件监听器就可以对这个事件进行处理。</p> <p><strong>注册监听</strong>：把某个事件监听器(A)通过某个事件(B)绑定到某个事件源(C)上，当在事件源C上发生了事件B之后，那么事件监听器A的代码就会自动执行。</p> <p><center><img decoding="async" src="https://pic.imgdb.cn/item/624cde5a239250f7c5ca9fe3.png" alt="Java-GUI编程之事件处理"/></center></p> <p><strong>使用步骤：</strong></p> <p>1.创建事件源组件对象；</p> <p>2.自定义类，实现XxxListener接口，重写方法；</p> <p>3.创建事件监听器对象(自定义类对象)</p> <p>4.调用事件源组件对象的addXxxListener方法完成注册监听</p> <p><strong>案例：</strong></p> <p>	完成下图效果，点击确定按钮，在单行文本域内显示 hello world:</p> <p><center><img decoding="async" src="https://pic.imgdb.cn/item/624cdf13239250f7c5cb7593.jpg" alt="Java-GUI编程之事件处理"/></center></p> <pre><code class="language-java">import java.awt.*; import java.awt.event.ActionListener; import java.awt.event.ActionEvent;  public class EventDemo1 {     Frame  frame = new Frame("这里测试事件处理");      //事件源     Button button = new Button("确定");      TextField tf = new TextField(30);     public void init(){         //注册监听         button.addActionListener(new MyActionListener());          //添加组件到frame中         frame.add(tf);         frame.add(button,BorderLayout.SOUTH);          //设置frame最佳大小并可见         frame.pack();         frame.setVisible(true);     }      //自定义事件监听器类     private  class MyActionListener implements ActionListener{          @Override         public void actionPerformed(ActionEvent e) {              System.out.println("用户点击了确定按钮");             tf.setText("hello world");         }     }          public static void main(String[] args) {         new EventDemo1().init();     } }</code></pre> <h2 id="gui中常见事件和事件监听器">GUI中常见事件和事件监听器</h2> <p>事件监听器必须实现事件监听器接口， AWT 提供了大量的事件监听器接口用于实现不同类型的事件监听器，用于监听不同类型的事件 。 AWT 中提供了丰富的事件类，用于封装不同组件上所发生的特定操作， AWT 的事件类都是 AWTEvent 类的子类 ， AWTEvent是 EventObject 的子类。</p> <h3 id="事件">事件</h3> <p>AWT把事件分为了两大类：</p> <p>	1.低级事件：这类事件是基于某个特定动作的事件。比如进入、点击、拖放等动作的鼠标事件，再比如得到焦点和失去焦点等焦点事件。</p> <table> <thead> <tr> <th>事件</th> <th>触发时机</th> </tr> </thead> <tbody> <tr> <td>ComponentEvent</td> <td>组件事件 ， 当 组件尺寸发生变化、位置发生移动、显示/隐藏状态发生改变时触发该事件。</td> </tr> <tr> <td>ContainerEvent</td> <td>容器事件 ， 当容器里发生添加组件、删除组件时触发该事件 。</td> </tr> <tr> <td>WindowEvent</td> <td>窗口事件， 当窗 口状态发生改变 ( 如打开、关闭、最大化、最 小化)时触发该事件 。</td> </tr> <tr> <td>FocusEvent</td> <td>焦点事件 ， 当组件得到焦点或失去焦点 时触发该事件 。</td> </tr> <tr> <td>KeyEvent</td> <td>键盘事件 ， 当按键被按下、松开、单击时触发该事件。</td> </tr> <tr> <td>MouseEvent</td> <td>鼠标事件，当进行单击、按下、松开、移动鼠标等动作 时触发该事件。</td> </tr> <tr> <td>PaintEvent</td> <td>组件绘制事件 ， 该事件是一个特殊的事件类型 ， 当 GUI 组件调 用 update/paint 方法 来呈现自身时触发该事件，该事件并非专用于事件处理模型 。</td> </tr> </tbody> </table> <p>	2.高级事件：这类事件并不会基于某个特定动作，而是根据功能含义定义的事件。</p> <table> <thead> <tr> <th>事件</th> <th>触发时机</th> </tr> </thead> <tbody> <tr> <td>ActionEvent</td> <td>动作事件 ，当按钮、菜单项被单击，在 TextField 中按 Enter 键时触发</td> </tr> <tr> <td>AjustmentEvent</td> <td>调节事件，在滑动条上移动滑块以调节数值时触发该事件。</td> </tr> <tr> <td>ltemEvent</td> <td>选项事件，当用户选中某项， 或取消选中某项时触发该事件 。</td> </tr> <tr> <td>TextEvent</td> <td>文本事件， 当文本框、文本域里的文本发生改变时触发该事件。</td> </tr> </tbody> </table> <h2 id="事件监听器">事件监听器</h2> <p>不同的事件需要使用不同的监听器监听，不同的监听器需要实现不同的监听器接口， 当指定事件发生后 ， 事件监听器就会调用所包含的事件处理器(实例方法)来处理事件 。</p> <table> <thead> <tr> <th>事件类别</th> <th>描述信息</th> <th>监听器接口名</th> </tr> </thead> <tbody> <tr> <td>ActionEvent</td> <td>激活组件</td> <td>ActionListener</td> </tr> <tr> <td>ItemEvent</td> <td>选择了某些项目</td> <td>ItemListener</td> </tr> <tr> <td>MouseEvent</td> <td>鼠标移动</td> <td>MouseMotionListener</td> </tr> <tr> <td>MouseEvent</td> <td>鼠标点击等</td> <td>MouseListener</td> </tr> <tr> <td>KeyEvent</td> <td>键盘输入</td> <td>KeyListener</td> </tr> <tr> <td>FocusEvent</td> <td>组件收到或失去焦点</td> <td>FocusListener</td> </tr> <tr> <td>AdjustmentEvent</td> <td>移动了滚动条等组件</td> <td>AdjustmentListener</td> </tr> <tr> <td>ComponentEvent</td> <td>对象移动缩放显示隐藏等</td> <td>ComponentListener</td> </tr> <tr> <td>WindowEvent</td> <td>窗口收到窗口级事件</td> <td>WindowListener</td> </tr> <tr> <td>ContainerEvent</td> <td>容器中增加删除了组件</td> <td>ContainerListener</td> </tr> <tr> <td>TextEvent</td> <td>文本字段或文本区发生改变</td> <td>TextListener</td> </tr> </tbody> </table> <h2 id="案例">案例</h2> <p><strong>案例一：</strong></p> <p>	通过ContainerListener监听Frame容器添加组件；</p> <p>	通过TextListener监听TextFiled内容变化；</p> <p>	通过ItemListener监听Choice条目选中状态变化；</p> <p><center><img decoding="async" src="https://pic.imgdb.cn/item/624ce0d3239250f7c5cd7df3.jpg" alt="Java-GUI编程之事件处理"/></center></p> <pre><code class="language-java">import javax.swing.*; import java.awt.*; import java.awt.event.*;  public class ListenerDemo1 {     public static void main(String[] args) {         Frame frame = new Frame("这里测试监听器");          // 创建组件（事件源）         TextField tf = new TextField(30);         Choice names = new Choice();         names.add("柳岩");         names.add("舒淇");         names.add("闫妮");          // 给文本域添加TextListener，监听内容的变化         tf.addTextListener(new TextListener() {             @Override             public void textValueChanged(TextEvent e) {                 String text = tf.getText();                 System.out.println("当前文本框中的内容为：" + text);             }         });          // 给下拉选择框添加ItemListener，监听条目选项的变化         names.addItemListener(new ItemListener() {             @Override             public void itemStateChanged(ItemEvent e) {                 Object item = e.getItem();                 System.out.println("当前选中的条目为：" + item);             }         });          // 给frame注册ContainerListener监听器，监听容器中组件的添加         frame.addContainerListener(new ContainerListener() {             @Override             public void componentAdded(ContainerEvent e) {                 Component child = e.getChild();                 System.out.println("frame中添加了：" + child);             }              @Override             public void componentRemoved(ContainerEvent e) {              }         });          // 添加到frame中         Box hBox = Box.createHorizontalBox();         hBox.add(names);         hBox.add(tf);         frame.add(hBox);          // 设置frame最佳大小并可见         frame.pack();         frame.setVisible(true);     } }</code></pre> <p><strong>案例2：</strong></p> <p>	给Frame设置WindowListner，监听用户点击 X 的动作，如果用户点击X，则关闭当前窗口</p> <p><strong>演示代码2：</strong></p> <pre><code class="language-java">import java.awt.*; import java.awt.event.WindowAdapter; import java.awt.event.WindowEvent;  public class ListenerDemo2 {      public static void main(String[] args) {          Frame frame = new Frame("这里测试WindowListener");          frame.addWindowListener(new WindowAdapter() {             public void windowClosing(WindowEvent e) {                 System.exit(0);             }         });          frame.setBounds(200,200,500,300);          frame.setVisible(true);     } }</code></pre> <p></p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104038.htm">上海2020年宠物领养活动有哪些项目可以参加（2020上海宠物领养日）</a></p>
+                                        <p>下一个：<a href="/news/article-104983.htm">不太一样的Go Web框架—编程范式</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-free-node-subscribe.htm" title="4月8日→21.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月8日→21.2M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-92151.htm" title="ES的searchAfter使用详解">ES的searchAfter使用详解</a></li>
+                        <li class="py-2"><a href="/news/article-81989.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/news/article-85535.htm" title="动物医院24小时全天候诊多少钱（动物医院收费）">动物医院24小时全天候诊多少钱（动物医院收费）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-16-free-node-subscribe.htm" title="4月16日→21M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月16日→21M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-21-node-share.htm" title="4月21日→18.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月21日→18.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-101719.htm" title="宠物猫注射疫苗视频（宠物猫注射疫苗视频教学）">宠物猫注射疫苗视频（宠物猫注射疫苗视频教学）</a></li>
+                        <li class="py-2"><a href="/news/article-77849.htm" title="动物注射疫苗,最佳的用药方法是静脉注射对吗 动物注射疫苗,最佳的用药方法是静脉注射对吗">动物注射疫苗,最佳的用药方法是静脉注射对吗 动物注射疫苗,最佳的用药方法是静脉注射对吗</a></li>
+                        <li class="py-2"><a href="/news/article-79216.htm" title="宠物用品回收店价格表（宠物用品回收店价格表大全）">宠物用品回收店价格表（宠物用品回收店价格表大全）</a></li>
+                        <li class="py-2"><a href="/news/article-89129.htm" title="宠物粮食品牌上市公司有哪些股票 宠物粮食品牌上市公司有哪些股票龙头">宠物粮食品牌上市公司有哪些股票 宠物粮食品牌上市公司有哪些股票龙头</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
