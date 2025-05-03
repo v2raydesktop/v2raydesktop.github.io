@@ -1,0 +1,342 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2raydesktop.github.io/news/article-109997.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java类的加载、链接、初始化</title>
+        <meta name="description" content="Java 语言的类型可以分为两大类：基本类型（primitive types）和引用类型（reference types），基本类型是由Java 虚拟机预先定义好的。引用类型，Java 将其细分为四种" />
+        <link rel="icon" href="/assets/website/img/v2raydesktop/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray Desktop免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2raydesktop.github.io/news/article-109997.htm" />
+    <meta property="og:site_name" content="V2ray Desktop免费机场订阅节点官网" />
+    <meta property="og:title" content="Java类的加载、链接、初始化" />
+    <meta property="og:image" content="https://v2raydesktop.github.io/uploads/20241101-1/c00416508939a06c65ce8f3b64746ec7.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:24:25" />
+    <meta property="og:updated_time" content="2025-05-02T09:24:25" />
+        <meta property="og:description" content="Java 语言的类型可以分为两大类：基本类型（primitive types）和引用类型（reference types），基本类型是由Java 虚拟机预先定义好的。引用类型，Java 将其细分为四种" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java类的加载、链接、初始化">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/v2raydesktop/style-starter.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMVHYP8P2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CMVHYP8P2G');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+                <a class="navbar-brand" href="/">
+                                <span>
+                    V2ray Desktop                </span>
+                                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <h1 class="inner-text-title font-weight-bold text-white mb-sm-3 mb-2">Java类的加载、链接、初始化</h1>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>新闻资讯</a></li>
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>正文</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //inner banner -->
+    <!-- about -->
+    <section class="w3l-features-photo-7 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p style="text-indent:33px;">Java 语言的类型可以分为两大类：基本类型（primitive types）和引用类型（reference types），基本类型是由Java 虚拟机预先定义好的。引用类型，Java 将其细分为四种：类、接口、数组类和泛型参数。由于泛型参数会在编译过程中被擦除（我会在专栏的第二部分详细介绍），因此 Java 虚拟机实际上只有前三种。在类、接口和数组类中，数组类是由 Java 虚拟机直接生成的，其他两种则有对应的字节流(如class文件)。</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220817/ba289d196c6981021b09be3dc61ebee7.jpg"></p> <p style="margin-left:0cm;"><strong>加载</strong></p> <p>Class 只有在必须要使用的时候才会被装载，Java 虚拟机不会无条件地装载 Class 类型。Java 虚拟机规定，一个类或接口在初次使用前，必须要进行初始化。这里指的 “使用”, 是指主动使用，主动使用只有下列几种情况:</p> <ul> <li>当创建一个类的实例时，比如使用 new 关键字，或者通过反射、克隆、反序列化。</li> <li>当调用类的静态方法时，即当使用了字节码 invokestatic 指令。</li> <li>当使用类或接口的静态字段时 (final 常量除外), 比如，使用 getstatic 或者 putstatic 指令。</li> <li>当使用 java.lang.reflect 包中的方法反射类的方法时。</li> <li>当初始化子类时，要求先初始化父类。</li> <li>作为启动虚拟机，含有 main 方法的那个类。</li> </ul> <p>加载类处于类装载的第一个阶段。在加载类时，Java 虚拟机必须完成以下工作:</p> <ul> <li>通过类的全名，获取类的二进制数据流。</li> <li>解析类的二进制数据流为方法区内的数据结构。</li> <li>创建 java.lang.Class 类的实例，表示该类型。</li> </ul> <p style="text-indent:33px;">启动类加载器负责加载最为基础、最为重要的类，比如存放在 JRE 的 lib目录下 jar 包中的类（以及由虚拟机参数 -Xbootclasspath 指定的类）。除了启动类加载器之外，另外两个重要的类加载器是扩展类加载器（extension class loader）和应用类加载器（application class loader），均由 Java 核心类库提供。</p> <p style="text-indent:33px;">扩展类加载器的父类加载器是启动类加载器。它负责加载相对次要、但又通用的类，比如存放在 JRE 的 lib/ext 目录下 jar 包中的类（以及由系统变量 java.ext.dirs 指定的类）。</p> <p style="text-indent:33px;">应用类加载器的父类加载器则是扩展类加载器。它负责加载应用程序路径下的类。（这里的应用程序路径，便是指虚拟机参数 -cp/-classpath、系统变量 java.class.path 或环境变量CLASSPATH 所指定的路径。）默认情况下，应用程序中包含的类便是由应用类加载器加载的。</p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加载采用双亲委派模型，每当一个类加载器接收到加载请求时，它会先将请求转发给父类加载器。在父类加载器没有找到所请求的类的情况下，该类加载器才会尝试去加载。</p> <p style="margin-left:0cm;"><strong>链接</strong></p> <p style="text-indent:33px;">链接指将创建成的类合并至 Java 虚拟机中，使之能够执行的过程。它可分为验证、准备以及解析三个阶段。</p> <ul> <li style="margin-left:0cm;">验证：确保被加载类能够满足 Java 虚拟机的约束条件。一般Java 编译器生成的类文件必然满足 Java 虚拟机的约束条件。字节码注入的例子之后会介绍。</li> <li style="margin-left:0cm;">准备：则是为被加载类的<strong>静态字段</strong>分配内存。构造其他跟类层次相关的数据结构，比如说用来实现虚方法的动态绑定的方法表。</li> <li style="margin-left:0cm;">解析：<strong>解析阶段的工作就是将类、接口、字段和方法的符号引用转为直接引用。</strong>符号引用就是一些字面量的引用，和虚拟机的内部数据结构和内存布局无关。在 class 文件被加载至 Java 虚拟机之前，这个类无法知道其他类及其方法、字段所对应的具体地址，甚至不知道自己方法、字段的地址。因此，每当需要引用这些成员时，Java 编译器会生成一个<strong>符号引用</strong>。在运行阶段，这个符号引用一般都能够无歧义地定位到具体目标上。例如，对于一个方法调用，编译器会生成一个包含目标方法所在类的名字、目标方法的名字、接收参数类型以及返回值类型的符号引用，来指代所要调用的方法。解析阶段的目的，正是将这些符号引用解析成为实际引用。如果符号引用指向一个未被加载的类，或者未被加载类的字段或方法，那么解析将触发这个类的加载（但未必触发这个类的链接以及初始化。）</li> </ul> <p style="margin-left:0cm;"><strong>初始化</strong></p> <p style="text-indent:33px;">要初始化一个静态字段，可以在声明时直接赋值，也可以在静态代码块中对其赋值。如果直接赋值的静态字段被 final 所修饰，并且它的类型是基本类型或字符串时，那么该字段便会被 Java 编译器标记成常量值（ConstantValue），其初始化直接由 Java 虚拟机完成。除此之外的直接赋值操作，以及所有静态代码块中的代码，则会被 Java 编译器置于同一方法中，并把它命名为 &lt; clinit &gt;。</p> <p style="text-indent:33px;">初始化，便是为标记为常量值的字段赋值，以及执行 &lt; clinit &gt; 方法的过程。Java 虚拟机会通过加锁来确保类的 &lt; clinit &gt; 方法仅被执行一次。初始化触发的条件有：</p> <p style="margin-left:0cm;">1. 当虚拟机启动时，初始化用户指定的主类(main)；</p> <p style="margin-left:0cm;">2. 当遇到用以新建目标类实例的 new 指令时，初始化 new 指令的目标类；</p> <p style="margin-left:0cm;">3. 当遇到调用静态方法的指令时，初始化该静态方法所在的类；</p> <p style="margin-left:0cm;">4. 当遇到访问静态字段的指令时，初始化该静态字段所在的类；</p> <pre><code class="language-java">public class Singleton {      private Singleton() {}      private static class LazyHolder {          static final Singleton INSTANCE = new Singleton();      }      public static Singleton getInstance() {          return LazyHolder.INSTANCE;              }  }</code></pre> <p style="text-indent:33px;">只有当调用Singleton.getInstance 时，程序才会访问 LazyHolder.INSTANCE，才会触发对LazyHolder 的初始化</p> <p style="margin-left:0cm;">5. 子类的初始化会触发父类的初始化；</p> <p style="margin-left:0cm;">6. 如果一个接口定义了 default 方法，那么直接实现或者间接实现该接口的类的初始化，会触发该接口的初始化；</p> <p style="margin-left:0cm;">7. 使用反射 API 对某个类进行反射调用时，初始化这个类；</p> <p style="margin-left:0cm;">8. 当初次调用 MethodHandle 实例时，初始化该 MethodHandle 指向的方法所在的类。</p> <p style="margin-left:0cm;"> <p style="margin-left:0cm;">例子：</p> <pre><code class="language-java">public class Singleton {      private Singleton() {}      private static class LazyHolder {          static final Singleton INSTANCE = new Singleton();      static {          System.out.println("LazyHolder.&lt;clinit&gt;");          }      }  public static Object getInstance(boolean flag) {      if (flag) return new LazyHolder[2];      return LazyHolder.INSTANCE;  }  public static void main(String[] args) {      getInstance(true);      System.out.println("----");      getInstance(false);  }  }</code></pre> <p style="text-indent:33px;"><span style="color:#4c4c4c;">新建数组new LazyHolder[2]会加载元素类LazyHolder；不会初始化元素类。虚拟机必须知道（加载）有这个类，才能创建这个类的数组（容器），但是这个类并没有被使用到（没有达到初始化的条件），所以不会初始化，也不会链接元素类LazyHolder；</span></p> <p style="text-indent:33px;"><span style="color:#4c4c4c;">调用getInstance(false)的时候约等于告诉虚拟机，我要使用这个类了，你把这个类造好（链接），然后把static修饰的字符赋予变量（初始化）。</span></p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109139.htm">开一家宠物食品加工厂（开宠物食品厂有利润吗）</a></p>
+                                        <p>下一个：<a href="/news/article-110000.htm">灵感乍现！造了个与众不同的Dubbo注册中心扩展轮子</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-110000.htm" title="灵感乍现！造了个与众不同的Dubbo注册中心扩展轮子">灵感乍现！造了个与众不同的Dubbo注册中心扩展轮子</a></li>
+                        <li class="py-2"><a href="/news/article-108321.htm" title="动物疫苗批号查询入口（动物疫苗价格查询）">动物疫苗批号查询入口（动物疫苗价格查询）</a></li>
+                        <li class="py-2"><a href="/news/article-90622.htm" title="EditText 不显示光标  光标消失">EditText 不显示光标  光标消失</a></li>
+                        <li class="py-2"><a href="/news/article-95163.htm" title="上海宠物医院24小时电话多少（上海宠物医院24小时电话多少啊）">上海宠物医院24小时电话多少（上海宠物医院24小时电话多少啊）</a></li>
+                        <li class="py-2"><a href="/news/article-109136.htm" title="宠物粮市场前景怎么样啊知乎（宠物粮好卖吗）">宠物粮市场前景怎么样啊知乎（宠物粮好卖吗）</a></li>
+                        <li class="py-2"><a href="/news/article-86257.htm" title="在小程序当中渲染树">在小程序当中渲染树</a></li>
+                        <li class="py-2"><a href="/news/article-105641.htm" title="在拦截器中获取 url 路径里面 @PathVariable 的参数值">在拦截器中获取 url 路径里面 @PathVariable 的参数值</a></li>
+                        <li class="py-2"><a href="/news/article-89890.htm" title="免费领养宠物包邮吗现在多少钱的简单介绍">免费领养宠物包邮吗现在多少钱的简单介绍</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-node-subscribe-links.htm" title="4月15日→22.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址">4月15日→22.4M/S|2025年最新免费节点V2ray Desktop订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-105642.htm" title="动物疫苗规定最新政策查询（动物 疫苗）">动物疫苗规定最新政策查询（动物 疫苗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+        <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray Desktop免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 text-right">
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //copyright -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-level-up" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery-3.6.0.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/v2raydesktop/theme-change.js"></script>
+    <script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function() {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function(i, char) {
+                    setTimeout(function() {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+    });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/v2raydesktop/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- counter for stats -->
+    <script src="/assets/website/js/frontend/v2raydesktop/counter.js"></script>
+    <!-- //counter for stats -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <script src="/assets/website/js/frontend/v2raydesktop/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    <!-- //Js scripts -->
+</body>
+
+</html>
