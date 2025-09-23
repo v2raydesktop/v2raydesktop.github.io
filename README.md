@@ -1,4 +1,4 @@
-# 9月19日→21.3M/S|2025年最新免费节点V2ray Desktop订阅链接地址  更新时间 2025-09-19 09:49:59
+# 9月23日→18.7M/S|2025年最新免费节点V2ray Desktop订阅链接地址  更新时间 2025-09-23 10:18:53
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://v2raydesktop.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://v2raydesktop.github.io/uploads/2025/09/0-20250919.yaml
-- https://v2raydesktop.github.io/uploads/2025/09/1-20250919.yaml
-- https://v2raydesktop.github.io/uploads/2025/09/2-20250919.yaml
-- https://v2raydesktop.github.io/uploads/2025/09/3-20250919.yaml
-- https://v2raydesktop.github.io/uploads/2025/09/4-20250919.yaml
+- https://v2raydesktop.github.io/uploads/2025/09/0-20250923.yaml
+- https://v2raydesktop.github.io/uploads/2025/09/1-20250923.yaml
+- https://v2raydesktop.github.io/uploads/2025/09/2-20250923.yaml
+- https://v2raydesktop.github.io/uploads/2025/09/3-20250923.yaml
+- https://v2raydesktop.github.io/uploads/2025/09/4-20250923.yaml
 
 ### V2ray订阅链接
 
-- https://v2raydesktop.github.io/uploads/2025/09/0-20250919.txt
-- https://v2raydesktop.github.io/uploads/2025/09/1-20250919.txt
-- https://v2raydesktop.github.io/uploads/2025/09/2-20250919.txt
-- https://v2raydesktop.github.io/uploads/2025/09/3-20250919.txt
-- https://v2raydesktop.github.io/uploads/2025/09/4-20250919.txt
+- https://v2raydesktop.github.io/uploads/2025/09/0-20250923.txt
+- https://v2raydesktop.github.io/uploads/2025/09/1-20250923.txt
+- https://v2raydesktop.github.io/uploads/2025/09/2-20250923.txt
+- https://v2raydesktop.github.io/uploads/2025/09/3-20250923.txt
+- https://v2raydesktop.github.io/uploads/2025/09/4-20250923.txt
 
 ### Sing-box订阅链接
 
-- https://v2raydesktop.github.io/uploads/2025/09/20250919.json
+- https://v2raydesktop.github.io/uploads/2025/09/20250923.json
 
 ## 更多clash节点订阅 ：
 
